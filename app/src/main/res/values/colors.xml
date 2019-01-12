@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#666666</color>
+    <color name="colorAccent">#FF4081</color>
+
+
+    <color name="tab_unselect">#c9c9c9</color>
+    <color name="bg_btn">#dadada</color>
+    <color name="white">#FFFFFF</color>
+
+    <color name="colorBottomNavigationPrimary">#3F51B5</color>
+    <color name="colorBottomNavigationPrimaryDark">#303F9F</color>
+    <color name="colorBottomNavigationAccent">#4523A0</color>
+    <color name="colorBottomNavigationInactive">#747474</color>
+    <color name="colorBottomNavigationDisable">#3A000000</color>
+    <color name="colorBottomNavigationActiveColored">#FFFFFF</color>
+    <color name="colorBottomNavigationInactiveColored">#50FFFFFF</color>
+    <color name="colorBottomNavigationSelectedBackground">#17000000</color>
+    <color name="colorBottomNavigationNotification">@color/flash_yellow</color>
+
+
+    <color name="flash_base">#C4080E</color>
+    <color name="flash_bg">#F9F9F9</color>
+    <color name="flash_green">#02C5B3</color>
+    <color name="flash_green_pressed">#03AC9D</color>
+    <color name="flash_yellow">#FFAB00</color>
+    <color name="flash_yellow_pressed">#FFA97203</color>
+    <color name="flash_red">#F52D33</color>
+    <color name="flash_black">#333333</color>
+    <color name="flash_grey">#666666</color>
+    <color name="flash_normal">#999999</color>
+    <color name="flash_light">@color/flash_bg</color>
+    <color name="flash_ripple">#c7c6c6</color>
+    <color name="flash_blue">#0D7BD8</color>
+    <color name="flash_light_grey">#CCCCCC</color>
+
+    <color name="bid_e0e0e0">#E0E0E0</color>
+    <color name="bid_eeeeee">#EEEEEE</color>
+    <color name="bid_4523a0">#4523A0</color>
+    <color name="bid_4523a0_pressed">#270B70</color>
+    <color name="bid_02c5b3">#02C5B3</color>
+    <color name="bid_02c5b3_pressed">#03AC9D</color>
+    <color name="bid_b5b5b5">#B5B5B5</color>
+    <color name="bid_b8b8b8">#B8B8B8</color>
+    <color name="bid_cd0061">#CD0061</color>
+    <color name="bid_06aaff">#06AAFF</color>
+    <color name="bid_fcbe00">#FCBE00</color>
+    <color name="bid_ce0162">#CE0162</color>
+    <color name="bid_aaaaaa">#AAAAAA</color>
+    <color name="bid_f5b900">#F5B900</color>
+    <color name="bid_151515">#151515</color>
+    <color name="bid_d0d0d0">#D0D0D0</color>
+    <color name="bid_a6a6a6">#A6A6A6</color>
+    <color name="bid_ffcd00">#ffcd00</color>
+    <color name="bid_02C5B3">#02C5B3</color>
+    <color name="bid_8f8e94">#8F8E94</color>
+    <color name="black">#000000</color>
+
+</resources>
