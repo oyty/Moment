@@ -58,7 +58,7 @@ public abstract class BaseActivity extends SwipeBackActivity {
     }
 
     private void initTitleView() {
-//        mTitleView = (PublicTitleView) findViewById(R.id.mTitleView);
+        mTitleView = (PublicTitleView) findViewById(R.id.mTitleView);
     }
 
 

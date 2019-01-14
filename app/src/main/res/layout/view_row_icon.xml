@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/x90"
+    android:background="@drawable/public_white_selector"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:id="@+id/mLeftLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="@dimen/x25"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/mRowIconImg"
+            android:layout_width="@dimen/x50"
+            android:layout_height="@dimen/x50"
+            android:layout_marginRight="@dimen/x15"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/mRowLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:textColor="@color/flash_black"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/mPlaceholderLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="15sp"
+            android:visibility="invisible" />
+
+        <com.xelement.moment.widget.custom.CircleImageView
+            android:id="@+id/mPotView"
+            android:layout_width="@dimen/x10"
+            android:layout_height="@dimen/x10"
+            android:layout_gravity="center_vertical"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginRight="@dimen/x25"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/mArrowImg"
+            android:layout_width="@dimen/x38"
+            android:layout_height="@dimen/x38"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/x10"
+            android:src="@mipmap/arrow_right"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/mRowValue"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toLeftOf="@+id/mArrowImg"
+            android:paddingLeft="@dimen/x20"
+            android:textColor="@color/flash_normal"
+            android:textColorHint="@color/flash_light"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/mMsgLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/x40"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/mArrowImg"
+            android:gravity="center"
+            android:paddingLeft="@dimen/x15"
+            android:paddingRight="@dimen/x15"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            android:visibility="gone" />
+
+        <Switch
+            android:id="@+id/mSwitchView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:visibility="gone"/>
+
+    </RelativeLayout>
+
+</LinearLayout>

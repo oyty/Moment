@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="coupon_array">
+        <item>可用的券</item>
+        <item>不可用的券</item>
+    </string-array>
+    <string-array name="order_array">
+        <item>全部</item>
+        <item>代付定金</item>
+        <item>代付尾款</item>
+        <item>待收货</item>
+        <item>待评价</item>
+        <item>售后</item>
+    </string-array>
+    <string-array name="detail_tab_title_array">
+        <item>商品</item>
+        <item>评价</item>
+    </string-array>
+    <string-array name="ninety_flash">
+        <item>正在疯抢</item>
+        <item>即将开抢</item>
+        <item>明日预告</item>
+    </string-array>
+    <string-array name="receive_plan">
+        <item>周</item>
+        <item>月</item>
+        <item>汇总</item>
+    </string-array>
+</resources>

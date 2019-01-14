@@ -27,8 +27,9 @@
                 android:weightSum="4">
 
                 <LinearLayout
+                    android:id="@+id/mReceivePlanAction"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
                     android:orientation="vertical"
@@ -50,8 +51,9 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/mFresherAction"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
                     android:orientation="vertical"
@@ -73,8 +75,9 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/mMomentPartAction"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
                     android:orientation="vertical"
@@ -96,8 +99,9 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/mRechargeCenterAction"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
                     android:orientation="vertical"

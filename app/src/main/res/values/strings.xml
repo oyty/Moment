@@ -1,3 +1,21 @@
 <resources>
     <string name="app_name">Moment</string>
+    <string name="coupon">我的优惠券</string>
+    <string name="address">地址管理</string>
+    <string name="service">客服中心</string>
+    <string name="share">分享给好友</string>
+    <string name="deposit">代付定金</string>
+    <string name="pay_last">代付尾款</string>
+    <string name="receive">待收货</string>
+    <string name="remark">待评价</string>
+    <string name="after_sold">售后</string>
+    <string name="nickname">昵称</string>
+
+    <string name="moment_id">时光ID</string>
+    <string name="bind_mobile">绑定手机</string>
+    <string name="msg_push">消息推送</string>
+    <string name="clear_cache">清除缓存</string>
+    <string name="agreement">用户协议</string>
+    <string name="about_us">关于我们</string>
+    <string name="my_order">时光订单</string>
 </resources>

@@ -5,6 +5,8 @@ import com.xelement.moment.entity.FollowEntity;
 import com.xelement.moment.entity.DiscoveryHotEntity;
 import com.xelement.moment.entity.DiscoveryItemEntity;
 import com.xelement.moment.entity.FollowItemEntity;
+import com.xelement.moment.entity.PlanGroupEntity;
+import com.xelement.moment.entity.ProductEntity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -80,6 +82,28 @@ public class DataUtil {
         entities.add(new FollowItemEntity());
         entities.add(new FollowItemEntity());
         entities.add(new FollowItemEntity());
+        return entities;
+    }
+
+    public static List<PlanGroupEntity> getPlanWeekData() {
+        PlanGroupEntity entity = new PlanGroupEntity();
+        entity.time = "2019.1.15";
+        entity.title = "本周二有2件商品签收";
+        entity.entities = new ArrayList<>();
+        entity.entities.add(new ProductEntity());
+        entity.entities.add(new ProductEntity());
+
+        PlanGroupEntity entity1 = new PlanGroupEntity();
+        entity1.time = "2019.1.16";
+        entity1.title = "本周三有3件商品签收";
+        entity1.entities = new ArrayList<>();
+        entity1.entities.add(new ProductEntity());
+        entity1.entities.add(new ProductEntity());
+        entity1.entities.add(new ProductEntity());
+
+        List<PlanGroupEntity> entities = new ArrayList<>();
+        entities.add(entity);
+        entities.add(entity1);
         return entities;
     }
 }

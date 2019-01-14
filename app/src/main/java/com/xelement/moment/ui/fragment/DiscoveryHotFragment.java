@@ -1,5 +1,6 @@
 package com.xelement.moment.ui.fragment;
 
+import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.LinearSnapHelper;
 import android.support.v7.widget.RecyclerView;
@@ -8,6 +9,7 @@ import com.xelement.moment.R;
 import com.xelement.moment.base.BaseFragment;
 import com.xelement.moment.entity.FollowEntity;
 import com.xelement.moment.entity.DiscoveryHotEntity;
+import com.xelement.moment.ui.activity.ReceivePlanActivity;
 import com.xelement.moment.ui.adapter.DiscoveryFollowAdapter;
 import com.xelement.moment.ui.adapter.DiscoveryHotAdapter;
 import com.xelement.moment.util.DataUtil;
@@ -18,6 +20,7 @@ import com.youth.banner.Banner;
 import java.util.ArrayList;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 
 /**
  * Created by oyty on 2019/1/12.
@@ -69,6 +72,25 @@ public class DiscoveryHotFragment extends BaseFragment {
     protected void process() {
         hotAdapter.setNewData(DataUtil.getDiscoveryHotData());
         followAdapter.setNewData(DataUtil.getFollowData());
+    }
+
+    @OnClick(R.id.mReceivePlanAction)
+    public void receivePlanAction(){
+        mContext.startActivity(new Intent(mContext, ReceivePlanActivity.class));
+    }
+
+    @OnClick(R.id.mFresherAction)
+    public void fresherAction() {
+
+    }
+
+    @OnClick(R.id.mMomentPartAction)
+    public void momentPartyAction() {
+
+    }
+
+    @OnClick(R.id.mRechargeCenterAction)
+    public void rechargeCenterAction() {
 
     }
 

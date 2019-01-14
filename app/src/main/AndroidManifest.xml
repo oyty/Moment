@@ -39,6 +39,14 @@
 
         <activity android:name=".ui.activity.MomentDetailActivity"
             android:screenOrientation="portrait"/>
+
+        <activity android:name=".ui.activity.PersonalInfoActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.activity.AddressActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.activity.EditAddressActivity" />
+        <activity android:name=".ui.activity.OrderManagerActivity" />
+        <activity android:name=".ui.activity.ReceivePlanActivity" />
     </application>
 
 </manifest>

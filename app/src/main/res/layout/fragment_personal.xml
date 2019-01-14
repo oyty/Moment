@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -8,5 +9,322 @@
         android:id="@+id/mTitleView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+
+
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:srlEnablePureScrollMode="true">
+
+
+        <android.support.v4.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:id="@+id/mPersonalInfoAction"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:orientation="vertical">
+
+                    <com.xelement.moment.widget.custom.CircleImageView
+                        android:id="@+id/mAvatarImg"
+                        android:layout_width="@dimen/x110"
+                        android:layout_height="@dimen/x110"
+                        android:layout_marginLeft="@dimen/x22"
+                        android:layout_marginTop="@dimen/x50"
+                        android:layout_marginBottom="@dimen/x20"
+                        android:src="@mipmap/avatar" />
+
+                    <LinearLayout
+                        android:id="@+id/mInfoAction"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/x20"
+                        android:layout_toRightOf="@+id/mAvatarImg"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/mNicknameLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="十步杀一人"
+                            android:textColor="@color/flash_black"
+                            android:textSize="18sp" />
+
+                        <TextView
+                            android:id="@+id/mMobileLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="@dimen/x50"
+                            android:gravity="center_vertical"
+                            android:text="ID：26873246287"
+                            android:textColor="@color/flash_black"
+                            android:textSize="13sp" />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="@dimen/x40"
+                        android:layout_height="@dimen/x40"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="@dimen/x20"
+                        android:background="@mipmap/arrow_right" />
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/x100"
+                    android:background="#FAF8E3"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="33"
+                            android:textColor="@color/black"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/x5"
+                            android:text="收藏商品"
+                            android:textColor="@color/black"
+                            android:textSize="14sp" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="@dimen/x2"
+                        android:layout_height="@dimen/x70"
+                        android:background="#DDD8A0" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="9"
+                            android:textColor="@color/black"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/x5"
+                            android:text="关注店铺"
+                            android:textColor="@color/black"
+                            android:textSize="14sp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/x100"
+                    android:background="@color/white"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/mCloseImg"
+                        android:layout_width="@dimen/x40"
+                        android:layout_height="@dimen/x40"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/x20"
+                        android:src="@mipmap/close" />
+
+                    <TextView
+                        android:id="@+id/mOpenAction"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/x60"
+                        android:layout_marginRight="@dimen/x20"
+                        android:layout_weight="1"
+                        android:background="@drawable/public_round_yellow_bg"
+                        android:paddingLeft="@dimen/x30"
+                        android:paddingTop="@dimen/x10"
+                        android:paddingRight="@dimen/x30"
+                        android:paddingBottom="@dimen/x10"
+                        android:text="去开启"
+                        android:textColor="@color/white"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/x20"
+                        android:layout_toLeftOf="@+id/mOpenAction"
+                        android:layout_toRightOf="@id/mCloseImg"
+                        android:layout_weight="0"
+                        android:text="为避免错过权益，订单等重要信息请开启系统通知"
+                        android:textColor="@color/flash_black"
+                        android:textSize="14sp" />
+
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/x20"
+                    android:background="@color/flash_light" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/x280"
+                    android:background="@color/white"
+                    android:orientation="vertical">
+
+                    <RelativeLayout
+                        android:id="@+id/mOrderManagerAction"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/x80"
+                        android:background="@drawable/public_white_selector">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/x20"
+                            android:text="时光订单"
+                            android:textColor="@color/flash_black"
+                            android:textSize="14sp" />
+
+                        <ImageView
+                            android:id="@+id/mArrowImg"
+                            android:layout_width="@dimen/x38"
+                            android:layout_height="@dimen/x38"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="@dimen/x10"
+                            android:layout_marginRight="@dimen/x20"
+                            android:src="@mipmap/arrow_right" />
+
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:id="@+id/mOrderLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/mOrderAction"
+                        android:background="@color/white"
+                        android:gravity="center"
+                        android:orientation="horizontal"
+                        android:paddingTop="@dimen/x10"
+                        android:paddingBottom="@dimen/x20"
+                        android:weightSum="4">
+
+                        <com.xelement.moment.widget.custom.OrderTypeView
+                            android:id="@+id/mWaitToPayAction"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            app:rowIcon="@mipmap/cart"
+                            app:rowLabel="@string/deposit" />
+
+                        <com.xelement.moment.widget.custom.OrderTypeView
+                            android:id="@+id/mWaitToDeliveryAction"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            app:rowIcon="@mipmap/cart"
+                            app:rowLabel="@string/pay_last" />
+
+                        <com.xelement.moment.widget.custom.OrderTypeView
+                            android:id="@+id/mWaitToReceiveAction"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            app:rowIcon="@mipmap/cart"
+                            app:rowLabel="@string/receive" />
+
+                        <com.xelement.moment.widget.custom.OrderTypeView
+                            android:id="@+id/mWaitToRemarkAction"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            app:rowIcon="@mipmap/cart"
+                            app:rowLabel="@string/remark" />
+
+                        <com.xelement.moment.widget.custom.OrderTypeView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            app:rowIcon="@mipmap/cart"
+                            app:rowLabel="@string/after_sold" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/x20"
+                    android:background="@color/flash_light" />
+
+                <com.xelement.moment.widget.custom.RowIconView
+                    android:id="@+id/mCouponView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:rowLabel="@string/coupon"
+                    app:showArrow="true" />
+
+                <com.xelement.moment.widget.custom.RowIconView
+                    android:id="@+id/mAddressView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:rowLabel="@string/address"
+                    app:showArrow="true" />
+
+                <com.xelement.moment.widget.custom.RowIconView
+                    android:id="@+id/mServiceView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:rowLabel="@string/service"
+                    app:showArrow="true" />
+
+                <com.xelement.moment.widget.custom.RowIconView
+                    android:id="@+id/mShareView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:rowLabel="@string/share"
+                    app:showArrow="true" />
+
+            </LinearLayout>
+
+        </android.support.v4.widget.NestedScrollView>
+
+
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
 
 </LinearLayout>

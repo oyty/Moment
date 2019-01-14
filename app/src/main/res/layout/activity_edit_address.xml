@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.xelement.moment.widget.custom.PublicTitleView
+        android:id="@+id/mTitleView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <com.scwang.smartrefresh.layout.SmartRefreshLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:srlEnablePureScrollMode="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:background="@color/flash_light">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/x20"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="@dimen/x30"
+                    android:background="@color/white"
+                    android:paddingRight="@dimen/x30">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="收货人"
+                        android:textColor="@color/flash_black"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="默"
+                        android:textSize="14sp"
+                        android:visibility="invisible" />
+
+                    <EditText
+                        android:id="@+id/mNameValue"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/x90"
+                        android:layout_marginLeft="@dimen/x20"
+                        android:layout_weight="1"
+                        android:background="@color/white"
+                        android:hint="请填写收货人姓名"
+                        android:inputType="text"
+                        android:maxLength="20"
+                        android:textColorHint="@color/flash_normal"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/x2"
+                    android:layout_marginLeft="@dimen/x30"
+                    android:background="@color/flash_light" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:background="@color/white"
+                    android:paddingLeft="@dimen/x30"
+                    android:paddingRight="@dimen/x30">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="手机号码"
+                        android:textColor="@color/flash_black"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/mMobileValue"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/x90"
+                        android:layout_marginLeft="@dimen/x20"
+                        android:layout_weight="1"
+                        android:background="@color/white"
+                        android:hint="请填写收货人手机号"
+                        android:inputType="number"
+                        android:maxLength="11"
+                        android:textColorHint="@color/flash_normal"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/x2"
+                    android:layout_marginLeft="@dimen/x30"
+                    android:background="@color/flash_light" />
+
+                <LinearLayout
+                    android:id="@+id/mRegionAction"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/x90"
+                    android:background="@drawable/public_white_selector"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="@dimen/x30"
+                    android:paddingRight="@dimen/x30">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="所在地区"
+                        android:textColor="@color/flash_black"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:id="@+id/mRegionLabel"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/x90"
+                        android:layout_marginLeft="@dimen/x20"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:textColorHint="@color/flash_normal"
+                        android:text="广东省深圳市南山区粤海街道"
+                        android:textSize="14sp" />
+
+                    <ImageView
+                        android:layout_width="@dimen/x40"
+                        android:layout_height="@dimen/x40"
+                        android:src="@mipmap/menu" />
+
+                </LinearLayout>
+
+                <View
+                    android:id="@+id/mStreetLine"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/x2"
+                    android:layout_marginLeft="@dimen/x30"
+                    android:visibility="gone"
+                    android:background="@color/flash_light" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:background="@color/white"
+                    android:paddingLeft="@dimen/x30"
+                    android:paddingRight="@dimen/x30">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="详细地址"
+                        android:textColor="@color/flash_black"
+                        android:textSize="14sp" />
+
+                    <EditText
+                        android:id="@+id/mDetailAddressValue"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="@dimen/x28"
+                        android:paddingBottom="@dimen/x28"
+                        android:layout_marginLeft="@dimen/x20"
+                        android:layout_weight="1"
+                        android:background="@color/white"
+                        android:hint="街道、楼牌号等"
+                        android:inputType="textMultiLine"
+                        android:maxLines="2"
+                        android:maxLength="80"
+                        android:ellipsize="end"
+                        android:textColorHint="@color/flash_normal"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/x20"
+                    android:background="@color/flash_light" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/x160"
+                    android:background="@color/white">
+
+                    <Switch
+                        android:id="@+id/mSwitchView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/x20"
+                        android:layout_marginRight="@dimen/x20"
+                        android:layout_alignParentRight="true"/>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_toLeftOf="@+id/mSwitchView"
+                        android:layout_marginRight="@dimen/x40"
+                        android:layout_centerVertical="true">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="14sp"
+                            android:layout_marginLeft="@dimen/x20"
+                            android:textColor="@color/flash_black"
+                            android:text="设置为默认地址"/>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="@dimen/x20"
+                            android:textSize="12sp"
+                            android:textColor="@color/flash_black"
+                            android:layout_marginTop="@dimen/x8"
+                            android:text="提醒：每次下单时会默认使用该地址，实际下单地址需要您在下单时进行确认哦！"/>
+
+                    </LinearLayout>
+
+
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+        <TextView
+            android:id="@+id/mUpdateAddressAction"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/x100"
+            android:layout_gravity="bottom"
+            android:gravity="center"
+            android:textSize="16sp"
+            android:background="#FF302E"
+            android:textColor="@color/white"
+            android:text="保存" />
+    </FrameLayout>
+
+
+</LinearLayout>
