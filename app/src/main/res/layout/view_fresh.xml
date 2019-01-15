@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/x20"
+    android:background="@color/white">
+
+
+    <ImageView
+        android:layout_width="@dimen/x160"
+        android:layout_height="@dimen/x160"
+        android:src="@mipmap/god_father"
+        android:scaleType="centerCrop"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/x20"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:textColor="@color/flash_black"
+            android:text="【新人专享，限选一件】清风（AP） 抽纸 原木纯抽纸"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/x40"
+            android:gravity="center_vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    android:textColor="#FF302E"
+                    android:text="￥1.00"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12sp"
+                    android:layout_marginLeft="@dimen/x20"
+                    android:textColor="@color/flash_normal"
+                    android:text="￥9.00"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="@dimen/x150"
+                android:layout_height="@dimen/x55"
+                android:textSize="13sp"
+                android:textColor="@color/white"
+                android:gravity="center"
+                android:background="@drawable/public_round_red_selector"
+                android:layout_alignParentRight="true"
+                android:text="时光购>"/>
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>

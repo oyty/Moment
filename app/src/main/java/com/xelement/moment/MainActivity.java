@@ -7,6 +7,7 @@ import com.jaeger.library.StatusBarUtil;
 import com.xelement.moment.base.BaseActivity;
 import com.xelement.moment.base.BaseFragment;
 import com.xelement.moment.ui.adapter.MomentViewPagerAdapter;
+import com.xelement.moment.ui.dialog.FreshDialog;
 import com.xelement.moment.ui.fragment.AdmireFragment;
 import com.xelement.moment.ui.fragment.DiscoveryFragment;
 import com.xelement.moment.ui.fragment.FollowFragment;
@@ -39,6 +40,9 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void process() {
         initUI();
+
+        FreshDialog dialog = new FreshDialog(mContext);
+        dialog.show();
     }
 
     private void initUI() {

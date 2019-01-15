@@ -38,7 +38,7 @@ public class DayHolder extends BaseDayHolder {
         }
 
         if (day.isCurrent()) {
-            addCurrentDayIcon(isSelected);
+//            addCurrentDayIcon(isSelected);
         }
 
         if(day.isDisabled()){
