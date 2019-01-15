@@ -11,6 +11,7 @@ import com.xelement.moment.ui.fragment.AdmireFragment;
 import com.xelement.moment.ui.fragment.DiscoveryFragment;
 import com.xelement.moment.ui.fragment.FollowFragment;
 import com.xelement.moment.ui.fragment.PersonalFragment;
+import com.xelement.moment.util.UIUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,10 +42,10 @@ public class MainActivity extends BaseActivity {
     }
 
     private void initUI() {
-        AHBottomNavigationItem item1 = new AHBottomNavigationItem("发现", R.mipmap.cart, R.color.bid_cd0061);
-        AHBottomNavigationItem item2 = new AHBottomNavigationItem("种草", R.mipmap.cart, R.color.bid_cd0061);
-        AHBottomNavigationItem item3 = new AHBottomNavigationItem("跟单", R.mipmap.cart, R.color.bid_cd0061);
-        AHBottomNavigationItem item4 = new AHBottomNavigationItem("我", R.mipmap.cart, R.color.bid_cd0061);
+        AHBottomNavigationItem item1 = new AHBottomNavigationItem("发现", R.mipmap.navi_discovery, R.color.bid_cd0061);
+        AHBottomNavigationItem item2 = new AHBottomNavigationItem("种草", R.mipmap.navi_admire, R.color.bid_cd0061);
+        AHBottomNavigationItem item3 = new AHBottomNavigationItem("跟单", R.mipmap.navi_follow, R.color.bid_cd0061);
+        AHBottomNavigationItem item4 = new AHBottomNavigationItem("我", R.mipmap.navi_me, R.color.bid_cd0061);
 
         List<AHBottomNavigationItem> bottomNavigationItems = new ArrayList<>();
         bottomNavigationItems.add(item1);
@@ -54,6 +55,9 @@ public class MainActivity extends BaseActivity {
 
         mBottomNavigation.addItems(bottomNavigationItems);
         mBottomNavigation.setTitleState(AHBottomNavigation.TitleState.ALWAYS_SHOW);
+        mBottomNavigation.setAccentColor(UIUtil.getColor(R.color.bid_cd0061));
+        mBottomNavigation.setInactiveColor(UIUtil.getColor(R.color.flash_black));
+        mBottomNavigation.setBehaviorTranslationEnabled(false);
 
         mBottomNavigation.setOnTabSelectedListener(new AHBottomNavigation.OnTabSelectedListener() {
             @Override

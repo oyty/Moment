@@ -43,5 +43,6 @@ public class DiscoveryHotView extends FrameLayout {
     @OnClick(R.id.mBaseAction)
     public void baseAction() {
         Intent intent = new Intent(mContext, MomentDetailActivity.class);
+        mContext.startActivity(intent);
     }
 }

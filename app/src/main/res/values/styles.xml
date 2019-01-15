@@ -8,6 +8,10 @@
         <item name="colorAccent">@color/bid_4523a0</item>
     </style>
 
+    <style name="AnimEnterExit" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/translate_enter</item>
+        <item name="android:windowExitAnimation">@anim/translate_exit</item>
+    </style>
 
 
 </resources>

@@ -1,13 +1,16 @@
 package com.xelement.moment.ui.fragment;
 
 import android.content.Intent;
+import android.view.View;
 
 import com.xelement.moment.R;
 import com.xelement.moment.base.BaseFragment;
 import com.xelement.moment.ui.activity.AddressActivity;
 import com.xelement.moment.ui.activity.OrderManagerActivity;
 import com.xelement.moment.ui.activity.PersonalInfoActivity;
+import com.xelement.moment.util.CommonUtil;
 
+import butterknife.BindView;
 import butterknife.OnClick;
 
 /**
@@ -15,9 +18,17 @@ import butterknife.OnClick;
  */
 public class PersonalFragment extends BaseFragment {
 
+    @BindView(R.id.mPersonalBarView)
+    View mPersonalBarView;
+
     @Override
     public int initViewID() {
         return R.layout.fragment_personal;
+    }
+
+    @Override
+    protected void initView() {
+        CommonUtil.updateStatusBarHeight(mContext, mPersonalBarView);
     }
 
     @Override

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/x110"
+    android:id="@+id/mBaseAction">
+
+    <ImageView
+        android:id="@+id/mIconImg"
+        android:layout_width="@dimen/x65"
+        android:layout_height="@dimen/x65"
+        android:layout_marginLeft="@dimen/x25"
+        android:layout_centerVertical="true" />
+
+    <TextView
+        android:id="@+id/mPayTypeLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:textColor="@color/flash_black"
+        android:layout_toRightOf="@+id/mIconImg"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/x20"
+        android:text="支付宝"/>
+
+    <ImageView
+        android:id="@+id/mCheckImg"
+        android:layout_width="@dimen/x40"
+        android:layout_height="@dimen/x40"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="@dimen/x30" />
+
+    <View
+        android:id="@+id/mLineView"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x2"
+        android:background="@color/flash_light"
+        android:layout_marginLeft="@dimen/x110"
+        android:layout_alignParentBottom="true"/>
+
+</RelativeLayout>

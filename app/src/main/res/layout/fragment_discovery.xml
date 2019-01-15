@@ -43,6 +43,23 @@
 
         </RelativeLayout>
 
+        <ImageView
+            android:layout_width="@dimen/x100"
+            android:layout_height="@dimen/x100"
+            android:src="@mipmap/notification"
+            android:padding="@dimen/x28"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/x20"/>
+
+        <ImageView
+            android:layout_width="@dimen/x12"
+            android:layout_height="@dimen/x12"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/x52"
+            android:layout_marginTop="@dimen/x26"
+            android:src="@drawable/msg_oval"/>
+
     </RelativeLayout>
 
     <com.flyco.tablayout.SlidingTabLayout

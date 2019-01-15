@@ -106,4 +106,16 @@ public class DataUtil {
         entities.add(entity1);
         return entities;
     }
+
+    public static List<ProductEntity> getStoreProductData() {
+        List<ProductEntity> entities = new ArrayList<>();
+        entities.add(new ProductEntity());
+        entities.add(new ProductEntity());
+        entities.add(new ProductEntity());
+        entities.add(new ProductEntity());
+        entities.add(new ProductEntity());
+        entities.add(new ProductEntity());
+        entities.add(new ProductEntity());
+        return entities;
+    }
 }
