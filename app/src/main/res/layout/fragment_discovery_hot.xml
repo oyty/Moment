@@ -36,9 +36,9 @@
                     android:weightSum="1">
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@mipmap/cart" />
+                        android:layout_width="@dimen/x60"
+                        android:layout_height="@dimen/x60"
+                        android:src="@mipmap/receive_plan" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -60,9 +60,9 @@
                     android:weightSum="1">
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@mipmap/cart" />
+                        android:layout_width="@dimen/x60"
+                        android:layout_height="@dimen/x60"
+                        android:src="@mipmap/fresher" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -84,9 +84,9 @@
                     android:weightSum="1">
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@mipmap/cart" />
+                        android:layout_width="@dimen/x60"
+                        android:layout_height="@dimen/x60"
+                        android:src="@mipmap/famr" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -108,9 +108,9 @@
                     android:weightSum="1">
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@mipmap/cart" />
+                        android:layout_width="@dimen/x60"
+                        android:layout_height="@dimen/x60"
+                        android:src="@mipmap/recharge" />
 
                     <TextView
                         android:layout_width="wrap_content"

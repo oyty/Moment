@@ -8,4 +8,6 @@ public class Constants {
     public static final String ADDRESS_DATA = "address_data";
     public static final String ORDER_TYPE = "order_type";
     public static final String PLAN_ITEM_TYPE = "plan_item_type";
+    public static final String DETAIL_DATA = "detail_data";
+    public static final String IS_FRESH = "is_fresh";
 }

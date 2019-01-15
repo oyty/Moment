@@ -805,4 +805,7 @@ public class CommonUtil {
         return bitmap;
     }
 
+    public static String getPrice(String holder, String price) {
+        return String.format(Locale.CHINA, holder + "¥%1$s", price);
+    }
 }

@@ -50,6 +50,9 @@
         <activity android:name=".ui.activity.OrderDetailActivity" />
         <activity android:name=".ui.activity.AdmireDetailActivity" />
         <activity android:name=".ui.activity.MessageActivity" />
+        <activity android:name=".ui.activity.FresherActivity" />
+        <activity android:name=".ui.activity.MomentFarmActivity" />
+        <activity android:name=".ui.activity.RechargeCenterActivity" />
     </application>
 
 </manifest>

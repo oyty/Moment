@@ -6,6 +6,7 @@ import com.aurelhubert.ahbottomnavigation.AHBottomNavigationViewPager;
 import com.jaeger.library.StatusBarUtil;
 import com.xelement.moment.base.BaseActivity;
 import com.xelement.moment.base.BaseFragment;
+import com.xelement.moment.event.DismissFreshEvent;
 import com.xelement.moment.ui.adapter.MomentViewPagerAdapter;
 import com.xelement.moment.ui.dialog.FreshDialog;
 import com.xelement.moment.ui.fragment.AdmireFragment;
@@ -13,6 +14,9 @@ import com.xelement.moment.ui.fragment.DiscoveryFragment;
 import com.xelement.moment.ui.fragment.FollowFragment;
 import com.xelement.moment.ui.fragment.PersonalFragment;
 import com.xelement.moment.util.UIUtil;
+
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +30,7 @@ public class MainActivity extends BaseActivity {
     @BindView(R.id.mBottomNavigation)
     AHBottomNavigation mBottomNavigation;
     private MomentViewPagerAdapter adapter;
-
+    private FreshDialog dialog;
     @Override
     protected void initBeforeSetView() {
         StatusBarUtil.setTransparent(this);
@@ -41,7 +45,7 @@ public class MainActivity extends BaseActivity {
     protected void process() {
         initUI();
 
-        FreshDialog dialog = new FreshDialog(mContext);
+        dialog = new FreshDialog(mContext);
         dialog.show();
     }
 
@@ -87,5 +91,15 @@ public class MainActivity extends BaseActivity {
         fragments.add(new PersonalFragment());
         adapter = new MomentViewPagerAdapter(getSupportFragmentManager(), fragments);
         mViewPager.setAdapter(adapter);
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void DismissFreshEvent(DismissFreshEvent event) {
+        dialog.dismiss();
+    }
+
+    @Override
+    public boolean registerEventBus() {
+        return true;
     }
 }

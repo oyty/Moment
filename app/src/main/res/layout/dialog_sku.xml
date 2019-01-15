@@ -2,8 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:background="@color/white">
+    android:background="@color/white"
+    android:orientation="vertical">
 
     <ImageView
         android:layout_width="@dimen/x80"
@@ -73,32 +73,35 @@
         android:layout_height="wrap_content">
 
         <TextView
+            android:id="@+id/mTagLabel1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/x20"
-            android:layout_marginTop="@dimen/x20"
-            android:background="@drawable/public_border_red"
+            android:layout_marginLeft="@dimen/x25"
+            android:layout_marginTop="@dimen/x25"
+            android:background="@drawable/public_round_border_red"
             android:paddingLeft="@dimen/x15"
-            android:paddingTop="@dimen/x5"
+            android:paddingTop="@dimen/x7"
             android:paddingRight="@dimen/x15"
-            android:paddingBottom="@dimen/x5"
+            android:paddingBottom="@dimen/x7"
             android:text="A级礼盒包装"
             android:textColor="#FF302E"
             android:textSize="14sp" />
 
         <TextView
+            android:id="@+id/mTagLabel2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/x20"
-            android:layout_marginTop="@dimen/x20"
-            android:background="@drawable/public_border_black"
+            android:layout_marginLeft="@dimen/x25"
+            android:layout_marginTop="@dimen/x25"
+            android:background="@drawable/public_round_grey_bg"
             android:paddingLeft="@dimen/x15"
-            android:paddingTop="@dimen/x5"
+            android:paddingTop="@dimen/x7"
             android:paddingRight="@dimen/x15"
-            android:paddingBottom="@dimen/x5"
+            android:paddingBottom="@dimen/x7"
             android:text="A级礼盒包装"
             android:textColor="@color/black"
             android:textSize="14sp" />
+
     </LinearLayout>
 
     <RelativeLayout
@@ -116,6 +119,7 @@
             android:textSize="12sp" />
 
         <com.xelement.moment.widget.custom.MyIntegerEditor
+            android:id="@+id/mNumView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true" />
@@ -160,104 +164,32 @@
         android:paddingRight="@dimen/x20"
         android:weightSum="4">
 
-        <LinearLayout
+        <com.xelement.moment.widget.custom.ReceivePlanView
+            android:id="@+id/mPlanView7"
             android:layout_width="@dimen/x160"
             android:layout_height="@dimen/x100"
-            android:layout_weight="1"
-            android:background="@drawable/public_round_grey_bg"
-            android:gravity="center"
-            android:orientation="vertical">
+            android:layout_weight="1" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="7天"
-                android:textColor="@color/black"
-                android:textSize="14sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="减￥5"
-                android:textColor="@color/flash_normal"
-                android:textSize="12sp" />
-
-        </LinearLayout>
-
-        <LinearLayout
+        <com.xelement.moment.widget.custom.ReceivePlanView
+            android:id="@+id/mPlanView15"
             android:layout_width="@dimen/x160"
             android:layout_height="@dimen/x100"
             android:layout_marginLeft="@dimen/x10"
-            android:layout_weight="1"
-            android:background="@drawable/public_round_grey_bg"
-            android:gravity="center"
-            android:orientation="vertical">
+            android:layout_weight="1" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="15天"
-                android:textColor="@color/black"
-                android:textSize="14sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="减￥15"
-                android:textColor="@color/flash_normal"
-                android:textSize="12sp" />
-
-        </LinearLayout>
-
-        <LinearLayout
+        <com.xelement.moment.widget.custom.ReceivePlanView
+            android:id="@+id/mPlanView30"
             android:layout_width="@dimen/x160"
             android:layout_height="@dimen/x100"
             android:layout_marginLeft="@dimen/x10"
-            android:layout_weight="1"
-            android:background="@drawable/public_round_grey_bg"
-            android:gravity="center"
-            android:orientation="vertical">
+            android:layout_weight="1" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="30天"
-                android:textColor="@color/black"
-                android:textSize="14sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="减￥30"
-                android:textColor="@color/flash_normal"
-                android:textSize="12sp" />
-
-        </LinearLayout>
-
-        <LinearLayout
+        <com.xelement.moment.widget.custom.ReceivePlanView
+            android:id="@+id/mPlanView60"
             android:layout_width="@dimen/x160"
             android:layout_height="@dimen/x100"
             android:layout_marginLeft="@dimen/x10"
-            android:layout_weight="1"
-            android:background="@drawable/public_round_grey_bg"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="60天"
-                android:textColor="@color/black"
-                android:textSize="14sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="减￥50"
-                android:textColor="@color/flash_normal"
-                android:textSize="12sp" />
-
-        </LinearLayout>
+            android:layout_weight="1" />
 
     </LinearLayout>
 
@@ -270,54 +202,18 @@
         android:paddingRight="@dimen/x20"
         android:weightSum="4">
 
-        <LinearLayout
+        <com.xelement.moment.widget.custom.ReceivePlanView
+            android:id="@+id/mPlanView90"
             android:layout_width="@dimen/x160"
             android:layout_height="@dimen/x100"
-            android:layout_weight="1"
-            android:background="@drawable/public_round_grey_bg"
-            android:gravity="center"
-            android:orientation="vertical">
+            android:layout_weight="1" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="90天"
-                android:textColor="@color/black"
-                android:textSize="14sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="减￥90"
-                android:textColor="@color/flash_normal"
-                android:textSize="12sp" />
-
-        </LinearLayout>
-
-        <LinearLayout
+        <com.xelement.moment.widget.custom.ReceivePlanView
+            android:id="@+id/mPlanView180"
             android:layout_width="@dimen/x160"
             android:layout_height="@dimen/x100"
             android:layout_marginLeft="@dimen/x10"
-            android:layout_weight="1"
-            android:background="@drawable/public_round_grey_bg"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="180天"
-                android:textColor="@color/black"
-                android:textSize="14sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="减￥140"
-                android:textColor="@color/flash_normal"
-                android:textSize="12sp" />
-
-        </LinearLayout>
+            android:layout_weight="1" />
 
         <EditText
             android:layout_width="@dimen/x330"

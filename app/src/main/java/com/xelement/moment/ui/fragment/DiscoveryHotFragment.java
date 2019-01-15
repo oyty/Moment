@@ -9,7 +9,10 @@ import com.xelement.moment.R;
 import com.xelement.moment.base.BaseFragment;
 import com.xelement.moment.entity.FollowEntity;
 import com.xelement.moment.entity.DiscoveryHotEntity;
+import com.xelement.moment.ui.activity.FresherActivity;
+import com.xelement.moment.ui.activity.MomentFarmActivity;
 import com.xelement.moment.ui.activity.ReceivePlanActivity;
+import com.xelement.moment.ui.activity.RechargeCenterActivity;
 import com.xelement.moment.ui.adapter.DiscoveryFollowAdapter;
 import com.xelement.moment.ui.adapter.DiscoveryHotAdapter;
 import com.xelement.moment.util.DataUtil;
@@ -81,17 +84,17 @@ public class DiscoveryHotFragment extends BaseFragment {
 
     @OnClick(R.id.mFresherAction)
     public void fresherAction() {
-
+        mContext.startActivity(new Intent(mContext, FresherActivity.class));
     }
 
     @OnClick(R.id.mMomentPartAction)
     public void momentPartyAction() {
-
+        mContext.startActivity(new Intent(mContext, MomentFarmActivity.class));
     }
 
     @OnClick(R.id.mRechargeCenterAction)
     public void rechargeCenterAction() {
-
+        mContext.startActivity(new Intent(mContext, RechargeCenterActivity.class));
     }
 
 }

@@ -7,6 +7,7 @@
 
 
     <ImageView
+        android:id="@+id/mProductImg"
         android:layout_width="@dimen/x160"
         android:layout_height="@dimen/x160"
         android:src="@mipmap/god_father"
@@ -19,6 +20,7 @@
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/mTitleLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="14sp"
@@ -41,9 +43,10 @@
                     android:layout_height="wrap_content"
                     android:textSize="16sp"
                     android:textColor="#FF302E"
-                    android:text="￥1.00"/>
+                    android:text="¥1.00"/>
 
                 <TextView
+                    android:id="@+id/mPriceLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="12sp"
@@ -54,6 +57,7 @@
             </LinearLayout>
 
             <TextView
+                android:id="@+id/mBuyAction"
                 android:layout_width="@dimen/x150"
                 android:layout_height="@dimen/x55"
                 android:textSize="13sp"

@@ -18,14 +18,17 @@
         android:orientation="vertical">
 
         <com.xelement.moment.widget.custom.FreshView
+            android:id="@+id/mFreshView1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
         <com.xelement.moment.widget.custom.FreshView
+            android:id="@+id/mFreshView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
         <com.xelement.moment.widget.custom.FreshView
+            android:id="@+id/mFreshView3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 

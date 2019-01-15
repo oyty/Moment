@@ -9,7 +9,10 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import com.xelement.moment.R;
+import com.xelement.moment.util.DataUtil;
 import com.xelement.moment.util.UIUtil;
+import com.xelement.moment.widget.custom.FreshView;
+import com.xelement.moment.widget.custom.FresherView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,6 +52,13 @@ public class FreshDialog {
         View view = View.inflate(context, R.layout.dialog_pocket, null);
         ButterKnife.bind(this, view);
 
+        FreshView freshView1 = view.findViewById(R.id.mFreshView1);
+        FreshView freshView2 = view.findViewById(R.id.mFreshView2);
+        FreshView freshView3 = view.findViewById(R.id.mFreshView3);
+
+        freshView1.refresh(DataUtil.getFresherData().get(0));
+//        freshView2.refresh(DataUtil.getFresherData().get(1));
+//        freshView3.refresh(DataUtil.getFresherData().get(2));
         mDialog.setContentView(view);
     }
 
@@ -67,5 +77,9 @@ public class FreshDialog {
 
     public void show() {
         mDialog.show();
+    }
+
+    public void dismiss() {
+        mDialog.dismiss();
     }
 }

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mBaseAction"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/public_round_pure_white">
+
+    <ImageView
+        android:id="@+id/mProductImg"
+        android:layout_width="@dimen/x310"
+        android:layout_height="@dimen/x310"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/x16"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/god_father" />
+
+    <TextView
+        android:id="@+id/mTitleLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/mProductImg"
+        android:layout_marginLeft="@dimen/x20"
+        android:layout_marginTop="@dimen/x10"
+        android:layout_marginRight="@dimen/x20"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:lines="1"
+        android:textColor="@color/flash_black"
+        android:textSize="14sp"
+        android:text="初锦风衣女2018秋装新款女士休闲lulu风衣初锦风衣女2018秋装新款女士休闲lulu风衣初锦风衣女2018秋装新款女士休闲lulu风衣" />
+
+    <LinearLayout
+        android:id="@+id/mPriceLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/mTitleLabel"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/x20"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:visibility="visible">
+
+        <TextView
+            android:id="@+id/mItemValue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/x5"
+            android:textColor="@color/flash_black"
+            android:textSize="15sp"
+            android:text="新人价：￥309" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/mVolumeLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/flash_normal"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/x5"
+        android:layout_below="@+id/mPriceLayout"
+        android:textSize="12sp"
+        android:layout_marginBottom="@dimen/x30"
+        android:text="某猫价：￥9.00" />
+
+</RelativeLayout>

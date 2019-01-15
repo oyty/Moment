@@ -4,5 +4,5 @@
 
     <solid android:color="@color/flash_light" />
 
-    <corners android:radius="@dimen/x10" />
+    <corners android:radius="@dimen/x5" />
 </shape>

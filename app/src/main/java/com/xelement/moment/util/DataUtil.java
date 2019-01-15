@@ -1,5 +1,6 @@
 package com.xelement.moment.util;
 
+import com.xelement.moment.R;
 import com.xelement.moment.entity.AdmireEntity;
 import com.xelement.moment.entity.FollowEntity;
 import com.xelement.moment.entity.DiscoveryHotEntity;
@@ -145,6 +146,27 @@ public class DataUtil {
         entities.add(new MessageEntity());
         entities.add(new MessageEntity());
         entities.add(new MessageEntity());
+        return entities;
+    }
+
+    public static List<ProductEntity> getFresherData() {
+        List<ProductEntity> entities = new ArrayList<>();
+        ProductEntity entity = new ProductEntity(R.mipmap.fresh1_1, "蓝月亮 深层洁净洗衣液（自然清香）1kg/瓶", "24.90");
+        List<Integer> images = new ArrayList<>();
+        images.add(R.mipmap.fresh1_1);
+        images.add(R.mipmap.fresh1_2);
+        images.add(R.mipmap.fresh1_3);
+        entity.setImages(images);
+        List<String> tags = new ArrayList<>();
+        tags.add("薰衣草");
+        tags.add("自然清香");
+        entity.setTags(tags);
+        entities.add(entity);
+        entities.add(new ProductEntity());
+        entities.add(new ProductEntity());
+        entities.add(new ProductEntity());
+        entities.add(new ProductEntity());
+        entities.add(new ProductEntity());
         return entities;
     }
 }

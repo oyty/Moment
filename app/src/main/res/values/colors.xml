@@ -56,5 +56,6 @@
     <color name="bid_02C5B3">#02C5B3</color>
     <color name="bid_8f8e94">#8F8E94</color>
     <color name="black">#000000</color>
+    <color name="tag">#FF302E</color>
 
 </resources>

@@ -102,7 +102,7 @@
                     <com.youth.banner.Banner
                         android:id="@+id/mBannerView"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/x520" />
+                        android:layout_height="@dimen/x750" />
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -120,6 +120,7 @@
                                 android:gravity="center_vertical">
 
                                 <TextView
+                                    android:id="@+id/mPriceLabel"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="￥209.00"
@@ -127,6 +128,7 @@
                                     android:textSize="24sp" />
 
                                 <TextView
+                                    android:id="@+id/mTagLabel"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="@dimen/x15"
@@ -142,6 +144,7 @@
                             </LinearLayout>
 
                             <TextView
+                                android:id="@+id/mMallPriceLabel"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/x10"
@@ -176,6 +179,7 @@
                     </RelativeLayout>
 
                     <TextView
+                        android:id="@+id/mTitleLabel"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/x20"
@@ -202,6 +206,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="已选"
+                            android:layout_marginTop="@dimen/x4"
                             android:textColor="@color/flash_normal"
                             android:textSize="12sp" />
 
@@ -213,6 +218,7 @@
                             android:orientation="vertical">
 
                             <TextView
+                                android:id="@+id/mSkuLabel"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="一级礼盒包装，1件"
@@ -220,6 +226,7 @@
                                 android:textSize="14sp" />
 
                             <TextView
+                                android:id="@+id/mReceiveLabel"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/x8"
@@ -228,6 +235,7 @@
                                 android:textSize="14sp" />
 
                             <TextView
+                                android:id="@+id/mMomentPriceLabel"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="@dimen/x8"
