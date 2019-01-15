@@ -54,7 +54,7 @@
                 android:textColor="@color/bid_ce0162"
                 android:textSize="30sp" />
 
-            <com.ninetysbid.flash.widget.custom.PayTypeView
+            <com.xelement.moment.widget.custom.PayTypeView
                 android:id="@+id/mPayTypeView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

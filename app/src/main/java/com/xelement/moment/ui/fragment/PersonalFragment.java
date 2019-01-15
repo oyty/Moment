@@ -6,6 +6,7 @@ import android.view.View;
 import com.xelement.moment.R;
 import com.xelement.moment.base.BaseFragment;
 import com.xelement.moment.ui.activity.AddressActivity;
+import com.xelement.moment.ui.activity.MessageActivity;
 import com.xelement.moment.ui.activity.OrderManagerActivity;
 import com.xelement.moment.ui.activity.PersonalInfoActivity;
 import com.xelement.moment.util.CommonUtil;
@@ -50,6 +51,11 @@ public class PersonalFragment extends BaseFragment {
     @OnClick(R.id.mOrderManagerAction)
     public void orderManagerAction() {
         mContext.startActivity(new Intent(mContext, OrderManagerActivity.class));
+    }
+
+    @OnClick(R.id.mNotificationAction)
+    public void notificationAction() {
+        mContext.startActivity(new Intent(mContext, MessageActivity.class));
     }
 
 

@@ -47,6 +47,9 @@
         <activity android:name=".ui.activity.EditAddressActivity" />
         <activity android:name=".ui.activity.OrderManagerActivity" />
         <activity android:name=".ui.activity.ReceivePlanActivity" />
+        <activity android:name=".ui.activity.OrderDetailActivity" />
+        <activity android:name=".ui.activity.AdmireDetailActivity" />
+        <activity android:name=".ui.activity.MessageActivity" />
     </application>
 
 </manifest>

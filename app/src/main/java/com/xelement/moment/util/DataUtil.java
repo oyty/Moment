@@ -5,6 +5,8 @@ import com.xelement.moment.entity.FollowEntity;
 import com.xelement.moment.entity.DiscoveryHotEntity;
 import com.xelement.moment.entity.DiscoveryItemEntity;
 import com.xelement.moment.entity.FollowItemEntity;
+import com.xelement.moment.entity.MessageEntity;
+import com.xelement.moment.entity.OrderEntity;
 import com.xelement.moment.entity.PlanGroupEntity;
 import com.xelement.moment.entity.ProductEntity;
 
@@ -116,6 +118,33 @@ public class DataUtil {
         entities.add(new ProductEntity());
         entities.add(new ProductEntity());
         entities.add(new ProductEntity());
+        return entities;
+    }
+
+    public static List<OrderEntity> getOrderData() {
+        List<OrderEntity> entities = new ArrayList<>();
+        entities.add(new OrderEntity());
+        entities.add(new OrderEntity());
+        entities.add(new OrderEntity());
+        entities.add(new OrderEntity());
+        entities.add(new OrderEntity());
+        entities.add(new OrderEntity());
+        return entities;
+    }
+
+    public static List<ProductEntity> getAdmireDetailData() {
+        List<ProductEntity> entities = new ArrayList<>();
+        entities.add(new ProductEntity());
+        entities.add(new ProductEntity());
+        return entities;
+    }
+
+    public static List<MessageEntity> getMessageData() {
+        List<MessageEntity> entities = new ArrayList<>();
+        entities.add(new MessageEntity());
+        entities.add(new MessageEntity());
+        entities.add(new MessageEntity());
+        entities.add(new MessageEntity());
         return entities;
     }
 }

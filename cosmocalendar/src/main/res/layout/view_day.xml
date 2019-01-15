@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/mSelectedBgView"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center"
+        android:visibility="gone"
+        android:background="@drawable/public_round_blue_bg">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="8dp"
+            android:text="收货"
+            android:padding="1dp"
+            android:textColor="#FF5E5B"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/public_round_white_bg"/>
+
+    </RelativeLayout>
+
+    <com.applikeysolutions.cosmocalendar.view.customviews.CircleAnimationTextView
+        android:id="@+id/tv_day_number"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:padding="@dimen/day_text_padding"
+        android:textColor="@color/default_day_text_color"
+        android:textSize="@dimen/day_text_size"
+        tools:text="10" />
+
+
+</FrameLayout>

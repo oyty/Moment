@@ -17,6 +17,7 @@
         android:background="@color/white">
 
         <ImageView
+            android:id="@+id/mNotificationAction"
             android:layout_width="@dimen/x100"
             android:layout_height="@dimen/x100"
             android:src="@mipmap/notification"

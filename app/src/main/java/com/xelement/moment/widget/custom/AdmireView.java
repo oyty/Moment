@@ -1,6 +1,7 @@
 package com.xelement.moment.widget.custom;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
@@ -8,8 +9,10 @@ import android.view.View;
 import android.widget.FrameLayout;
 
 import com.xelement.moment.R;
+import com.xelement.moment.ui.activity.AdmireDetailActivity;
 
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * Created by oyty on 2019/1/12.
@@ -35,5 +38,10 @@ public class AdmireView extends FrameLayout {
     private void initView() {
         View view = View.inflate(mContext, R.layout.view_admire, this);
         ButterKnife.bind(this, view);
+    }
+
+    @OnClick(R.id.mBaseAction)
+    public void baseAction() {
+        mContext.startActivity(new Intent(mContext, AdmireDetailActivity.class));
     }
 }

@@ -13,6 +13,7 @@ import com.xelement.moment.entity.ProductEntity;
 import com.xelement.moment.ui.adapter.DiscoveryHotAdapter;
 import com.xelement.moment.ui.adapter.StoreAdapter;
 import com.xelement.moment.ui.dialog.PayDialog;
+import com.xelement.moment.ui.dialog.SkuDialog;
 import com.xelement.moment.util.CommonUtil;
 import com.xelement.moment.util.DataUtil;
 import com.xelement.moment.util.UIUtil;
@@ -36,6 +37,7 @@ public class MomentDetailActivity extends BaseActivity implements DialogInterfac
 
     private StoreAdapter adapter;
     private PayDialog payDialog;
+    private SkuDialog skuDialog;
 
     @Override
     public int initViewID() {
@@ -69,6 +71,17 @@ public class MomentDetailActivity extends BaseActivity implements DialogInterfac
     public void directPayAction() {
 
 
+    }
+
+    @OnClick(R.id.mSkuAction)
+    public void skuAction() {
+        if (skuDialog == null) {
+            skuDialog = new SkuDialog(mContext);
+        }
+//        payDialog.setPayPrice(useOrderPayPrice ? String.format(Locale.CHINA, "¥%1$s", CommonUtil.getMoneyLabel(orderEntity.pay_price)) : mOrderSumLabel.getText().toString().trim());
+        if (!skuDialog.isShowing()) {
+            skuDialog.show();
+        }
     }
 
     @OnClick(R.id.mDownPayAction)
