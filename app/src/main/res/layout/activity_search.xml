@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <View
+        android:id="@+id/mSearchBarView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/colorPrimaryDark" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x100"
+        android:background="@color/white">
+
+        <RelativeLayout
+            android:id="@+id/mSearchAction"
+            android:layout_width="@dimen/x100"
+            android:layout_height="@dimen/x100"
+            android:layout_alignParentRight="true"
+            android:background="?attr/selectableItemBackground">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="搜索"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/mCancelAction"
+            android:layout_width="@dimen/x100"
+            android:layout_height="@dimen/x100"
+            android:background="?attr/selectableItemBackground">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="取消"
+                android:textColor="@color/flash_grey"
+                android:textSize="15sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/x70"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/x110"
+            android:layout_marginRight="@dimen/x120"
+            android:background="#F2F2F2">
+
+            <ImageView
+                android:layout_width="@dimen/x30"
+                android:layout_height="@dimen/x30"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/x20"
+                android:src="@mipmap/search" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="@dimen/x70"
+                android:text="输入您想找的宝贝"
+                android:textColor="@color/flash_grey"
+                android:textSize="12sp" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/x30"
+        android:layout_marginTop="@dimen/x60"
+        android:layout_marginRight="@dimen/x20">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="猜你想找"
+            android:textColor="@color/flash_normal"
+            android:textSize="14sp" />
+
+
+    </RelativeLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/x30"
+        android:layout_marginTop="@dimen/x40"
+        android:layout_marginLeft="@dimen/x30"
+        android:weightSum="4">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/x60"
+            android:layout_weight="1"
+            android:background="@drawable/public_round_grey_bg"
+            android:gravity="center"
+            android:text="纸巾"
+            android:textColor="@color/flash_grey"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/x60"
+            android:layout_weight="1"
+            android:layout_marginLeft="@dimen/x20"
+            android:background="@drawable/public_round_grey_bg"
+            android:gravity="center"
+            android:text="面膜"
+            android:textColor="@color/flash_grey"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/x60"
+            android:layout_weight="1"
+            android:background="@drawable/public_round_grey_bg"
+            android:layout_marginLeft="@dimen/x20"
+            android:gravity="center"
+            android:text="连衣裙"
+            android:textColor="@color/flash_grey"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/x60"
+            android:layout_weight="1"
+            android:background="@drawable/public_round_grey_bg"
+            android:gravity="center"
+            android:layout_marginLeft="@dimen/x20"
+            android:text="抽纸"
+            android:textColor="@color/flash_grey"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/x30"
+        android:layout_marginTop="@dimen/x30"
+        android:layout_marginLeft="@dimen/x30"
+        android:weightSum="4">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/x60"
+            android:layout_weight="1"
+            android:background="@drawable/public_round_grey_bg"
+            android:gravity="center"
+            android:text="耳机"
+            android:textColor="@color/flash_grey"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/x60"
+            android:layout_weight="1"
+            android:layout_marginLeft="@dimen/x20"
+            android:background="@drawable/public_round_grey_bg"
+            android:gravity="center"
+            android:text="蚊帐"
+            android:textColor="@color/flash_grey"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/x60"
+            android:layout_weight="1"
+            android:background="@drawable/public_round_grey_bg"
+            android:layout_marginLeft="@dimen/x20"
+            android:gravity="center"
+            android:text="芒果"
+            android:textColor="@color/flash_grey"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/x60"
+            android:layout_weight="1"
+            android:background="@drawable/public_round_grey_bg"
+            android:gravity="center"
+            android:layout_marginLeft="@dimen/x20"
+            android:text="洗衣粉"
+            android:textColor="@color/flash_grey"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+</LinearLayout>

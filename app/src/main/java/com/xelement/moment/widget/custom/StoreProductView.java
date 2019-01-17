@@ -9,6 +9,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.xelement.moment.R;
 import com.xelement.moment.entity.ProductEntity;
 import com.xelement.moment.util.CommonUtil;
@@ -51,7 +52,10 @@ public class StoreProductView extends FrameLayout {
     }
 
     public void refresh(ProductEntity entity) {
-        mProductImg.setImageResource(entity.image);
+//        mProductImg.setImageResource(entity.image);
+        Glide.with(mContext)
+                .load(entity.image)
+                .into(mProductImg);
         mTitleLabel.setText(entity.title);
         mPriceLabel.setText(CommonUtil.getPrice("", entity.currentPrice));
         mMallPriceLabel.setText(CommonUtil.getPrice("", entity.price));

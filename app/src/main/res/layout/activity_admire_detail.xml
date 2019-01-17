@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -22,6 +21,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/x102"
                 android:orientation="vertical">
 
                 <ImageView
@@ -31,9 +31,10 @@
                     android:focusable="true"
                     android:focusableInTouchMode="true"
                     android:scaleType="centerCrop"
-                    android:src="@mipmap/god_father" />
+                    android:src="@mipmap/aa_1" />
 
                 <TextView
+                    android:id="@+id/mDesLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/x20"
@@ -45,6 +46,7 @@
                     android:textSize="15sp" />
 
                 <TextView
+                    android:id="@+id/mLikesLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/x20"
@@ -54,26 +56,35 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="@dimen/x100">
 
-                    <ImageView
+                    <com.xelement.moment.widget.custom.CircleImageView
                         android:id="@+id/mFollowImg"
                         android:layout_width="@dimen/x60"
                         android:layout_height="@dimen/x60"
+                        android:layout_centerVertical="true"
                         android:layout_marginLeft="@dimen/x20"
-                        android:layout_marginTop="@dimen/x20"
+                        android:scaleType="centerCrop"
+                        android:src="@mipmap/zhouxingchi" />
+
+                    <ImageView
+                        android:layout_width="@dimen/x20"
+                        android:layout_height="@dimen/x20"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginLeft="@dimen/x68"
                         android:layout_marginBottom="@dimen/x20"
-                        android:src="@mipmap/cart" />
+                        android:src="@mipmap/v_flag" />
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
-                        android:layout_marginLeft="@dimen/x10"
+                        android:layout_marginLeft="@dimen/x20"
                         android:layout_toRightOf="@+id/mFollowImg"
                         android:orientation="vertical">
 
                         <TextView
+                            android:id="@+id/mNicknameLabel"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="时光妹"
@@ -81,9 +92,11 @@
 
                         <LinearLayout
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/x5">
 
                             <TextView
+                                android:id="@+id/mTagLabel"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:background="#FAF8E3"
@@ -100,7 +113,8 @@
                                 android:padding="@dimen/x2"
                                 android:text="时尚买手"
                                 android:textColor="#CA9A46"
-                                android:textSize="12sp" />
+                                android:textSize="12sp"
+                                android:visibility="gone" />
 
                         </LinearLayout>
 
@@ -116,6 +130,7 @@
                         android:gravity="center_vertical">
 
                         <TextView
+                            android:id="@+id/mGoodLabel"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="5423"
@@ -128,7 +143,6 @@
                             android:src="@mipmap/good" />
 
                     </LinearLayout>
-
                 </RelativeLayout>
 
                 <View
@@ -195,7 +209,65 @@
 
         </RelativeLayout>
 
-    </RelativeLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/x102"
+            android:layout_alignParentBottom="true"
+            android:background="@color/white"
+            android:orientation="vertical">
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/x2"
+                android:background="@color/flash_light"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/x100"
+                android:weightSum="2">
+
+                <TextView
+                    android:id="@+id/mTotalPriceLabel"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="@dimen/x20"
+                    android:textSize="14sp"
+                    android:text="合计 ￥73.00"/>
+
+                <LinearLayout
+                    android:id="@+id/mFollowAction"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/public_red_selector"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:textColor="@color/white"
+                        android:text="加入跟单"/>
+
+                    <TextView
+                        android:id="@+id/mDepositDesLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="12sp"
+                        android:layout_marginTop="@dimen/x5"
+                        android:textColor="@color/white"
+                        android:text="时光定金￥7.30"/>
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </RelativeLayout>
 
 </LinearLayout>

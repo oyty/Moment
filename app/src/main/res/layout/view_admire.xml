@@ -1,33 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mBaseAction"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/public_round_pure_white"
-    android:orientation="vertical"
-    android:id="@+id/mBaseAction">
+    android:orientation="vertical">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="@dimen/x100">
 
-        <ImageView
+        <com.xelement.moment.widget.custom.CircleImageView
             android:id="@+id/mFollowImg"
             android:layout_width="@dimen/x60"
             android:layout_height="@dimen/x60"
+            android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/x20"
-            android:layout_marginTop="@dimen/x20"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/zhouxingchi" />
+
+        <ImageView
+            android:layout_width="@dimen/x20"
+            android:layout_height="@dimen/x20"
+            android:layout_alignParentBottom="true"
+            android:layout_marginLeft="@dimen/x68"
             android:layout_marginBottom="@dimen/x20"
-            android:src="@mipmap/cart" />
+            android:src="@mipmap/v_flag" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="@dimen/x10"
+            android:layout_marginLeft="@dimen/x20"
             android:layout_toRightOf="@+id/mFollowImg"
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/mNicknameLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="时光妹"
@@ -35,9 +44,11 @@
 
             <LinearLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/x5">
 
                 <TextView
+                    android:id="@+id/mTagLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="#FAF8E3"
@@ -54,7 +65,8 @@
                     android:padding="@dimen/x2"
                     android:text="时尚买手"
                     android:textColor="#CA9A46"
-                    android:textSize="12sp" />
+                    android:textSize="12sp"
+                    android:visibility="gone" />
 
             </LinearLayout>
 
@@ -64,50 +76,84 @@
     </RelativeLayout>
 
     <TextView
+        android:id="@+id/mAdmireDesLabel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/x20"
-        android:text="十步杀一人，千里不留行，事了拂衣去，深藏功与名。" />
-
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/x160"
-        android:weightSum="3">
-
-        <ImageView
-            android:layout_width="@dimen/x160"
-            android:layout_height="@dimen/x160"
-            android:layout_weight="1"
-            android:src="@mipmap/cart" />
-
-        <ImageView
-            android:layout_width="@dimen/x160"
-            android:layout_height="@dimen/x160"
-            android:layout_weight="1"
-            android:src="@mipmap/cart" />
-
-        <ImageView
-            android:layout_width="@dimen/x160"
-            android:layout_height="@dimen/x160"
-            android:layout_weight="1"
-            android:src="@mipmap/cart" />
-
-    </LinearLayout>
+        android:layout_marginTop="@dimen/x20"
+        android:layout_marginRight="@dimen/x20"
+        android:text="十步杀一人，千里不留行，事了拂衣去，深藏功与名。"
+        android:textColor="@color/flash_black"
+        android:textSize="14sp" />
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/x216">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/x216"
+            android:layout_marginTop="@dimen/x20"
+            android:weightSum="3">
+
+            <ImageView
+                android:id="@+id/mImage1"
+                android:layout_width="@dimen/x216"
+                android:layout_height="@dimen/x216"
+                android:layout_marginLeft="@dimen/x20"
+                android:layout_weight="1"
+                android:src="@mipmap/cart" />
+
+            <ImageView
+                android:id="@+id/mImage2"
+                android:layout_width="@dimen/x216"
+                android:layout_height="@dimen/x216"
+                android:layout_marginLeft="@dimen/x10"
+                android:layout_weight="1"
+                android:src="@mipmap/cart" />
+
+            <ImageView
+                android:id="@+id/mImage3"
+                android:layout_width="@dimen/x216"
+                android:layout_height="@dimen/x216"
+                android:layout_marginLeft="@dimen/x10"
+                android:layout_marginRight="@dimen/x20"
+                android:layout_weight="1"
+                android:src="@mipmap/cart" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/mNumLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="5件"
+            android:textSize="12sp"
+            android:textColor="@color/white"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:paddingLeft="@dimen/x15"
+            android:paddingRight="@dimen/x5"
+            android:layout_marginRight="@dimen/x20"
+            android:background="@drawable/public_admire_grey_bg"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x60"
         android:layout_marginTop="@dimen/x20"
-        android:layout_marginBottom="@dimen/x20">
+        android:layout_marginBottom="@dimen/x20"
+        android:gravity="center_vertical">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/x20"
-            android:text="跟单返1%"
+            android:text="跟单返2%"
             android:textColor="@color/bid_cd0061"
-            android:textSize="12sp" />
+            android:textSize="13sp" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -118,19 +164,26 @@
             android:orientation="horizontal">
 
             <TextView
+                android:id="@+id/mLikesLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="1023人跟单"
                 android:textColor="@color/flash_normal"
-                android:textSize="12sp" />
+                android:textSize="13sp" />
 
             <TextView
+                android:id="@+id/mFollowAction"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/x20"
                 android:layout_marginRight="@dimen/x20"
+                android:background="@drawable/public_border_black"
+                android:paddingLeft="@dimen/x20"
+                android:paddingTop="@dimen/x6"
+                android:paddingRight="@dimen/x20"
+                android:paddingBottom="@dimen/x6"
                 android:text="+跟单"
-                android:textColor="@color/black"
+                android:textColor="@color/flash_grey"
                 android:textSize="14sp" />
 
         </LinearLayout>

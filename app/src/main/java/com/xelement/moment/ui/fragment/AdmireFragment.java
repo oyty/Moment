@@ -40,7 +40,7 @@ public class AdmireFragment extends BaseFragment {
     @Override
     protected void initView() {
         mRecyclerView.setLayoutManager(new LinearLayoutManager(mContext));
-        mRecyclerView.addItemDecoration(new SpacesVerticalItemDecoration((int) UIUtil.getDimen(R.dimen.x12)));
+        mRecyclerView.addItemDecoration(new SpacesVerticalItemDecoration((int) UIUtil.getDimen(R.dimen.x20)));
         mRecyclerView.setAdapter(adapter = new AdmireAdapter(R.layout.adapter_admire, new ArrayList<AdmireEntity>()));
     }
 

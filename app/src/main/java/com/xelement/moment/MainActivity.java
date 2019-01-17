@@ -87,6 +87,7 @@ public class MainActivity extends BaseActivity {
 
                 mViewPager.setCurrentItem(position, false);
 
+                adapter.getCurrentFragment().willBeDisplayed();
                 return true;
             }
         });

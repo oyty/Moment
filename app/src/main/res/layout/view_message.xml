@@ -6,6 +6,7 @@
     android:orientation="vertical">
 
     <TextView
+        android:id="@+id/mTimeLabel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/x30"
@@ -25,6 +26,7 @@
         android:background="@drawable/public_round_pure_white">
 
         <ImageView
+            android:id="@+id/mProductImg"
             android:layout_width="@dimen/x120"
             android:layout_height="@dimen/x120"
             android:src="@mipmap/zhouxingchi"
@@ -38,6 +40,7 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/mTitleLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="14sp"
@@ -45,6 +48,7 @@
                 android:text="您进行时光购买的【千岁好油茶籽油食用油 压榨一级有机 500ml*2瓶】已经完成生产！ "/>
 
             <TextView
+                android:id="@+id/mDesLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="#FF302E"
@@ -53,6 +57,7 @@
                 android:text="请关注该商品物流详情保证顺利收货"/>
 
             <LinearLayout
+                android:id="@+id/mCheckDetailAction"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
@@ -66,7 +71,7 @@
                     android:layout_height="wrap_content"
                     android:textSize="12sp"
                     android:textColor="@color/black"
-                    android:text="去确认"/>
+                    android:text="查看详情"/>
 
                 <ImageView
                     android:layout_width="@dimen/x40"

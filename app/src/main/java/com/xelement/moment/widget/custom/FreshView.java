@@ -10,6 +10,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.xelement.moment.R;
 import com.xelement.moment.base.Constants;
 import com.xelement.moment.entity.ProductEntity;
@@ -64,7 +65,10 @@ public class FreshView extends FrameLayout {
 
     public void refresh(ProductEntity entity) {
         this.entity = entity;
-        mProductImg.setImageResource(entity.image);
+//        mProductImg.setImageResource(entity.image);
+        Glide.with(mContext)
+                .load(entity.image)
+                .into(mProductImg);
         mTitleLabel.setText(entity.title);
         mPriceLabel.setText(String.format(Locale.CHINA, "¥%1$s", entity.price));
         mCurrentPriceLabel.setText(CommonUtil.getPrice("", entity.currentPrice));

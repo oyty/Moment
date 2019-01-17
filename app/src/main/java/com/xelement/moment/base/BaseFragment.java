@@ -104,4 +104,7 @@ public abstract class BaseFragment extends Fragment {
         ((BaseActivity) mContext).dismissProgressDialog();
     }
 
+    public void willBeDisplayed(){
+
+    }
 }

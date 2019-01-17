@@ -62,9 +62,7 @@ public class OrderManagerActivity extends BaseActivity {
 
     @Override
     protected void process() {
-        String tab = getIntent().getStringExtra(Constants.ORDER_TYPE);
-        if(!TextUtils.isEmpty(tab)) {
-            mViewPager.setCurrentItem(Integer.parseInt(tab));
-        }
+        int tab = getIntent().getIntExtra(Constants.ORDER_TYPE, 0);
+        mViewPager.setCurrentItem(tab);
     }
 }

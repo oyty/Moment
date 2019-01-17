@@ -5,6 +5,7 @@
     android:orientation="vertical">
 
     <TextView
+        android:id="@+id/mTitleLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="14sp"
@@ -16,6 +17,7 @@
 
 
     <ImageView
+        android:id="@+id/mProductImg"
         android:layout_width="@dimen/x300"
         android:layout_height="@dimen/x300"
         android:scaleType="centerCrop"
@@ -36,6 +38,7 @@
             android:src="@drawable/admire_oval"/>
 
         <TextView
+            android:id="@+id/mDesLabel1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="14sp"
@@ -56,6 +59,7 @@
             android:src="@drawable/admire_oval"/>
 
         <TextView
+            android:id="@+id/mDesLabel2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="14sp"
@@ -76,6 +80,7 @@
             android:src="@drawable/admire_oval"/>
 
         <TextView
+            android:id="@+id/mDesLabel3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="14sp"
@@ -97,6 +102,7 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/mPriceLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="16sp"
@@ -104,6 +110,7 @@
                 android:text="￥12.00"/>
 
             <TextView
+                android:id="@+id/mMallPriceLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="12sp"
@@ -119,19 +126,36 @@
             android:layout_alignParentRight="true"
             android:layout_marginBottom="@dimen/x20"
             android:layout_marginRight="@dimen/x20"
+            android:gravity="right"
             android:orientation="vertical">
 
-            <TextView
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="14sp"
-                android:textColor="@color/flash_normal"
-                android:text="定金 ￥12.0"/>
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:textColor="@color/flash_black"
+                    android:text="定金 "/>
+
+                <TextView
+                    android:id="@+id/mDepositLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:layout_marginLeft="@dimen/x10"
+                    android:textColor="@color/flash_red"
+                    android:text="￥12.0"/>
+            </LinearLayout>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="12sp"
+                android:layout_marginTop="@dimen/x5"
                 android:textColor="@color/flash_normal"
                 android:text="15天收货"/>
 

@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 
+import com.bumptech.glide.Glide;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.xelement.moment.R;
 import com.xelement.moment.base.BaseAdapter;
@@ -106,7 +107,10 @@ public class SharePlatformView extends FrameLayout {
         public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
             final ShareConstant.SharePlatform platform = getItemData(position);
 
-            holder.mImg.setImageResource(platform.iconId);
+            Glide.with(mContext)
+                    .load(platform.iconId)
+                    .into(holder.mImg);
+//            holder.mImg.setImageResource(platform.iconId);
             holder.mLabel.setText(platform.name);
             holder.itemView.setOnClickListener(new OnClickListener() {
                 @Override

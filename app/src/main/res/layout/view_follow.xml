@@ -2,29 +2,35 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:background="@color/white">
+    android:background="@color/white"
+    android:orientation="vertical">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/x180">
 
-        <ImageView
-            android:id="@+id/mCheckImg"
-            android:layout_width="@dimen/x40"
-            android:layout_height="@dimen/x40"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="@dimen/x30"
-            android:src="@mipmap/cart"/>
+        <RelativeLayout
+            android:id="@+id/mCheckAction"
+            android:layout_width="@dimen/x100"
+            android:layout_height="match_parent">
 
-        <ImageView
+            <ImageView
+                android:id="@+id/mCheckImg"
+                android:layout_width="@dimen/x40"
+                android:layout_height="@dimen/x40"
+                android:layout_centerInParent="true"
+                android:src="@mipmap/check_checked_follow" />
+
+        </RelativeLayout>
+
+        <com.xelement.moment.widget.custom.CircleImageView
             android:id="@+id/mFollowImg"
             android:layout_width="@dimen/x80"
             android:layout_height="@dimen/x80"
-            android:src="@mipmap/cart"
             android:layout_centerVertical="true"
-            android:layout_toRightOf="@+id/mCheckImg"
-            android:layout_marginLeft="@dimen/x20"/>
+            android:layout_toRightOf="@+id/mCheckAction"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/zhouxingchi" />
 
         <ImageView
             android:id="@+id/mArrowImg"
@@ -32,32 +38,38 @@
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:src="@mipmap/arrow_right"
-            android:layout_marginRight="@dimen/x20"/>
+            android:layout_marginRight="@dimen/x20"
+            android:src="@mipmap/arrow_right" />
 
         <LinearLayout
+            android:id="@+id/mDetailAction"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/mFollowImg"
-            android:layout_toLeftOf="@+id/mArrowImg"
-            android:layout_marginLeft="@dimen/x20"
+            android:layout_height="match_parent"
             android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/x20"
+            android:layout_toLeftOf="@+id/mArrowImg"
+            android:layout_toRightOf="@+id/mFollowImg"
+            android:gravity="center_vertical"
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/mNicknameLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="15sp"
+                android:text="时光妹的跟单"
                 android:textColor="@color/black"
-                android:text="时光妹的跟单"/>
+                android:textSize="15sp" />
 
             <TextView
+                android:id="@+id/mDesLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="13sp"
                 android:layout_marginTop="@dimen/x10"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:text="十步杀一人，千里不留行，事了拂衣去，深藏功与名。"
                 android:textColor="@color/black"
-                android:text="十步杀一人，千里不留行，事了拂衣去，深藏功与名。"/>
+                android:textSize="13sp" />
 
         </LinearLayout>
 
@@ -66,13 +78,67 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="@dimen/x2"
-        android:background="@color/flash_light"
+        android:layout_marginLeft="@dimen/x20"
         android:layout_marginRight="@dimen/x20"
-        android:layout_marginLeft="@dimen/x20"/>
+        android:background="@color/flash_light" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/mRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x100">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingLeft="@dimen/x20"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/mNumLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3件商品，小计"
+                android:textColor="@color/flash_black"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/mTotalPriceLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="￥73.00"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:paddingRight="@dimen/x20"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="定金小计"
+                android:textColor="@color/flash_black"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/mDepositLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="￥7.30"
+                android:textColor="@color/flash_red"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
 
 </LinearLayout>

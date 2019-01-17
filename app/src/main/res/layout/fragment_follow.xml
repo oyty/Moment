@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <com.xelement.moment.widget.custom.PublicTitleView
@@ -10,19 +10,89 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:srlEnablePureScrollMode="true">
+        android:layout_height="match_parent">
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/mRecyclerView"
+        <com.scwang.smartrefresh.layout.SmartRefreshLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingLeft="@dimen/x20"
-            android:paddingRight="@dimen/x20"
-            android:background="@color/flash_light"/>
+            app:srlEnablePureScrollMode="true">
 
-    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/mRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="@dimen/x100"
+                android:background="@color/flash_light" />
+
+        </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+        <LinearLayout
+            android:id="@+id/mBottomView"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/x102"
+            android:layout_alignParentBottom="true"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/x2"
+                android:background="@color/flash_light"/>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/x100" >
+
+                <ImageView
+                    android:layout_width="@dimen/x38"
+                    android:layout_height="@dimen/x38"
+                    android:src="@mipmap/check_checked_follow"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/x30"/>
+
+                <TextView
+                    android:id="@+id/mTotalPriceLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="@dimen/x80"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="@dimen/x20"
+                    android:textSize="14sp"
+                    android:text="全选     合计 ￥73.00"/>
+
+                <LinearLayout
+                    android:layout_width="@dimen/x320"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/public_red_selector"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="14sp"
+                        android:textColor="@color/white"
+                        android:text="时光定金"/>
+
+                    <TextView
+                        android:id="@+id/mDepositDesLabel"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="12sp"
+                        android:layout_marginTop="@dimen/x5"
+                        android:textColor="@color/white"
+                        android:text="￥7.30"/>
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+        </LinearLayout>
+
+
+    </RelativeLayout>
 
 </LinearLayout>

@@ -1,15 +1,18 @@
 package com.xelement.moment.ui.fragment;
 
+import android.content.Intent;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 
 import com.flyco.tablayout.SlidingTabLayout;
 import com.xelement.moment.R;
 import com.xelement.moment.base.BaseFragment;
+import com.xelement.moment.ui.activity.SearchActivity;
 import com.xelement.moment.ui.adapter.DiscoveryPagerAdapter;
 import com.xelement.moment.util.CommonUtil;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 
 /**
  * Created by oyty on 2019/1/12.
@@ -26,7 +29,7 @@ public class DiscoveryFragment extends BaseFragment {
     private DiscoveryPagerAdapter adapter;
 
     private String[] titles = {
-            "热门", "3C数码", "宠物生活", "服饰内衣", "家电", "家居家具", "美食饮料", "美妆个护", "母婴玩具", "鞋靴箱包", "运动户外", "珠宝配饰"
+            "热门", "3C数码", "宠物生活", "服饰内衣", "家居家具", "美食饮料", "美妆个护", "母婴玩具", "鞋靴箱包", "运动户外", "珠宝配饰"
     };
 
     @Override
@@ -45,5 +48,10 @@ public class DiscoveryFragment extends BaseFragment {
         mViewPager.setAdapter(adapter);
         mTabLayout.setViewPager(mViewPager);
         mTabLayout.onPageSelected(0);
+    }
+
+    @OnClick(R.id.mSearchAction)
+    public void searchAction() {
+        mContext.startActivity(new Intent(mContext, SearchActivity.class));
     }
 }

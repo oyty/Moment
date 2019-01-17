@@ -18,7 +18,6 @@
         tl:tl_indicator_color="@color/black"
         tl:tl_indicator_height="@dimen/x3"
         tl:tl_indicator_width_equal_title="true"
-        tl:tl_tab_space_equal="true"
         tl:tl_textsize="15sp"
         tl:tl_textBold="SELECT"
         tl:tl_textSelectColor="@color/black"

@@ -12,6 +12,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.xelement.moment.R;
 import com.xelement.moment.base.Constants;
 import com.xelement.moment.entity.OrderEntity;
@@ -90,7 +91,10 @@ public class OrderView extends FrameLayout {
         this.entity = entity;
         mTimeLabel.setText(entity.time);
         mStateLabel.setText(entity.status == 0 ? "待支付尾款" : "待收货");
-        mProductImg.setImageResource(entity.image);
+//        mProductImg.setImageResource(entity.image);
+        Glide.with(mContext)
+                .load(entity.image)
+                .into(mProductImg);
         mTitleLabel.setText(entity.title);
         mSkuLabel.setText(entity.sku);
         mTagLabel1.setText(entity.tag1);

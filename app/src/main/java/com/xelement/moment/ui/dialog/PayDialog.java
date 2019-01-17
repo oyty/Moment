@@ -19,6 +19,7 @@ import com.xelement.moment.entity.OrderEntity;
 import com.xelement.moment.entity.ProductEntity;
 import com.xelement.moment.event.GotoHomeEvent;
 import com.xelement.moment.event.NewEntityEvent;
+import com.xelement.moment.event.UpdateOrderEvent;
 import com.xelement.moment.ui.activity.EditAddressActivity;
 import com.xelement.moment.util.CommonUtil;
 import com.xelement.moment.util.DateTimeUtil;
@@ -145,6 +146,12 @@ public class PayDialog {
         return false;
     }
 
+    public void dismiss() {
+        if(isShowing()) {
+            bottomSheetDialog.dismiss();
+        }
+    }
+
 //    @OnClick(R.id.mPayAction)
 //    public void payAction() {
 //        if (listener != null) {
@@ -251,9 +258,9 @@ public class PayDialog {
                     orderEntity.price = entity.price;
                     orderEntity.current_price = entity.currentPrice;
                     orderEntity.deposit_after = depositAfter;
-                    orderEntity.sku = sku;
                     orderEntity.deposit = deposit;
-                    orderEntity.tag1 = days;
+                    orderEntity.sku = sku;
+                    orderEntity.tag1 = days + "天发货";
                     orderEntity.days = days;
                     orderEntity.time = DateTimeUtil.getCurrentTime();
                     orderEntity.tag2 = CommonUtil.getPrice("时光减免", CommonUtil.getMoneyLabel(String.valueOf(Float.parseFloat(entity.price) - Float.parseFloat(entity.currentPrice))));
@@ -294,9 +301,11 @@ public class PayDialog {
                     orderEntity.image = entity.image;
                     orderEntity.title = entity.title;
                     orderEntity.price = entity.price;
+                    orderEntity.deposit_after = depositAfter;
+                    orderEntity.deposit = deposit;
                     orderEntity.current_price = entity.currentPrice;
                     orderEntity.sku = sku;
-                    orderEntity.tag1 = days;
+                    orderEntity.tag1 = days + "天发货";
                     orderEntity.tag2 = CommonUtil.getPrice("时光减免", CommonUtil.getMoneyLabel(String.valueOf(Float.parseFloat(entity.price) - Float.parseFloat(entity.currentPrice))));
                     orderEntity.status = 1;
                     orderEntity.time = DateTimeUtil.getCurrentTime();
@@ -323,9 +332,12 @@ public class PayDialog {
                         @Override
                         public void onClick(View v) {
                             mContext.startActivity(new Intent(mContext, EditAddressActivity.class));
+                            dismiss();
                         }
                     });
                 }
+
+                EventBus.getDefault().post(new UpdateOrderEvent());
 
             }
         }, 2000);

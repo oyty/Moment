@@ -12,4 +12,6 @@ public class Constants {
     public static final String IS_FRESH = "is_fresh";
     public static final String POSITION = "position";
     public static final String ORDER_DATA = "order_data";
+    public static final String ADMIRE_DATA = "admire_data";
+    public static final String FOLLOW_DATA = "follow_data";
 }

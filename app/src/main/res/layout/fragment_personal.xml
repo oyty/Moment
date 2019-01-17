@@ -23,14 +23,13 @@
             android:src="@mipmap/notification"
             android:padding="@dimen/x28"
             android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="@dimen/x20"/>
+            android:layout_centerVertical="true" />
 
         <ImageView
             android:layout_width="@dimen/x12"
             android:layout_height="@dimen/x12"
             android:layout_alignParentRight="true"
-            android:layout_marginRight="@dimen/x52"
+            android:layout_marginRight="@dimen/x32"
             android:layout_marginTop="@dimen/x26"
             android:src="@drawable/msg_oval"/>
 
@@ -266,7 +265,7 @@
                         android:weightSum="5">
 
                         <com.xelement.moment.widget.custom.OrderTypeView
-                            android:id="@+id/mWaitToPayAction"
+                            android:id="@+id/mPayDepositView"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
@@ -275,7 +274,7 @@
                             app:rowLabel="@string/deposit" />
 
                         <com.xelement.moment.widget.custom.OrderTypeView
-                            android:id="@+id/mWaitToDeliveryAction"
+                            android:id="@+id/mPayLastView"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
@@ -284,7 +283,7 @@
                             app:rowLabel="@string/pay_last" />
 
                         <com.xelement.moment.widget.custom.OrderTypeView
-                            android:id="@+id/mWaitToReceiveAction"
+                            android:id="@+id/mWaitToReceiveView"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
@@ -293,7 +292,7 @@
                             app:rowLabel="@string/receive" />
 
                         <com.xelement.moment.widget.custom.OrderTypeView
-                            android:id="@+id/mWaitToRemarkAction"
+                            android:id="@+id/mWaitToRemarkView"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
@@ -302,6 +301,7 @@
                             app:rowLabel="@string/remark" />
 
                         <com.xelement.moment.widget.custom.OrderTypeView
+                            android:id="@+id/mAfterSoldView"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"

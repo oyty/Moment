@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.FrameLayout;
 
 import com.xelement.moment.R;
+import com.xelement.moment.entity.ProductEntity;
 import com.xelement.moment.ui.activity.MomentDetailActivity;
 
 import butterknife.ButterKnife;
@@ -44,5 +45,9 @@ public class DiscoveryHotView extends FrameLayout {
     public void baseAction() {
         Intent intent = new Intent(mContext, MomentDetailActivity.class);
         mContext.startActivity(intent);
+    }
+
+    public void refresh(ProductEntity entity) {
+
     }
 }

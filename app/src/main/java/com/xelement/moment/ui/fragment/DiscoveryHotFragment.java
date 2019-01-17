@@ -7,8 +7,10 @@ import android.support.v7.widget.RecyclerView;
 
 import com.xelement.moment.R;
 import com.xelement.moment.base.BaseFragment;
+import com.xelement.moment.entity.AdmireEntity;
 import com.xelement.moment.entity.FollowEntity;
 import com.xelement.moment.entity.DiscoveryHotEntity;
+import com.xelement.moment.entity.ProductEntity;
 import com.xelement.moment.ui.activity.FresherActivity;
 import com.xelement.moment.ui.activity.MomentFarmActivity;
 import com.xelement.moment.ui.activity.ReceivePlanActivity;
@@ -52,7 +54,7 @@ public class DiscoveryHotFragment extends BaseFragment {
         mHotRecyclerView.setLayoutManager(manager);
         mHotRecyclerView.setHasFixedSize(true);
         mHotRecyclerView.setNestedScrollingEnabled(false);
-        hotAdapter = new DiscoveryHotAdapter(R.layout.adapter_discovery_hot, new ArrayList<DiscoveryHotEntity>());
+        hotAdapter = new DiscoveryHotAdapter(R.layout.adapter_discovery_hot, new ArrayList<ProductEntity>());
         mHotRecyclerView.setAdapter(hotAdapter);
         LinearSnapHelper hotHelper = new LinearSnapHelper();
         hotHelper.attachToRecyclerView(mHotRecyclerView);
@@ -64,7 +66,7 @@ public class DiscoveryHotFragment extends BaseFragment {
         mFollowRecyclerView.setLayoutManager(followManager);
         mFollowRecyclerView.setHasFixedSize(true);
         mFollowRecyclerView.setNestedScrollingEnabled(false);
-        followAdapter = new DiscoveryFollowAdapter(R.layout.adapter_discovery_follow, new ArrayList<FollowEntity>());
+        followAdapter = new DiscoveryFollowAdapter(R.layout.adapter_discovery_follow, new ArrayList<AdmireEntity>());
         mFollowRecyclerView.setAdapter(followAdapter);
         LinearSnapHelper helper = new LinearSnapHelper();
         helper.attachToRecyclerView(mFollowRecyclerView);
@@ -73,8 +75,8 @@ public class DiscoveryHotFragment extends BaseFragment {
 
     @Override
     protected void process() {
-        hotAdapter.setNewData(DataUtil.getDiscoveryHotData());
-        followAdapter.setNewData(DataUtil.getFollowData());
+        hotAdapter.setNewData(DataUtil.getHotData());
+        followAdapter.setNewData(DataUtil.getAdmireData());
     }
 
     @OnClick(R.id.mReceivePlanAction)
