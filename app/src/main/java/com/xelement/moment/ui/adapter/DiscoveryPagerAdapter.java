@@ -32,7 +32,7 @@ public class DiscoveryPagerAdapter extends FragmentPagerAdapter {
             return new DiscoveryHotFragment();
         } else {
             Bundle bundle = new Bundle();
-            bundle.putInt(Constants.DISCOVERY_TAB, position);
+            bundle.putInt(Constants.POSITION, position);
             DiscoveryItemFragment fragment = new DiscoveryItemFragment();
             fragment.setArguments(bundle);
             return fragment;

@@ -5,7 +5,9 @@ import android.support.v7.widget.RecyclerView;
 
 import com.xelement.moment.R;
 import com.xelement.moment.base.BaseFragment;
+import com.xelement.moment.base.Constants;
 import com.xelement.moment.entity.DiscoveryItemEntity;
+import com.xelement.moment.entity.ProductEntity;
 import com.xelement.moment.ui.adapter.DiscoveryItemAdapter;
 import com.xelement.moment.util.DataUtil;
 import com.xelement.moment.util.UIUtil;
@@ -35,12 +37,13 @@ public class DiscoveryItemFragment extends BaseFragment {
         GridLayoutManager mLayoutManager = new GridLayoutManager(mContext, 2);
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.addItemDecoration(new GridSpacingItemDecoration(2, (int) UIUtil.getDimen(R.dimen.x14), true));
-        adapter = new DiscoveryItemAdapter(R.layout.adapter_discovery_item, new ArrayList<DiscoveryItemEntity>());
+        adapter = new DiscoveryItemAdapter(R.layout.adapter_discovery_item, new ArrayList<ProductEntity>());
         mRecyclerView.setAdapter(adapter);
     }
 
     @Override
     protected void process() {
-        adapter.setNewData(DataUtil.getDiscoveryItemData());
+        int position = getArguments().getInt(Constants.POSITION);
+        adapter.setNewData(DataUtil.getDiscoveryData(position));
     }
 }

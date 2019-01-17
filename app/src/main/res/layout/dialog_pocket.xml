@@ -10,6 +10,13 @@
         android:layout_height="@dimen/x188"
         android:background="@mipmap/dialog_top">
 
+        <View
+            android:id="@+id/mCloseAction"
+            android:layout_width="@dimen/x80"
+            android:layout_height="@dimen/x80"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="@dimen/x30"/>
+
     </RelativeLayout>
 
     <LinearLayout

@@ -7,12 +7,16 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.xelement.moment.R;
 import com.xelement.moment.base.Constants;
 import com.xelement.moment.entity.ProductEntity;
 import com.xelement.moment.ui.activity.MomentDetailActivity;
+import com.xelement.moment.util.CommonUtil;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
@@ -22,6 +26,18 @@ import butterknife.OnClick;
 public class FresherView extends FrameLayout {
 
     private final Context mContext;
+    @BindView(R.id.mProductImg)
+    ImageView mProductImg;
+    @BindView(R.id.mTitleLabel)
+    TextView mTitleLabel;
+    @BindView(R.id.mItemValue)
+    TextView mItemValue;
+    @BindView(R.id.mMallPriceLabel)
+    TextView mMallPriceLabel;
+    @BindView(R.id.mFreshLabel)
+    TextView mFreshLabel;
+    @BindView(R.id.mFreshPriceLabel)
+    TextView mFreshPriceLabel;
     private ProductEntity entity;
 
     public FresherView(@NonNull Context context) {
@@ -43,15 +59,29 @@ public class FresherView extends FrameLayout {
         ButterKnife.bind(this, view);
     }
 
-    public void refresh(ProductEntity entity) {
+    public void refresh(ProductEntity entity, int adapterPosition) {
         this.entity = entity;
+        mProductImg.setImageResource(entity.image);
+        mItemValue.setText(CommonUtil.getPrice("新人价", entity.currentPrice));
+        mMallPriceLabel.setText(CommonUtil.getPrice("某猫价：", entity.price));
+        CommonUtil.updateStroke(mMallPriceLabel);
+        if(adapterPosition == 1) {
+            mFreshPriceLabel.setText("¥5");
+        } else if(adapterPosition == 3) {
+            mFreshLabel.setText("新人");
+            mFreshPriceLabel.setText("限量");
+        } else {
+            mFreshPriceLabel.setText("¥1");
+        }
     }
 
     @OnClick(R.id.mBaseAction)
     public void onViewClicked() {
-        Intent intent = new Intent(mContext, MomentDetailActivity.class);
-        intent.putExtra(Constants.DETAIL_DATA, entity);
-        intent.putExtra(Constants.IS_FRESH, true);
-        mContext.startActivity(intent);
+        if (entity.isClickable()) {
+            Intent intent = new Intent(mContext, MomentDetailActivity.class);
+            intent.putExtra(Constants.DETAIL_DATA, entity);
+            intent.putExtra(Constants.IS_FRESH, true);
+            mContext.startActivity(intent);
+        }
     }
 }

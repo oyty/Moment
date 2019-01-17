@@ -22,6 +22,6 @@ public class FresherAdapter extends BaseQuickAdapter<ProductEntity, BaseViewHold
     @Override
     protected void convert(BaseViewHolder helper, ProductEntity item) {
         FresherView view = helper.getView(R.id.mFresherView);
-        view.refresh(item);
+        view.refresh(item, helper.getAdapterPosition());
     }
 }

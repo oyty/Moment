@@ -5,12 +5,14 @@
     android:orientation="vertical">
 
     <ImageView
+        android:id="@+id/mProductImg"
         android:layout_width="@dimen/x190"
         android:layout_height="@dimen/x190"
         android:src="@mipmap/god_father"
         android:scaleType="centerCrop"/>
 
     <TextView
+        android:id="@+id/mTitleLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/x5"
@@ -20,6 +22,7 @@
         android:text="十步杀一人，千里不留行"/>
 
     <TextView
+        android:id="@+id/mPriceLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/black"
@@ -29,6 +32,7 @@
         android:text="￥199.00"/>
 
     <TextView
+        android:id="@+id/mMallPriceLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/flash_normal"

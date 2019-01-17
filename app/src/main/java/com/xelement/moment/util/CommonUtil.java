@@ -21,6 +21,7 @@ import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.graphics.Paint;
 import android.graphics.Rect;
 import android.graphics.Typeface;
 import android.net.Uri;
@@ -807,5 +808,9 @@ public class CommonUtil {
 
     public static String getPrice(String holder, String price) {
         return String.format(Locale.CHINA, holder + "¥%1$s", price);
+    }
+
+    public static void updateStroke(TextView view) {
+        view.setPaintFlags(view.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
     }
 }

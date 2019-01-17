@@ -7,10 +7,12 @@
     android:id="@+id/mBaseAction">
 
     <RelativeLayout
+        android:id="@+id/mTopView"
         android:layout_width="match_parent"
         android:layout_height="@dimen/x80">
 
         <TextView
+            android:id="@+id/mTimeLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -20,6 +22,7 @@
             android:textSize="12sp" />
 
         <TextView
+            android:id="@+id/mStateLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -37,6 +40,7 @@
         android:orientation="horizontal">
 
         <ImageView
+            android:id="@+id/mProductImg"
             android:layout_width="@dimen/x160"
             android:layout_height="@dimen/x160"
             android:layout_marginLeft="@dimen/x20"
@@ -66,6 +70,7 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/mCurrentPriceLabel"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="￥209.00"
@@ -73,6 +78,7 @@
                         android:textSize="16sp" />
 
                     <TextView
+                        android:id="@+id/mPriceLabel"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="@dimen/x5"
@@ -83,7 +89,7 @@
                 </LinearLayout>
 
                 <TextView
-                    android:id="@+id/mTitleView"
+                    android:id="@+id/mTitleLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="@dimen/x20"
@@ -96,6 +102,7 @@
             </RelativeLayout>
 
             <TextView
+                android:id="@+id/mSkuLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/x5"
@@ -110,6 +117,7 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:id="@+id/mTagLabel1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/public_round_light_red_bg"
@@ -122,6 +130,7 @@
                     android:textSize="12sp" />
 
                 <TextView
+                    android:id="@+id/mTagLabel2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/public_round_light_red_bg"
@@ -134,22 +143,10 @@
                     android:textColor="@color/flash_red"
                     android:textSize="12sp" />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/public_round_light_red_bg"
-                    android:paddingLeft="@dimen/x5"
-                    android:paddingTop="@dimen/x2"
-                    android:paddingRight="@dimen/x5"
-                    android:paddingBottom="@dimen/x2"
-                    android:text="定金10%"
-                    android:layout_marginLeft="@dimen/x20"
-                    android:textColor="@color/flash_red"
-                    android:textSize="12sp" />
-
             </LinearLayout>
 
             <TextView
+                android:id="@+id/mPlanLabel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="12sp"
@@ -171,6 +168,7 @@
         android:layout_marginRight="@dimen/x20"/>
 
     <LinearLayout
+        android:id="@+id/mBottomView"
         android:layout_width="match_parent"
         android:layout_height="@dimen/x90"
         android:gravity="center_vertical|right">
@@ -186,10 +184,11 @@
             android:paddingBottom="@dimen/x8"
             android:paddingLeft="@dimen/x20"
             android:paddingRight="@dimen/x20"
-            android:textColor="@color/black"
+            android:textColor="@color/flash_normal"
             android:textSize="14sp" />
 
         <TextView
+            android:id="@+id/mActionLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="14sp"

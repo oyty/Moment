@@ -160,7 +160,6 @@ public class SkuDialog {
         }
     }
 
-
     public boolean isShowing() {
         if (bottomSheetDialog != null) {
             return bottomSheetDialog.isShowing();

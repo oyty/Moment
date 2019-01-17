@@ -15,6 +15,33 @@
         android:scaleType="centerCrop"
         android:src="@mipmap/god_father" />
 
+    <LinearLayout
+        android:layout_width="@dimen/x90"
+        android:layout_height="@dimen/x90"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/x20"
+        android:layout_marginLeft="@dimen/x20"
+        android:background="@drawable/msg_oval">
+
+        <TextView
+            android:id="@+id/mFreshLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textColor="@color/white"
+            android:text="新人价"/>
+
+        <TextView
+            android:id="@+id/mFreshPriceLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textColor="@color/white"
+            android:text="￥1"/>
+
+    </LinearLayout>
+
     <TextView
         android:id="@+id/mTitleLabel"
         android:layout_width="wrap_content"
@@ -47,14 +74,14 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/x5"
-            android:textColor="@color/flash_black"
+            android:textColor="#FF302E"
             android:textSize="15sp"
             android:text="新人价：￥309" />
 
     </LinearLayout>
 
     <TextView
-        android:id="@+id/mVolumeLabel"
+        android:id="@+id/mMallPriceLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/flash_normal"

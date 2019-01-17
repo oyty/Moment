@@ -6,6 +6,7 @@ import com.aurelhubert.ahbottomnavigation.AHBottomNavigationViewPager;
 import com.jaeger.library.StatusBarUtil;
 import com.xelement.moment.base.BaseActivity;
 import com.xelement.moment.base.BaseFragment;
+import com.xelement.moment.base.Constants;
 import com.xelement.moment.event.DismissFreshEvent;
 import com.xelement.moment.ui.adapter.MomentViewPagerAdapter;
 import com.xelement.moment.ui.dialog.FreshDialog;
@@ -13,6 +14,7 @@ import com.xelement.moment.ui.fragment.AdmireFragment;
 import com.xelement.moment.ui.fragment.DiscoveryFragment;
 import com.xelement.moment.ui.fragment.FollowFragment;
 import com.xelement.moment.ui.fragment.PersonalFragment;
+import com.xelement.moment.util.PreferenceHelper;
 import com.xelement.moment.util.UIUtil;
 
 import org.greenrobot.eventbus.Subscribe;
@@ -45,8 +47,15 @@ public class MainActivity extends BaseActivity {
     protected void process() {
         initUI();
 
+        PreferenceHelper.putString(Constants.ORDER_DATA, "");
+        PreferenceHelper.putString(Constants.ADDRESS_DATA, "");
         dialog = new FreshDialog(mContext);
-        dialog.show();
+        mViewPager.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                dialog.show();
+            }
+        }, 1000);
     }
 
     private void initUI() {

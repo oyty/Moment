@@ -94,6 +94,7 @@
                         android:background="@color/white"
                         android:hint="请填写收货人手机号"
                         android:inputType="number"
+                        android:text="13631527007"
                         android:maxLength="11"
                         android:textColorHint="@color/flash_normal"
                         android:textSize="14sp" />
@@ -175,6 +176,7 @@
                         android:hint="街道、楼牌号等"
                         android:inputType="textMultiLine"
                         android:maxLines="2"
+                        android:text="三航科技大厦2201"
                         android:maxLength="80"
                         android:ellipsize="end"
                         android:textColorHint="@color/flash_normal"

@@ -1,7 +1,6 @@
 package com.xelement.moment.ui.activity;
 
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.xelement.moment.R;
@@ -11,6 +10,7 @@ import com.xelement.moment.ui.adapter.FresherAdapter;
 import com.xelement.moment.util.DataUtil;
 import com.xelement.moment.util.UIUtil;
 import com.xelement.moment.widget.custom.GridSpacingItemDecoration;
+import com.xelement.moment.widget.custom.PublicTitleView;
 
 import java.util.ArrayList;
 
@@ -25,6 +25,12 @@ public class FresherActivity extends BaseActivity {
     RecyclerView mRecyclerView;
 
     private FresherAdapter adapter;
+
+    @Override
+    public void initTitleBar(PublicTitleView titleView) {
+        super.initTitleBar(titleView);
+        titleView.setTitle("新人专区");
+    }
 
     @Override
     public int initViewID() {

@@ -26,7 +26,7 @@ public class DiscoveryFragment extends BaseFragment {
     private DiscoveryPagerAdapter adapter;
 
     private String[] titles = {
-            "热门", "百货", "数码", "食品", "电器", "家居", "母婴", "家居", "母婴", "家居", "母婴", "家居", "母婴"
+            "热门", "3C数码", "宠物生活", "服饰内衣", "家电", "家居家具", "美食饮料", "美妆个护", "母婴玩具", "鞋靴箱包", "运动户外", "珠宝配饰"
     };
 
     @Override

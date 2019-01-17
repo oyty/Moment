@@ -32,18 +32,20 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/x100"
+                        android:layout_height="@dimen/x120"
                         android:background="#FAF8E3"
                         android:gravity="center_vertical"
                         android:orientation="horizontal">
 
                         <ImageView
+                            android:id="@+id/mStatusImg"
                             android:layout_width="@dimen/x40"
                             android:layout_height="@dimen/x40"
                             android:layout_marginLeft="@dimen/x20"
-                            android:src="@mipmap/cart" />
+                            android:src="@mipmap/for_last" />
 
                         <TextView
+                            android:id="@+id/mStatusDesLabel"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="@dimen/x20"
@@ -53,7 +55,12 @@
 
                     </LinearLayout>
 
-                    <com.xelement.moment.widget.custom.AddressItemView
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/x20" />
+
+                    <com.xelement.moment.widget.custom.OrderAddressView
+                        android:id="@+id/mOrderAddressView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
 
@@ -72,24 +79,24 @@
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="@dimen/x240"
+                            android:layout_height="@dimen/x230"
                             android:orientation="horizontal">
 
                             <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
-                                android:layout_marginLeft="@dimen/x47"
+                                android:layout_marginLeft="@dimen/x46"
                                 android:gravity="center_horizontal"
                                 android:orientation="vertical">
 
                                 <ImageView
-                                    android:layout_width="@dimen/x26"
-                                    android:layout_height="@dimen/x26"
+                                    android:layout_width="@dimen/x22"
+                                    android:layout_height="@dimen/x22"
                                     android:layout_marginTop="@dimen/x10"
                                     android:src="@drawable/delivery_current_oval" />
 
                                 <View
-                                    android:layout_width="@dimen/x5"
+                                    android:layout_width="@dimen/x3"
                                     android:layout_height="match_parent"
                                     android:background="#D8D8D8" />
                             </LinearLayout>
@@ -103,21 +110,16 @@
                                 android:paddingBottom="@dimen/x40">
 
                                 <TextView
+                                    android:id="@+id/mCurrentLabel"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="请耐心等待商品到货"
                                     android:textColor="@color/black"
                                     android:textSize="16sp" />
 
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="@dimen/x5"
-                                    android:text="2019.11.01 12:23"
-                                    android:textColor="@color/flash_black"
-                                    android:textSize="12sp" />
 
                                 <TextView
+                                    android:id="@+id/mCurrentDesLabel"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="@dimen/x20"
@@ -134,29 +136,31 @@
                         </LinearLayout>
 
                         <LinearLayout
+                            android:id="@+id/mLastView"
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/x240"
-                            android:orientation="horizontal">
+                            android:orientation="horizontal"
+                            android:visibility="gone">
 
                             <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
-                                android:layout_marginLeft="@dimen/x50"
+                                android:layout_marginLeft="@dimen/x49"
                                 android:gravity="center_horizontal"
                                 android:orientation="vertical">
 
                                 <View
-                                    android:layout_width="@dimen/x5"
+                                    android:layout_width="@dimen/x3"
                                     android:layout_height="@dimen/x10"
                                     android:background="#D8D8D8" />
 
                                 <ImageView
-                                    android:layout_width="@dimen/x20"
-                                    android:layout_height="@dimen/x20"
+                                    android:layout_width="@dimen/x16"
+                                    android:layout_height="@dimen/x16"
                                     android:src="@drawable/delivery_normal_oval" />
 
                                 <View
-                                    android:layout_width="@dimen/x5"
+                                    android:layout_width="@dimen/x3"
                                     android:layout_height="match_parent"
                                     android:background="#D8D8D8" />
                             </LinearLayout>
@@ -170,6 +174,7 @@
                                 android:paddingBottom="@dimen/x40">
 
                                 <TextView
+                                    android:id="@+id/mLastLabel"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="已支付第二阶段付款（定金￥188.9）"
@@ -177,6 +182,7 @@
                                     android:textSize="15sp" />
 
                                 <TextView
+                                    android:id="@+id/mTimeLabel2"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="@dimen/x5"
@@ -208,22 +214,22 @@
                             <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
-                                android:layout_marginLeft="@dimen/x50"
+                                android:layout_marginLeft="@dimen/x49"
                                 android:gravity="center_horizontal"
                                 android:orientation="vertical">
 
                                 <View
-                                    android:layout_width="@dimen/x5"
+                                    android:layout_width="@dimen/x3"
                                     android:layout_height="@dimen/x10"
                                     android:background="#D8D8D8" />
 
                                 <ImageView
-                                    android:layout_width="@dimen/x20"
-                                    android:layout_height="@dimen/x20"
+                                    android:layout_width="@dimen/x16"
+                                    android:layout_height="@dimen/x16"
                                     android:src="@drawable/delivery_normal_oval" />
 
                                 <View
-                                    android:layout_width="@dimen/x5"
+                                    android:layout_width="@dimen/x3"
                                     android:layout_height="match_parent"
                                     android:background="#D8D8D8" />
                             </LinearLayout>
@@ -237,6 +243,7 @@
                                 android:paddingBottom="@dimen/x40">
 
                                 <TextView
+                                    android:id="@+id/mDepositLabel"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="已支付第一阶段付款（定金￥20.9）"
@@ -244,6 +251,7 @@
                                     android:textSize="15sp" />
 
                                 <TextView
+                                    android:id="@+id/mTimeLabel1"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="@dimen/x5"
@@ -252,6 +260,7 @@
                                     android:textSize="12sp" />
 
                                 <TextView
+                                    android:id="@+id/mDaysLabel"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="@dimen/x20"
@@ -275,18 +284,18 @@
                             <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginLeft="@dimen/x50"
+                                android:layout_marginLeft="@dimen/x49"
                                 android:gravity="center_horizontal"
                                 android:orientation="vertical">
 
                                 <View
-                                    android:layout_width="@dimen/x5"
+                                    android:layout_width="@dimen/x3"
                                     android:layout_height="@dimen/x10"
                                     android:background="#D8D8D8" />
 
                                 <ImageView
-                                    android:layout_width="@dimen/x20"
-                                    android:layout_height="@dimen/x20"
+                                    android:layout_width="@dimen/x16"
+                                    android:layout_height="@dimen/x16"
                                     android:src="@drawable/delivery_normal_oval" />
                             </LinearLayout>
 
@@ -306,6 +315,7 @@
                                     android:textSize="15sp" />
 
                                 <TextView
+                                    android:id="@+id/mTimeLabel3"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginTop="@dimen/x5"
@@ -319,7 +329,13 @@
 
                     </LinearLayout>
 
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/x20"
+                        android:background="@color/flash_light"/>
+
                     <com.xelement.moment.widget.custom.OrderView
+                        android:id="@+id/mOrderView"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
 
@@ -337,11 +353,11 @@
                             android:textSize="14sp" />
 
                         <TextView
+                            android:id="@+id/mDetailPriceLabel"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentRight="true"
                             android:layout_marginRight="@dimen/x20"
-                            android:text="￥209.00"
                             android:textColor="@color/flash_normal"
                             android:textSize="14sp" />
 
@@ -356,11 +372,12 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="@dimen/x20"
-                            android:text="第一阶段定金付款（已完成）"
+                            android:text="第1阶段定金付款（已完成）"
                             android:textColor="@color/flash_black"
                             android:textSize="14sp" />
 
                         <TextView
+                            android:id="@+id/mDepositLastLabel"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentRight="true"
@@ -377,6 +394,7 @@
                         android:layout_marginTop="@dimen/x25">
 
                         <TextView
+                            android:id="@+id/mSecondLastLabel"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="@dimen/x20"
@@ -385,11 +403,11 @@
                             android:textSize="14sp" />
 
                         <TextView
+                            android:id="@+id/mDetailLastPayLabel"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentRight="true"
                             android:layout_marginRight="@dimen/x20"
-                            android:text="￥209.00"
                             android:textColor="@color/flash_normal"
                             android:textSize="14sp" />
 
@@ -410,6 +428,7 @@
                             android:textSize="14sp" />
 
                         <TextView
+                            android:id="@+id/mDayBottomLabel"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentRight="true"
@@ -427,6 +446,7 @@
         </com.scwang.smartrefresh.layout.SmartRefreshLayout>
 
         <TextView
+            android:id="@+id/mLastActionLabel"
             android:layout_width="match_parent"
             android:layout_height="@dimen/x100"
             android:background="@drawable/public_red_selector"

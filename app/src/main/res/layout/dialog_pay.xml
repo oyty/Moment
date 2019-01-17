@@ -12,6 +12,7 @@
         android:layout_height="@dimen/x90">
 
         <TextView
+            android:id="@+id/mDesLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
@@ -36,8 +37,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingBottom="@dimen/x60">
+        android:layout_height="wrap_content">
 
         <RelativeLayout
             android:id="@+id/mPayView"
@@ -51,7 +51,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="@dimen/x64"
                 android:layout_marginBottom="@dimen/x34"
-                android:textColor="@color/bid_ce0162"
+                android:textColor="#FF302E"
                 android:textSize="30sp" />
 
             <com.xelement.moment.widget.custom.PayTypeView
@@ -60,16 +60,62 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/mPayMoneyLabel" />
 
-            <TextView
-                android:id="@+id/mPayAction"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/x102"
                 android:layout_alignParentBottom="true"
-                android:layout_gravity="bottom"
-                android:layout_marginLeft="@dimen/x50"
                 android:layout_marginTop="@dimen/x60"
-                android:layout_marginRight="@dimen/x50"
-                android:text="立即支付" />
+                android:orientation="vertical">
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/x2"
+                    android:background="@color/flash_light" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/x100"
+                    android:layout_gravity="bottom">
+
+                    <LinearLayout
+                        android:id="@+id/mDirectPayAction"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/mPriceLeftLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="支付全款￥209.00"
+                            android:textColor="@color/flash_black"
+                            android:textSize="14sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/mDownPayAction"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/public_red_selector"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/mPayDesLabel"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="确认支付定金"
+                            android:textColor="@color/white"
+                            android:textSize="14sp" />
+
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
 
         </RelativeLayout>
 
@@ -78,7 +124,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/white"
-            android:clickable="true">
+            android:clickable="true"
+            android:visibility="gone">
 
             <ProgressBar
                 style="?android:attr/progressBarStyleInverse"
@@ -93,15 +140,16 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/white"
-            android:visibility="gone"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:visibility="gone">
 
             <com.qmuiteam.qmui.widget.QMUILoadingView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_margin="@dimen/x60"
-                android:color="@color/bid_4523a0"
+                android:layout_marginTop="@dimen/x100"
+                android:color="@color/flash_normal"
                 app:qmui_loading_view_size="@dimen/x132" />
 
             <TextView
@@ -111,15 +159,6 @@
                 android:text="正在获取支付结果"
                 android:textColor="@color/black"
                 android:textSize="18sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="@dimen/x20"
-                android:text="如已付款请忽略，避免重复支付"
-                android:textColor="@color/flash_normal"
-                android:textSize="14sp" />
 
         </LinearLayout>
 
@@ -135,8 +174,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:orientation="vertical"
                 android:gravity="center"
+                android:orientation="vertical"
                 android:visibility="visible">
 
                 <ImageView
@@ -168,10 +207,10 @@
                 android:id="@+id/mFailDetailAction"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
                 android:layout_gravity="center"
-                android:layout_marginRight="@dimen/x30"
                 android:layout_marginLeft="@dimen/x30"
-                android:layout_alignParentBottom="true"/>
+                android:layout_marginRight="@dimen/x30" />
 
         </RelativeLayout>
 
@@ -180,14 +219,14 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="@color/white"
-            android:visibility="gone">
+            android:visibility="visible">
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:orientation="vertical"
                 android:gravity="center"
+                android:orientation="vertical"
                 android:visibility="visible">
 
                 <ImageView
@@ -205,7 +244,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="支付成功 "
+                        android:text="支付成功"
                         android:textColor="@color/black"
                         android:textSize="18sp" />
 
@@ -218,27 +257,77 @@
 
                 </LinearLayout>
 
-
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:id="@+id/mSuccessDesLabel"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
                     android:layout_marginTop="@dimen/x20"
-                    android:text="请前往订单详情查看发货进度"
+                    android:layout_marginLeft="@dimen/x120"
+                    android:layout_marginRight="@dimen/x120"
+                    android:layout_gravity="center_horizontal"
+                    android:paddingRight="0dp"
+                    android:text="您已成功支付全款，可以确认收货地址，也可等商品发货前通知您填写哦~"
                     android:textColor="@color/flash_normal"
                     android:textSize="14sp" />
 
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/x102"
+                android:layout_alignParentBottom="true"
+                android:layout_marginTop="@dimen/x60"
+                android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/mSuccessDetailAction"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginRight="@dimen/x30"
-                android:layout_marginLeft="@dimen/x30"
-                android:layout_alignParentBottom="true"/>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/x2"
+                    android:background="@color/flash_light" />
+
+                <LinearLayout
+                    android:id="@+id/mSuccessBottomView"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/x100"
+                    android:layout_gravity="bottom">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/mSuccessLeftLabel"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:text="支付全款￥209.00"
+                            android:gravity="center"
+                            android:textColor="@color/flash_black"
+                            android:textSize="14sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/public_red_selector"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/mSuccessRightLabel"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="确认支付定金"
+                            android:textColor="@color/white"
+                            android:textSize="14sp" />
+
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
 
         </RelativeLayout>
     </RelativeLayout>

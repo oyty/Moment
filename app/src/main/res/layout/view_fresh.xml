@@ -24,6 +24,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="14sp"
+            android:maxLines="2"
+            android:ellipsize="end"
             android:textColor="@color/flash_black"
             android:text="【新人专享，限选一件】清风（AP） 抽纸 原木纯抽纸"/>
 
@@ -39,6 +41,7 @@
                 android:layout_centerVertical="true">
 
                 <TextView
+                    android:id="@+id/mCurrentPriceLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="16sp"

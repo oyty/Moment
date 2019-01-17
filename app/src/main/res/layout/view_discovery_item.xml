@@ -1,24 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="@dimen/x340"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:background="@color/white">
 
     <ImageView
+        android:id="@+id/mProductImg"
         android:layout_width="match_parent"
         android:layout_height="@dimen/x340"
         android:src="@mipmap/cart"
-        android:padding="@dimen/x20"
-        android:background="#F7F7F7"/>
+        android:padding="@dimen/x20" />
 
     <TextView
+        android:id="@+id/mTitleLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/black"
         android:textSize="14sp"
         android:maxLines="1"
         android:ellipsize="end"
+        android:paddingLeft="@dimen/x20"
+        android:paddingRight="@dimen/x20"
         android:layout_marginTop="@dimen/x20"
         android:text="风急天高猿啸哀，渚清沙白鸟飞回"/>
 
@@ -28,6 +31,7 @@
         android:layout_marginTop="@dimen/x20">
 
         <TextView
+            android:id="@+id/mPriceLabel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="15sp"
@@ -38,6 +42,7 @@
     </RelativeLayout>
 
     <TextView
+        android:id="@+id/mMallPriceLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="15sp"

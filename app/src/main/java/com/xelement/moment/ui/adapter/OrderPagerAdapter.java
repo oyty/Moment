@@ -27,7 +27,7 @@ public class OrderPagerAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         OrderFragment fragment = new OrderFragment();
         Bundle bundle = new Bundle();
-        bundle.putString(Constants.ORDER_TYPE, String.valueOf(position));
+        bundle.putInt(Constants.ORDER_TYPE, position);
         fragment.setArguments(bundle);
         return fragment;
     }

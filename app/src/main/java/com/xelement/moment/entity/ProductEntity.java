@@ -11,12 +11,15 @@ import java.util.List;
  */
 public class ProductEntity implements Parcelable {
 
+    public String currentPrice;
     public int image;
     public String title;
     public String receive_time;
     public String price;
     public List<Integer> images;
     public List<String> tags;
+    private boolean clickable;
+    public String comment;
 
     public ProductEntity() {
     }
@@ -25,6 +28,11 @@ public class ProductEntity implements Parcelable {
         this.image = image;
         this.title = title;
         this.price = price;
+    }
+
+    public ProductEntity(int image, String title, String price, String currentPrice) {
+        this(image, title, price);
+        this.currentPrice = currentPrice;
     }
 
 
@@ -40,6 +48,23 @@ public class ProductEntity implements Parcelable {
         this.tags = tags;
     }
 
+    public List<String> getTags() {
+        return tags;
+    }
+
+    public void setClickable(boolean clickable) {
+        this.clickable = clickable;
+    }
+
+    public boolean isClickable() {
+        return clickable;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
+
     @Override
     public int describeContents() {
         return 0;
@@ -47,15 +72,19 @@ public class ProductEntity implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(this.currentPrice);
         dest.writeInt(this.image);
         dest.writeString(this.title);
         dest.writeString(this.receive_time);
         dest.writeString(this.price);
         dest.writeList(this.images);
         dest.writeStringList(this.tags);
+        dest.writeByte(this.clickable ? (byte) 1 : (byte) 0);
+        dest.writeString(this.comment);
     }
 
     protected ProductEntity(Parcel in) {
+        this.currentPrice = in.readString();
         this.image = in.readInt();
         this.title = in.readString();
         this.receive_time = in.readString();
@@ -63,6 +92,8 @@ public class ProductEntity implements Parcelable {
         this.images = new ArrayList<Integer>();
         in.readList(this.images, Integer.class.getClassLoader());
         this.tags = in.createStringArrayList();
+        this.clickable = in.readByte() != 0;
+        this.comment = in.readString();
     }
 
     public static final Creator<ProductEntity> CREATOR = new Creator<ProductEntity>() {
@@ -76,8 +107,4 @@ public class ProductEntity implements Parcelable {
             return new ProductEntity[size];
         }
     };
-
-    public List<String> getTags() {
-        return tags;
-    }
 }

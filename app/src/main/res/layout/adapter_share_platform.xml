@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="@dimen/x150"
+    android:layout_height="wrap_content"
+    android:background="?android:attr/selectableItemBackground"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/x20"
+    android:paddingTop="@dimen/x20">
+
+    <ImageView
+        android:id="@+id/mImg"
+        android:layout_width="@dimen/x110"
+        android:layout_height="@dimen/x110"
+        android:scaleType="centerCrop"
+        tools:src="@drawable/qq_login" />
+
+    <TextView
+        android:id="@+id/mLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/x10"
+        android:ellipsize="end"
+        android:singleLine="true"
+        android:textColor="@color/flash_grey"
+        android:textSize="12sp"
+        tools:text="QQ" />
+
+</LinearLayout>

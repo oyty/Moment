@@ -102,7 +102,8 @@
                     <com.youth.banner.Banner
                         android:id="@+id/mBannerView"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/x750" />
+                        android:layout_height="@dimen/x750"
+                        app:is_auto_play="false"/>
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -158,21 +159,55 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
                             android:layout_marginTop="@dimen/x10"
                             android:gravity="center_vertical">
 
-                            <TextView
+                            <LinearLayout
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="时光定金￥20.9"
-                                android:textColor="#FC0000"
-                                android:textSize="12sp" />
+                                android:gravity="center"
+                                android:orientation="vertical">
 
-                            <ImageView
-                                android:layout_width="@dimen/x40"
-                                android:layout_height="@dimen/x40"
-                                android:layout_marginLeft="@dimen/x5"
-                                android:src="@mipmap/question" />
+                                <ImageView
+                                    android:layout_width="@dimen/x40"
+                                    android:layout_height="@dimen/x40"
+                                    android:src="@mipmap/share_all" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="分享"
+                                    android:textColor="@color/flash_normal"
+                                    android:textSize="12sp" />
+                            </LinearLayout>
+
+                            <View
+                                android:layout_width="@dimen/x2"
+                                android:layout_height="@dimen/x70"
+                                android:layout_marginLeft="@dimen/x20"
+                                android:background="@color/flash_light" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="@dimen/x20"
+                                android:gravity="center"
+                                android:layout_marginRight="@dimen/x10"
+                                android:orientation="vertical">
+
+                                <ImageView
+                                    android:layout_width="@dimen/x40"
+                                    android:layout_height="@dimen/x40"
+                                    android:src="@mipmap/like" />
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="收藏"
+                                    android:textColor="@color/flash_normal"
+                                    android:textSize="12sp" />
+                            </LinearLayout>
 
                         </LinearLayout>
 
@@ -205,8 +240,8 @@
                             android:id="@+id/mLeftFlag"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="已选"
                             android:layout_marginTop="@dimen/x4"
+                            android:text="已选"
                             android:textColor="@color/flash_normal"
                             android:textSize="12sp" />
 
@@ -290,17 +325,17 @@
                                 android:layout_marginLeft="@dimen/x20"
                                 android:text="神奇的小胖子"
                                 android:textColor="@color/flash_normal"
-                                android:textSize="13sp" />
+                                android:textSize="14sp" />
 
                         </LinearLayout>
 
                         <TextView
+                            android:id="@+id/mCommentLabel"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="自古逢秋悲寂寥，我言秋日胜春朝"
                             android:textColor="@color/flash_black"
                             android:textSize="13sp" />
-
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -314,7 +349,7 @@
                             android:paddingRight="@dimen/x24"
                             android:paddingBottom="@dimen/x10"
                             android:text="查看全部评价"
-                            android:textColor="@color/flash_black"
+                            android:textColor="@color/flash_normal"
                             android:textSize="13sp" />
 
                     </LinearLayout>
@@ -436,6 +471,7 @@
                         android:textSize="12sp" />
 
                     <TextView
+                        android:id="@+id/mNicePriceLabel"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="@dimen/x10"
@@ -519,6 +555,7 @@
                             android:textSize="14sp" />
 
                         <TextView
+                            android:id="@+id/mDirectBuyLabel"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="￥299.00"
@@ -532,7 +569,7 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:background="@drawable/public_round_red_selector"
+                        android:background="@drawable/public_red_selector"
                         android:gravity="center"
                         android:orientation="vertical">
 
@@ -544,6 +581,7 @@
                             android:textSize="14sp" />
 
                         <TextView
+                            android:id="@+id/mDepositBuyLabel"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="￥20.90"

@@ -15,6 +15,7 @@ import com.xelement.moment.base.Constants;
 import com.xelement.moment.entity.ProductEntity;
 import com.xelement.moment.event.DismissFreshEvent;
 import com.xelement.moment.ui.activity.MomentDetailActivity;
+import com.xelement.moment.util.CommonUtil;
 
 import org.greenrobot.eventbus.EventBus;
 
@@ -36,6 +37,9 @@ public class FreshView extends FrameLayout {
     TextView mTitleLabel;
     @BindView(R.id.mPriceLabel)
     TextView mPriceLabel;
+    @BindView(R.id.mCurrentPriceLabel)
+    TextView mCurrentPriceLabel;
+
     private ProductEntity entity;
 
     public FreshView(@NonNull Context context) {
@@ -55,6 +59,7 @@ public class FreshView extends FrameLayout {
     private void initView() {
         View view = View.inflate(mContext, R.layout.view_fresh, this);
         ButterKnife.bind(this, view);
+        CommonUtil.updateStroke(mPriceLabel);
     }
 
     public void refresh(ProductEntity entity) {
@@ -62,14 +67,17 @@ public class FreshView extends FrameLayout {
         mProductImg.setImageResource(entity.image);
         mTitleLabel.setText(entity.title);
         mPriceLabel.setText(String.format(Locale.CHINA, "¥%1$s", entity.price));
+        mCurrentPriceLabel.setText(CommonUtil.getPrice("", entity.currentPrice));
     }
 
     @OnClick(R.id.mBuyAction)
     public void onViewClicked() {
-        Intent intent = new Intent(mContext, MomentDetailActivity.class);
-        intent.putExtra(Constants.DETAIL_DATA, entity);
-        intent.putExtra(Constants.IS_FRESH, true);
-        mContext.startActivity(intent);
-        EventBus.getDefault().post(new DismissFreshEvent());
+        if(entity.isClickable()) {
+            Intent intent = new Intent(mContext, MomentDetailActivity.class);
+            intent.putExtra(Constants.DETAIL_DATA, entity);
+            intent.putExtra(Constants.IS_FRESH, true);
+            mContext.startActivity(intent);
+            EventBus.getDefault().post(new DismissFreshEvent());
+        }
     }
 }

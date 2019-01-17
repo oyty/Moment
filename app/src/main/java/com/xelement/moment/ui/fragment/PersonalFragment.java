@@ -9,6 +9,7 @@ import com.xelement.moment.ui.activity.AddressActivity;
 import com.xelement.moment.ui.activity.MessageActivity;
 import com.xelement.moment.ui.activity.OrderManagerActivity;
 import com.xelement.moment.ui.activity.PersonalInfoActivity;
+import com.xelement.moment.ui.dialog.SimpleShareDialog;
 import com.xelement.moment.util.CommonUtil;
 
 import butterknife.BindView;
@@ -58,5 +59,10 @@ public class PersonalFragment extends BaseFragment {
         mContext.startActivity(new Intent(mContext, MessageActivity.class));
     }
 
+    @OnClick(R.id.mShareView)
+    public void shareAction() {
+        SimpleShareDialog dialog = new SimpleShareDialog(mContext);
+        dialog.show();
+    }
 
 }

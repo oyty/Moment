@@ -2,6 +2,7 @@ package com.xelement.moment.ui.dialog;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.Gravity;
 import android.view.View;
@@ -9,6 +10,7 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import com.xelement.moment.R;
+import com.xelement.moment.ui.activity.FresherActivity;
 import com.xelement.moment.util.DataUtil;
 import com.xelement.moment.util.UIUtil;
 import com.xelement.moment.widget.custom.FreshView;
@@ -19,6 +21,7 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * Created by oyty on 2018/10/11.
@@ -57,8 +60,8 @@ public class FreshDialog {
         FreshView freshView3 = view.findViewById(R.id.mFreshView3);
 
         freshView1.refresh(DataUtil.getFresherData().get(0));
-//        freshView2.refresh(DataUtil.getFresherData().get(1));
-//        freshView3.refresh(DataUtil.getFresherData().get(2));
+        freshView2.refresh(DataUtil.getFresherData().get(1));
+        freshView3.refresh(DataUtil.getFresherData().get(2));
         mDialog.setContentView(view);
     }
 
@@ -81,5 +84,16 @@ public class FreshDialog {
 
     public void dismiss() {
         mDialog.dismiss();
+    }
+
+    @OnClick(R.id.mCheckMoreAction)
+    public void checkMoreAction() {
+        mContext.startActivity(new Intent(mContext, FresherActivity.class));
+        dismiss();
+    }
+
+    @OnClick(R.id.mCloseAction)
+    public void closeAction() {
+        dismiss();
     }
 }

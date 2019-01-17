@@ -4,7 +4,9 @@ import android.support.annotation.Nullable;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
+import com.xelement.moment.R;
 import com.xelement.moment.entity.ProductEntity;
+import com.xelement.moment.widget.custom.StoreProductView;
 
 import java.util.List;
 
@@ -19,6 +21,7 @@ public class StoreAdapter extends BaseQuickAdapter<ProductEntity, BaseViewHolder
 
     @Override
     protected void convert(BaseViewHolder helper, ProductEntity item) {
-
+        StoreProductView view = helper.getView(R.id.mStoreView);
+        view.refresh(item);
     }
 }
