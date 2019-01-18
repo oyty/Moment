@@ -26,29 +26,48 @@
                 android:gravity="center"
                 android:weightSum="4">
 
-                <LinearLayout
+                <RelativeLayout
                     android:id="@+id/mReceivePlanAction"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:gravity="center"
                     android:orientation="vertical"
                     android:weightSum="1">
 
-                    <ImageView
-                        android:layout_width="@dimen/x60"
-                        android:layout_height="@dimen/x60"
-                        android:src="@mipmap/receive_plan" />
-
-                    <TextView
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="@dimen/x10"
-                        android:text="收货日程"
-                        android:textColor="@color/flash_grey"
-                        android:textSize="12sp" />
+                        android:layout_centerInParent="true"
+                        android:gravity="center"
+                        android:orientation="vertical">
 
-                </LinearLayout>
+                        <ImageView
+                            android:id="@+id/mImg"
+                            android:layout_width="@dimen/x60"
+                            android:layout_height="@dimen/x60"
+                            android:src="@mipmap/receive_plan" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="@dimen/x10"
+                            android:text="收货日程"
+                            android:textColor="@color/flash_grey"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
+                    <com.xelement.moment.widget.custom.BadgeView
+                        android:id="@+id/mBadgeThisView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="@dimen/x125"
+                        android:layout_marginTop="@dimen/x24"
+                        android:textColor="@color/white"
+                        android:visibility="gone"
+                        android:textSize="10sp" />
+
+                </RelativeLayout>
 
                 <LinearLayout
                     android:id="@+id/mFresherAction"
@@ -172,7 +191,8 @@
                 android:layout_width="match_parent"
                 android:paddingLeft="@dimen/x10"
                 android:paddingRight="@dimen/x10"
-                android:layout_height="@dimen/x500" />
+                android:layout_height="@dimen/x500"
+                android:background="@color/white"/>
 
             <View
                 android:layout_width="match_parent"

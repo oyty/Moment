@@ -11,82 +11,99 @@
         android:layout_height="10dp"
         android:background="@color/colorPrimaryDark"/>
 
-    <RelativeLayout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/x100"
-        android:background="@color/white">
+        android:layout_height="match_parent">
 
-        <RelativeLayout
-            android:id="@+id/mSearchAction"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/x70"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="@dimen/x30"
-            android:layout_marginRight="@dimen/x140"
-            android:background="#F2F2F2">
-
-            <ImageView
-                android:layout_width="@dimen/x30"
-                android:layout_height="@dimen/x30"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="@dimen/x20"
-                android:src="@mipmap/search"/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="12sp"
-                android:textColor="@color/flash_grey"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="@dimen/x70"
-                android:text="好商品、好时机、好价格"/>
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
 
-        </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/x100"
+                android:background="@color/white">
 
-        <ImageView
-            android:layout_width="@dimen/x100"
-            android:layout_height="@dimen/x100"
-            android:src="@mipmap/notification"
-            android:padding="@dimen/x28"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true" />
+                <RelativeLayout
+                    android:id="@+id/mSearchAction"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/x70"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="@dimen/x30"
+                    android:layout_marginRight="@dimen/x140"
+                    android:background="#F2F2F2">
 
-        <ImageView
-            android:layout_width="@dimen/x12"
-            android:layout_height="@dimen/x12"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="@dimen/x32"
-            android:layout_marginTop="@dimen/x26"
-            android:src="@drawable/msg_oval"/>
+                    <ImageView
+                        android:layout_width="@dimen/x30"
+                        android:layout_height="@dimen/x30"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/x20"
+                        android:src="@mipmap/search"/>
 
-    </RelativeLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="12sp"
+                        android:textColor="@color/flash_grey"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="@dimen/x70"
+                        android:text="好商品、好时机、好价格"/>
 
-    <com.flyco.tablayout.SlidingTabLayout
-        android:id="@+id/mTabLayout"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/x90"
-        android:background="@color/white"
-        tl:tl_indicator_color="@color/black"
-        tl:tl_indicator_height="@dimen/x3"
-        tl:tl_indicator_margin_left="0dp"
-        tl:tl_indicator_margin_right="0dp"
-        tl:tl_indicator_width_equal_title="true"
-        tl:tl_tab_padding="@dimen/x20"
-        tl:tl_textBold="SELECT"
-        tl:tl_textSelectColor="@color/black"
-        tl:tl_textUnselectColor="@color/flash_black"
-        tl:tl_textsize="15sp" />
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/x1"
-        android:background="@color/bid_e0e0e0" />
+                </RelativeLayout>
 
-    <android.support.v4.view.ViewPager
-        android:id="@+id/mViewPager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/flash_light" />
+                <ImageView
+                    android:id="@+id/mMessageView"
+                    android:layout_width="@dimen/x100"
+                    android:layout_height="@dimen/x100"
+                    android:src="@mipmap/notification"
+                    android:padding="@dimen/x28"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true" />
+
+                <ImageView
+                    android:layout_width="@dimen/x12"
+                    android:layout_height="@dimen/x12"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="@dimen/x32"
+                    android:layout_marginTop="@dimen/x26"
+                    android:src="@drawable/msg_oval"/>
+
+            </RelativeLayout>
+
+            <com.flyco.tablayout.SlidingTabLayout
+                android:id="@+id/mTabLayout"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/x90"
+                android:background="@color/white"
+                tl:tl_indicator_color="@color/black"
+                tl:tl_indicator_height="@dimen/x3"
+                tl:tl_indicator_margin_left="0dp"
+                tl:tl_indicator_margin_right="0dp"
+                tl:tl_indicator_width_equal_title="true"
+                tl:tl_tab_padding="@dimen/x20"
+                tl:tl_textBold="SELECT"
+                tl:tl_textSelectColor="@color/black"
+                tl:tl_textUnselectColor="@color/flash_black"
+                tl:tl_textsize="15sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/x1"
+                android:background="@color/bid_e0e0e0" />
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/mViewPager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/flash_light" />
+        </LinearLayout>
+
+
+    </FrameLayout>
+
+
 
 </LinearLayout>

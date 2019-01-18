@@ -3,6 +3,11 @@ package com.xelement.moment.entity;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.xelement.moment.util.DateTimeUtil;
+
+import java.text.ParseException;
+import java.util.Date;
+
 /**
  * Created by oyty on 2019/1/15.
  */
@@ -19,6 +24,7 @@ public class OrderEntity implements Parcelable {
     public String time;
     public String deposit;
     public String days;
+    public String count;
 
 
     @Override
@@ -40,6 +46,7 @@ public class OrderEntity implements Parcelable {
         dest.writeString(this.time);
         dest.writeString(this.deposit);
         dest.writeString(this.days);
+        dest.writeString(this.count);
     }
 
     public OrderEntity() {
@@ -58,6 +65,7 @@ public class OrderEntity implements Parcelable {
         this.time = in.readString();
         this.deposit = in.readString();
         this.days = in.readString();
+        this.count = in.readString();
     }
 
     public static final Creator<OrderEntity> CREATOR = new Creator<OrderEntity>() {
@@ -71,5 +79,17 @@ public class OrderEntity implements Parcelable {
             return new OrderEntity[size];
         }
     };
+
+    public Date getDate() {
+        return addDate(DateTimeUtil.parseDate(time), Long.parseLong(days));
+    }
+
+    public static Date addDate(Date date, long day) {
+        long time = date.getTime(); // 得到指定日期的毫秒数
+        day = day * 24 * 60 * 60 * 1000; // 要加上的天数转换成毫秒数
+        time += day; // 相加得到新的毫秒数
+        return new Date(time); // 将毫秒数转换成日期
+    }
+
 }
 

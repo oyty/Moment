@@ -36,14 +36,17 @@ public class DiscoveryItemFragment extends BaseFragment {
     protected void initView() {
         GridLayoutManager mLayoutManager = new GridLayoutManager(mContext, 2);
         mRecyclerView.setLayoutManager(mLayoutManager);
-        mRecyclerView.addItemDecoration(new GridSpacingItemDecoration(2, (int) UIUtil.getDimen(R.dimen.x14), true));
+        mRecyclerView.addItemDecoration(new GridSpacingItemDecoration(2, (int) UIUtil.getDimen(R.dimen.x10), true));
         adapter = new DiscoveryItemAdapter(R.layout.adapter_discovery_item, new ArrayList<ProductEntity>());
         mRecyclerView.setAdapter(adapter);
     }
 
     @Override
     protected void process() {
-        int position = getArguments().getInt(Constants.POSITION);
+        int position = 1;
+        if(getArguments() != null) {
+            position = getArguments().getInt(Constants.POSITION, 2);
+        }
         adapter.setNewData(DataUtil.getDiscoveryData(position));
     }
 }

@@ -1,22 +1,31 @@
 package com.xelement.moment;
 
+import android.content.Intent;
+import android.text.TextUtils;
+import android.view.View;
+
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationViewPager;
+import com.google.gson.reflect.TypeToken;
 import com.jaeger.library.StatusBarUtil;
 import com.xelement.moment.base.BaseActivity;
 import com.xelement.moment.base.BaseFragment;
 import com.xelement.moment.base.Constants;
+import com.xelement.moment.entity.OrderEntity;
 import com.xelement.moment.event.DismissFreshEvent;
+import com.xelement.moment.event.UpdateOrderEvent;
 import com.xelement.moment.ui.adapter.MomentViewPagerAdapter;
 import com.xelement.moment.ui.dialog.FreshDialog;
 import com.xelement.moment.ui.fragment.AdmireFragment;
 import com.xelement.moment.ui.fragment.DiscoveryFragment;
 import com.xelement.moment.ui.fragment.FollowFragment;
 import com.xelement.moment.ui.fragment.PersonalFragment;
+import com.xelement.moment.util.GsonUtil;
 import com.xelement.moment.util.PreferenceHelper;
 import com.xelement.moment.util.UIUtil;
 
+import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;
 
@@ -24,6 +33,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
+import butterknife.OnClick;
 
 public class MainActivity extends BaseActivity {
 
@@ -31,8 +41,13 @@ public class MainActivity extends BaseActivity {
     AHBottomNavigationViewPager mViewPager;
     @BindView(R.id.mBottomNavigation)
     AHBottomNavigation mBottomNavigation;
+    @BindView(R.id.mMaskView)
+    View mMaskView;
+
     private MomentViewPagerAdapter adapter;
     private FreshDialog dialog;
+    private ArrayList<BaseFragment> fragments;
+
     @Override
     protected void initBeforeSetView() {
         StatusBarUtil.setTransparent(this);
@@ -49,6 +64,7 @@ public class MainActivity extends BaseActivity {
 
         PreferenceHelper.putString(Constants.ORDER_DATA, "");
         PreferenceHelper.putString(Constants.ADDRESS_DATA, "");
+        PreferenceHelper.putBoolean(Constants.IS_FIRST_MASK, false);
         dialog = new FreshDialog(mContext);
         mViewPager.postDelayed(new Runnable() {
             @Override
@@ -56,6 +72,33 @@ public class MainActivity extends BaseActivity {
                 dialog.show();
             }
         }, 1000);
+    }
+
+    @Override
+    protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
+        String type = intent.getStringExtra(Constants.MAIN_TYPE);
+        boolean hasFound = false;
+        if (TextUtils.isEmpty(type)) {
+            mBottomNavigation.setCurrentItem(0);
+        } else {
+            for (int i = 0; i < fragments.size(); i++) {
+                String simpleName = fragments.get(i).getClass().getSimpleName();
+                if (simpleName.equals(type)) {
+                    mBottomNavigation.setCurrentItem(i);
+                    hasFound = true;
+                    break;
+                }
+            }
+            if (!hasFound) {
+                mBottomNavigation.setCurrentItem(0);
+            }
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
     }
 
     private void initUI() {
@@ -94,7 +137,8 @@ public class MainActivity extends BaseActivity {
 
 
         mViewPager.setOffscreenPageLimit(4);
-        ArrayList<BaseFragment> fragments = new ArrayList<>();
+
+        fragments = new ArrayList<>();
         fragments.add(new DiscoveryFragment());
         fragments.add(new AdmireFragment());
         fragments.add(new FollowFragment());
@@ -112,4 +156,22 @@ public class MainActivity extends BaseActivity {
     public boolean registerEventBus() {
         return true;
     }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void updateOrderEvent(UpdateOrderEvent event) {
+        boolean mask = PreferenceHelper.getBoolean(Constants.IS_FIRST_MASK, false);
+        if(mask) {
+
+        } else {
+            mMaskView.setVisibility(View.VISIBLE);
+            mMaskView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mMaskView.setVisibility(View.GONE);
+                    PreferenceHelper.putBoolean(Constants.IS_FIRST_MASK, true);
+                }
+            });
+        }
+    }
+
 }

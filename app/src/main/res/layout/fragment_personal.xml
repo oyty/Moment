@@ -319,6 +319,7 @@
                     android:background="@color/flash_light" />
 
                 <RelativeLayout
+                    android:id="@+id/mCouponAction"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/x90"
                     android:background="@color/white">

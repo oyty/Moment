@@ -1,21 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.aurelhubert.ahbottomnavigation.AHBottomNavigation
-        android:id="@+id/mBottomNavigation"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        app:selectedBackgroundVisible="false"/>
+        android:layout_height="match_parent">
 
-    <com.aurelhubert.ahbottomnavigation.AHBottomNavigationViewPager
-        android:id="@+id/mViewPager"
+        <com.aurelhubert.ahbottomnavigation.AHBottomNavigation
+            android:id="@+id/mBottomNavigation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            app:selectedBackgroundVisible="false" />
+
+        <com.aurelhubert.ahbottomnavigation.AHBottomNavigationViewPager
+            android:id="@+id/mViewPager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/mBottomNavigation" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/mMaskView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/mBottomNavigation"/>
+        android:background="#99000000"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/mMaskAction"
+            android:layout_width="@dimen/x612"
+            android:layout_height="@dimen/x464"
+            android:layout_marginLeft="@dimen/x30"
+            android:layout_marginTop="@dimen/x496"
+            android:src="@mipmap/mask" />
+
+    </RelativeLayout>
 
 </RelativeLayout>

@@ -17,6 +17,7 @@ import com.xelement.moment.base.Constants;
 import com.xelement.moment.entity.ConfigEntity;
 import com.xelement.moment.entity.OrderEntity;
 import com.xelement.moment.entity.ProductEntity;
+import com.xelement.moment.event.DismissSkuEvent;
 import com.xelement.moment.event.GotoHomeEvent;
 import com.xelement.moment.event.NewEntityEvent;
 import com.xelement.moment.event.UpdateOrderEvent;
@@ -98,6 +99,7 @@ public class PayDialog {
     private ProductEntity entity;
     private String sku;
     private String days;
+    private String count;
 
 
     public PayDialog(Context context, OnPayActionListener listener, DialogInterface.OnDismissListener dismissListener) {
@@ -147,7 +149,7 @@ public class PayDialog {
     }
 
     public void dismiss() {
-        if(isShowing()) {
+        if (isShowing()) {
             bottomSheetDialog.dismiss();
         }
     }
@@ -166,7 +168,7 @@ public class PayDialog {
         }
     }
 
-    public void setPayPrice(String deposit, String price, String depositAfter, boolean isDeposit, ProductEntity entity, String tag, String days) {
+    public void setPayPrice(String deposit, String price, String depositAfter, boolean isDeposit, ProductEntity entity, String tag, String days, String count) {
         this.entity = entity;
         this.sku = tag;
         this.days = days;
@@ -174,6 +176,7 @@ public class PayDialog {
         this.price = price;
         this.isDeposit = isDeposit;
         this.depositAfter = depositAfter;
+        this.count = count;
         update();
         mPayView.setVisibility(View.VISIBLE);
         mLoadingView.setVisibility(View.GONE);
@@ -181,7 +184,7 @@ public class PayDialog {
     }
 
     private void update() {
-        if(isDeposit) {
+        if (isDeposit) {
             mPayMoneyLabel.setText(CommonUtil.getPrice("", deposit));
             mPriceLeftLabel.setText(CommonUtil.getPrice("支付全款", price));
             mPayDesLabel.setText("确认支付定金");
@@ -222,7 +225,7 @@ public class PayDialog {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.mFailDetailAction:
-                if(listener != null) {
+                if (listener != null) {
                     listener.onFailDetailAction();
                 }
                 bottomSheetDialog.dismiss();
@@ -232,7 +235,7 @@ public class PayDialog {
 
     @OnClick(R.id.mDirectPayAction)
     public void directPayAction() {
-        if(isDeposit) {
+        if (isDeposit) {
             isDeposit = false;
         } else {
             isDeposit = true;
@@ -250,7 +253,7 @@ public class PayDialog {
             public void run() {
                 mLoadingView.setVisibility(View.GONE);
                 mSuccessView.setVisibility(View.VISIBLE);
-                if(isDeposit) {
+                if (isDeposit) {
 
                     OrderEntity orderEntity = new OrderEntity();
                     orderEntity.image = entity.image;
@@ -262,13 +265,15 @@ public class PayDialog {
                     orderEntity.sku = sku;
                     orderEntity.tag1 = days + "天发货";
                     orderEntity.days = days;
+                    orderEntity.count = count;
                     orderEntity.time = DateTimeUtil.getCurrentTime();
-                    orderEntity.tag2 = CommonUtil.getPrice("时光减免", CommonUtil.getMoneyLabel(String.valueOf(Float.parseFloat(entity.price) - Float.parseFloat(entity.currentPrice))));
+                    orderEntity.tag2 = CommonUtil.getPrice("时光减免", CommonUtil.getMoneyLabel(String.valueOf((Float.parseFloat(entity.price) - Float.parseFloat(entity.currentPrice)) * Integer.parseInt(count))));
                     orderEntity.status = 0;
                     String cache = PreferenceHelper.getString(Constants.ORDER_DATA);
                     List<OrderEntity> entities;
-                    if(!TextUtils.isEmpty(cache)) {
-                        entities = GsonUtil.json2Array(cache, new TypeToken<List<OrderEntity>>(){});
+                    if (!TextUtils.isEmpty(cache)) {
+                        entities = GsonUtil.json2Array(cache, new TypeToken<List<OrderEntity>>() {
+                        });
                     } else {
                         entities = new ArrayList<>();
                     }
@@ -303,16 +308,19 @@ public class PayDialog {
                     orderEntity.price = entity.price;
                     orderEntity.deposit_after = depositAfter;
                     orderEntity.deposit = deposit;
+                    orderEntity.count = count;
                     orderEntity.current_price = entity.currentPrice;
                     orderEntity.sku = sku;
+                    orderEntity.days = days;
                     orderEntity.tag1 = days + "天发货";
-                    orderEntity.tag2 = CommonUtil.getPrice("时光减免", CommonUtil.getMoneyLabel(String.valueOf(Float.parseFloat(entity.price) - Float.parseFloat(entity.currentPrice))));
+                    orderEntity.tag2 = CommonUtil.getPrice("时光减免", CommonUtil.getMoneyLabel(String.valueOf((Float.parseFloat(entity.price) - Float.parseFloat(entity.currentPrice)) * Integer.parseInt(count))));
                     orderEntity.status = 1;
                     orderEntity.time = DateTimeUtil.getCurrentTime();
                     String cache = PreferenceHelper.getString(Constants.ORDER_DATA);
                     List<OrderEntity> entities;
-                    if(!TextUtils.isEmpty(cache)) {
-                        entities = GsonUtil.json2Array(cache, new TypeToken<List<OrderEntity>>(){});
+                    if (!TextUtils.isEmpty(cache)) {
+                        entities = GsonUtil.json2Array(cache, new TypeToken<List<OrderEntity>>() {
+                        });
                     } else {
                         entities = new ArrayList<>();
                     }
@@ -332,6 +340,7 @@ public class PayDialog {
                         @Override
                         public void onClick(View v) {
                             mContext.startActivity(new Intent(mContext, EditAddressActivity.class));
+                            EventBus.getDefault().post(new DismissSkuEvent());
                             dismiss();
                         }
                     });
@@ -381,7 +390,9 @@ public class PayDialog {
 
     public interface OnPayActionListener {
         void onPayAction();
+
         void onFailDetailAction();
+
         void onSuccessDetailAction();
     }
 }

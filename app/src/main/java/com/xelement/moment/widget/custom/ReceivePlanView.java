@@ -52,8 +52,9 @@ public class ReceivePlanView extends FrameLayout {
 
     public void setChoosed(boolean isChoosed) {
         mPlanView.setBackgroundResource(isChoosed ? R.drawable.public_round_border_red : R.drawable.public_round_grey_bg);
-        mDayLabel.setTextColor(UIUtil.getColor(isChoosed ? R.color.tag : R.color.black));
-        mSaleLabel.setTextColor(UIUtil.getColor(isChoosed ? R.color.tag : R.color.black));
+        mDayLabel.setTextColor(UIUtil.getColor(isChoosed ? R.color.tag : R.color.flash_grey));
+        mSaleLabel.setTextColor(UIUtil.getColor(isChoosed ? R.color.tag : R.color.flash_grey));
+
     }
 
     public void refresh(String day, String sale) {

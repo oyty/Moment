@@ -63,6 +63,7 @@ public class ReceivePlanActivity extends BaseActivity {
         mViewPager.setAdapter(adapter);
         mTabLayout.setViewPager(mViewPager);
         mTabLayout.onPageSelected(0);
+        mViewPager.setCurrentItem(1);
         CommonUtil.updateStatusBarHeight(mContext, mPlanBarView);
     }
 

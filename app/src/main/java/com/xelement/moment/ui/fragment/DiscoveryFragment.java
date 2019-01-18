@@ -7,9 +7,16 @@ import android.view.View;
 import com.flyco.tablayout.SlidingTabLayout;
 import com.xelement.moment.R;
 import com.xelement.moment.base.BaseFragment;
+import com.xelement.moment.base.Constants;
+import com.xelement.moment.event.UpdateOrderEvent;
+import com.xelement.moment.ui.activity.MessageActivity;
 import com.xelement.moment.ui.activity.SearchActivity;
 import com.xelement.moment.ui.adapter.DiscoveryPagerAdapter;
 import com.xelement.moment.util.CommonUtil;
+import com.xelement.moment.util.PreferenceHelper;
+
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -25,6 +32,8 @@ public class DiscoveryFragment extends BaseFragment {
     SlidingTabLayout mTabLayout;
     @BindView(R.id.mViewPager)
     ViewPager mViewPager;
+
+
 
     private DiscoveryPagerAdapter adapter;
 
@@ -54,4 +63,10 @@ public class DiscoveryFragment extends BaseFragment {
     public void searchAction() {
         mContext.startActivity(new Intent(mContext, SearchActivity.class));
     }
+
+    @OnClick(R.id.mMessageView)
+    public void notificationAction() {
+        mContext.startActivity(new Intent(mContext, MessageActivity.class));
+    }
+
 }

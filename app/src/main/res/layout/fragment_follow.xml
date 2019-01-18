@@ -10,9 +10,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <RelativeLayout
+    <com.xelement.moment.widget.custom.MultipleStatusView
+        android:id="@+id/mStatusView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:emptyView="@layout/view_empty">
 
         <com.scwang.smartrefresh.layout.SmartRefreshLayout
             android:layout_width="match_parent"
@@ -93,6 +95,6 @@
         </LinearLayout>
 
 
-    </RelativeLayout>
+    </com.xelement.moment.widget.custom.MultipleStatusView>
 
 </LinearLayout>

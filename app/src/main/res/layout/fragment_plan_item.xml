@@ -28,9 +28,10 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@mipmap/cart" />
+                        android:src="@mipmap/quote_left" />
 
                     <TextView
+                        android:id="@+id/mDesLeftLabel"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="18sp"
@@ -38,13 +39,17 @@
                         android:text="您在本周有"/>
 
                     <TextView
+                        android:id="@+id/mNumLabel"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="40sp"
+                        android:textSize="30sp"
+                        android:layout_marginLeft="@dimen/x10"
+                        android:layout_marginRight="@dimen/x10"
                         android:textColor="@color/flash_black"
-                        android:text="3"/>
+                        android:text="0"/>
 
                     <TextView
+                        android:id="@+id/mDesRightLabel"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="18sp"
@@ -54,7 +59,7 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@mipmap/cart" />
+                        android:src="@mipmap/quote_right" />
 
                 </LinearLayout>
 
@@ -64,6 +69,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/x20"
                 android:background="@color/flash_light"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:layout_marginTop="@dimen/x30"
+                android:layout_marginLeft="@dimen/x30"
+                android:layout_marginBottom="@dimen/x30"
+                android:text="最新待签收商品"/>
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/mRecyclerView"

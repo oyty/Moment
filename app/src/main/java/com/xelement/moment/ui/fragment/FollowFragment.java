@@ -1,5 +1,6 @@
 package com.xelement.moment.ui.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -10,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.google.gson.reflect.TypeToken;
+import com.xelement.moment.MainActivity;
 import com.xelement.moment.R;
 import com.xelement.moment.base.BaseFragment;
 import com.xelement.moment.base.Constants;
@@ -19,6 +21,7 @@ import com.xelement.moment.util.CommonUtil;
 import com.xelement.moment.util.GsonUtil;
 import com.xelement.moment.util.PreferenceHelper;
 import com.xelement.moment.util.UIUtil;
+import com.xelement.moment.widget.custom.MultipleStatusView;
 import com.xelement.moment.widget.custom.PublicTitleView;
 import com.xelement.moment.widget.custom.SpacesVerticalItemDecoration;
 
@@ -43,6 +46,8 @@ public class FollowFragment extends BaseFragment {
     TextView mDepositDesLabel;
     @BindView(R.id.mBottomView)
     View mBottomView;
+    @BindView(R.id.mStatusView)
+    MultipleStatusView mStatusView;
 
     private FollowAdapter adapter;
 
@@ -67,6 +72,17 @@ public class FollowFragment extends BaseFragment {
     @Override
     protected void process() {
 
+        mStatusView.setOnRetryClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, MainActivity.class);
+                intent.putExtra(Constants.MAIN_TYPE, DiscoveryFragment.class.getSimpleName());
+                mContext.startActivity(intent);
+
+            }
+        });
+
+        mStatusView.showEmpty();
     }
 
     @Override
@@ -87,7 +103,9 @@ public class FollowFragment extends BaseFragment {
             }
             mTotalPriceLabel.setText(CommonUtil.getPrice("全选    合计", CommonUtil.getMoneyLabel(totalPrice + "")));
             mDepositDesLabel.setText(CommonUtil.getPrice("", CommonUtil.getMoneyLabel(totalDeposit + "")));
+            mStatusView.showContent();
         } else {
+            mStatusView.showEmpty();
             mBottomView.setVisibility(View.GONE);
             adapter.setNewData(new ArrayList<AdmireEntity>());
         }

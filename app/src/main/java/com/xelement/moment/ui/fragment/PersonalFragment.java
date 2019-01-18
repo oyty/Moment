@@ -14,6 +14,7 @@ import com.xelement.moment.base.Constants;
 import com.xelement.moment.entity.OrderEntity;
 import com.xelement.moment.event.UpdateOrderEvent;
 import com.xelement.moment.ui.activity.AddressActivity;
+import com.xelement.moment.ui.activity.CouponActivity;
 import com.xelement.moment.ui.activity.MessageActivity;
 import com.xelement.moment.ui.activity.OrderManagerActivity;
 import com.xelement.moment.ui.activity.PersonalInfoActivity;
@@ -65,6 +66,11 @@ public class PersonalFragment extends BaseFragment {
     @Override
     protected void process() {
 
+    }
+
+    @OnClick(R.id.mCouponAction)
+    public void couponAction() {
+        mContext.startActivity(new Intent(mContext, CouponActivity.class));
     }
 
     @OnClick(R.id.mPersonalInfoAction)

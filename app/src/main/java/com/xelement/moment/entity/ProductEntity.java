@@ -20,6 +20,7 @@ public class ProductEntity implements Parcelable {
     public List<String> tags;
     private boolean clickable;
     public String comment;
+    public List<DaysEntity> days_tag;
 
     public ProductEntity() {
     }
@@ -64,7 +65,6 @@ public class ProductEntity implements Parcelable {
         this.comment = comment;
     }
 
-
     @Override
     public int describeContents() {
         return 0;
@@ -81,6 +81,7 @@ public class ProductEntity implements Parcelable {
         dest.writeStringList(this.tags);
         dest.writeByte(this.clickable ? (byte) 1 : (byte) 0);
         dest.writeString(this.comment);
+        dest.writeList(this.days_tag);
     }
 
     protected ProductEntity(Parcel in) {
@@ -94,6 +95,8 @@ public class ProductEntity implements Parcelable {
         this.tags = in.createStringArrayList();
         this.clickable = in.readByte() != 0;
         this.comment = in.readString();
+        this.days_tag = new ArrayList<DaysEntity>();
+        in.readList(this.days_tag, DaysEntity.class.getClassLoader());
     }
 
     public static final Creator<ProductEntity> CREATOR = new Creator<ProductEntity>() {

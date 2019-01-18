@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <com.xelement.moment.widget.custom.PublicTitleView
@@ -10,17 +10,24 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+    <com.xelement.moment.widget.custom.MultipleStatusView
+        android:id="@+id/mStatusView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:srlEnablePureScrollMode="true"
-        android:background="@color/flash_light">
+        app:emptyView="@layout/view_empty">
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/mRecyclerView"
+        <com.scwang.smartrefresh.layout.SmartRefreshLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:background="@color/flash_light"
+            app:srlEnablePureScrollMode="true">
 
-    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/mRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+    </com.xelement.moment.widget.custom.MultipleStatusView>
 
 </LinearLayout>

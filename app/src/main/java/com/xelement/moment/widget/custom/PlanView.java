@@ -50,8 +50,8 @@ public class PlanView extends FrameLayout {
         ButterKnife.bind(this, view);
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(mContext));
-        mRecyclerView.setAdapter(adapter = new PlanItemAdapter(R.layout.adapter_plan_item, new ArrayList<FollowItemEntity>()));
-
-        adapter.setNewData(DataUtil.getFollowItemData());
+//        mRecyclerView.setAdapter(adapter = new PlanItemAdapter(R.layout.adapter_plan_item, new ArrayList<FollowItemEntity>()));
+//
+//        adapter.setNewData(DataUtil.getFollowItemData());
     }
 }

@@ -3,6 +3,7 @@ package com.xelement.moment.util;
 import com.xelement.moment.R;
 import com.xelement.moment.entity.AdmireEntity;
 import com.xelement.moment.entity.AdmireItemEntity;
+import com.xelement.moment.entity.DaysEntity;
 import com.xelement.moment.entity.FollowEntity;
 import com.xelement.moment.entity.DiscoveryHotEntity;
 import com.xelement.moment.entity.DiscoveryItemEntity;
@@ -454,6 +455,11 @@ public class DataUtil {
         entity.setTags(tags);
         entity.setClickable(true);
         entity.setComment("质量很好,很便宜,物流快,材质不错,携带方便,气味不错,正品,外观不错,。超值的！包装是我喜欢的颜色。我非常喜欢绿色，大家可以看到我被罩也是绿色的，有种亲近大自然的感觉，舒心！");
+
+        entity.days_tag = new ArrayList<>();
+        entity.days_tag.add(new DaysEntity(7, "0.50"));
+        entity.days_tag.add(new DaysEntity(30, "0.99"));
+
         entities.add(entity);
 
         ProductEntity entity1 = new ProductEntity(R.mipmap.fresh2_1, "佳洁士（Crest）全优7效抗牙菌斑 牙膏 40克（新老包装,随机发货）", "16.90", "1.00");
@@ -473,6 +479,9 @@ public class DataUtil {
         entity1.setComment("旅游方便捷带，挺好的，物超所值，老品牌值得信赖，物流很快，用着效果还不错，下次还会光顾的");
         entities.add(entity1);
 
+        entity.days_tag = new ArrayList<>();
+        entity.days_tag.add(new DaysEntity(7, "0.50"));
+        entity.days_tag.add(new DaysEntity(30, "0.99"));
 
         entities.add(new ProductEntity(R.mipmap.fresh3, "蓝月亮 洗衣液袋装深层洁净护理500g(自然清香)", "10.90", "1.00"));
         entities.add(new ProductEntity(R.mipmap.fresh4, "喜乐 菌优多乳酸菌饮品 牛奶发酵饮料原味330ml+30ml", "9.90", "1.00"));
@@ -483,7 +492,7 @@ public class DataUtil {
 
     public static List<ProductEntity> getHotData() {
         List<ProductEntity> entities = new ArrayList<>();
-        ProductEntity entity = new ProductEntity(R.mipmap.hot1_1, "农夫山泉 17.5°橙 3kg装 铂金果 年货礼盒 新鲜水果", "89.90", "45.00");
+        ProductEntity entity = new ProductEntity(R.mipmap.hot_main, "农夫山泉 17.5°橙 3kg装 铂金果 年货礼盒 新鲜水果", "89.90", "45.00");
         List<Integer> images = new ArrayList<>();
         images.add(R.mipmap.hot1_1);
         images.add(R.mipmap.hot1_2);
@@ -491,15 +500,19 @@ public class DataUtil {
         images.add(R.mipmap.hot1_4);
         entity.setImages(images);
         List<String> tags = new ArrayList<>();
-        tags.add("6斤装 铂金果");
-        tags.add("10斤装 钻石果");
+        tags.add("铂金果");
+        tags.add("钻石果");
         entity.setTags(tags);
         entity.setClickable(true);
         entity.setComment("这橙子特别好吃，多汁多肉，甜度刚刚好，吃完有种橙子独有的香味留在口中。送了一箱给朋友，也是赞不绝口。也适合当礼盒。每箱还贴心地送了个挂线器，再也不用因为找不着刀具而要用指甲剥皮了。6斤装的一箱能有16个。配送也很给力，下了单隔天就送到。");
+        entity.days_tag = new ArrayList<>();
+        entity.days_tag.add(new DaysEntity(7, "7.94", 10.5f, 79.40f));
+        entity.days_tag.add(new DaysEntity(15, "6.75", 22.40f, 67.50f));
+        entity.days_tag.add(new DaysEntity(30, "4.50", 44.9f, 45.0f));
         entities.add(entity);
 
 
-        ProductEntity entity1 = new ProductEntity(R.mipmap.hot2_1, "【享6期免息赠蓝牙音箱】Huawei/华为 Mate 20 全面屏珍珠屏超大广角徕卡三镜头mate20 x智能手机mate20x", "3999.00", "3499.00");
+        ProductEntity entity1 = new ProductEntity(R.mipmap.hot2_main, "【享6期免息赠蓝牙音箱】Huawei/华为 Mate 20 全面屏珍珠屏超大广角徕卡三镜头mate20 x智能手机mate20x", "3999.00", "3499.00");
         List<Integer> images1 = new ArrayList<>();
         images1.add(R.mipmap.hot2_1);
         images1.add(R.mipmap.hot2_2);
@@ -512,10 +525,17 @@ public class DataUtil {
         entity1.setTags(tags1);
         entity1.setClickable(true);
         entity1.setComment("挺不错的，快递真叫一个快，快晚上买的，第二天一早就到了，深圳到北京估计飞来的。。。用起来速度还不错，玩游戏也不发烫，同一个游戏比我的xs温度低多了，给老爹买的，蓝色的也很漂亮！");
+        entity1.days_tag = new ArrayList<>();
+        entity1.days_tag.add(new DaysEntity(7, "396.01", 38.9f, 3960.1f));
+        entity1.days_tag.add(new DaysEntity(15, "391.57", 83.30f, 3915.7f));
+        entity1.days_tag.add(new DaysEntity(30, "383.23", 156.7f, 3832.3f));
+        entity1.days_tag.add(new DaysEntity(60, "366.57", 333.3f, 3665.7f));
+        entity1.days_tag.add(new DaysEntity(90, "349.90", 500f, 3499.0f));
+        entity1.days_tag.add(new DaysEntity(180, "299.90", 1000f, 2999.0f));
         entities.add(entity1);
 
-        entities.add(new ProductEntity(R.mipmap.hot3, "SK-IIsk2神仙水嫩肤清莹露skii洁面爽肤水护肤套装A", "2470.00", "1729.00"));
-        entities.add(new ProductEntity(R.mipmap.hot4, "裕道府 五常稻花香 东北大米 10kg", "99.90", "54.90"));
+        entities.add(new ProductEntity(R.mipmap.hot3_main, "SK-IIsk2神仙水嫩肤清莹露skii洁面爽肤水护肤套装A", "2470.00", "1729.00"));
+        entities.add(new ProductEntity(R.mipmap.hot4_main, "裕道府 五常稻花香 东北大米 10kg", "99.90", "54.90"));
 
         return entities;
     }
