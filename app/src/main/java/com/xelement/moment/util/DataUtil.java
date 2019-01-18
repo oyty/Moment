@@ -9,6 +9,7 @@ import com.xelement.moment.entity.DiscoveryHotEntity;
 import com.xelement.moment.entity.DiscoveryItemEntity;
 import com.xelement.moment.entity.FollowItemEntity;
 import com.xelement.moment.entity.MessageEntity;
+import com.xelement.moment.entity.NotificationEntity;
 import com.xelement.moment.entity.OrderEntity;
 import com.xelement.moment.entity.PlanGroupEntity;
 import com.xelement.moment.entity.ProductEntity;
@@ -42,6 +43,17 @@ public class DataUtil {
     public static List<ProductEntity> getDiscoveryData(int position) {
         List<ProductEntity> entities = new ArrayList<>();
         if (position == 1) {
+//            entities.add(new ProductEntity(4029961, "dostyle HS310 JBL制造商 滋润心窝立体声 金属耳机 入耳式耳机 音乐厅音律 荡漾红 胭脂扣 女神专属", "129", "50"));
+//            entities.add(new ProductEntity(1814629, "三星（SAMSUNG）32GB USB3.0 U盘 BAR 银色 读速150MB/s 金属耐用，防水防震", "135", "58.5"));
+//            entities.add(new ProductEntity(7494701, "索尼（SONY）SF-16UY3 16G SDHC UHS-I存储卡 90MB/S读取速度", "139", "69"));
+//            entities.add(new ProductEntity(5256919, "纽曼 （Newmine） MX05 时尚复古木质无线便携蓝牙音箱立体声、重低音桌面音响 樱桃木色", "199", "89.1"));
+//            entities.add(new ProductEntity(2532291, "暴风魔镜 4代IOS黄金版 虚拟现实智能VR眼镜3D头盔", "399", "199"));
+//            entities.add(new ProductEntity(3095098, "豪恩智能家居套装 家用报警盒子家庭防盗报警器 豪恩二当家", "858", "298"));
+//            entities.add(new ProductEntity(7950629, "M&D（Master & Dynamic）MH40 时尚复古头戴式音乐耳机  线控麦克风  滚石乐队版 炫酷黑", "2998", "999"));
+//            entities.add(new ProductEntity(100000798810, "爱国者（aigo）P200充电宝厂家直送10000毫安充电宝 适用于小米 华为 苹果手机 白色", "199", "90"));
+//            entities.add(new ProductEntity(4841525, "金胜（kingshare） 500GB Type-C 3.1移动固态硬盘（PSSD）S6冰河银轻巧便携手机电脑移动存储", "1299", "599"));
+//            entities.add(new ProductEntity(5837586, "坚果（JmGO）1895 电影机 投影仪 投影机家用（1080P全高清 1200流明 复古机械操作）","9999","4999"));
+
             entities.add(new ProductEntity(R.mipmap.p1_1, "适用苹果iphone手机手表耳机三合一充电支架底座硅胶充电座", "96.00", "96.00"));
             entities.add(new ProductEntity(R.mipmap.p1_2, "叮咚 2C智能蓝牙音箱 语音操控海量内容 深空灰", "580.00", "599.00"));
             entities.add(new ProductEntity(R.mipmap.p1_3, "ESALEB 随身厅 智能摄像头高清拍照摄像头 SR030", "198.00", "199.00"));
@@ -537,6 +549,14 @@ public class DataUtil {
         entities.add(new ProductEntity(R.mipmap.hot3_main, "SK-IIsk2神仙水嫩肤清莹露skii洁面爽肤水护肤套装A", "2470.00", "1729.00"));
         entities.add(new ProductEntity(R.mipmap.hot4_main, "裕道府 五常稻花香 东北大米 10kg", "99.90", "54.90"));
 
+        return entities;
+    }
+
+    public static List<NotificationEntity> getNotificationData() {
+        List<NotificationEntity> entities = new ArrayList<>();
+        entities.add(new NotificationEntity(R.mipmap.au_1, "庄周", "1", "舒肤佳沐浴露"));
+        entities.add(new NotificationEntity(R.mipmap.au_2, "后羿", "1", "蓝月亮洗衣液"));
+        entities.add(new NotificationEntity(R.mipmap.au_3, "小乔", "20", "一箱橙子"));
         return entities;
     }
 }

@@ -142,4 +142,9 @@ public class AdmireDetailActivity extends BaseActivity {
         PreferenceHelper.putString(Constants.FOLLOW_DATA, GsonUtil.array2Json(entities));
     }
 
+    @OnClick(R.id.mBackAction)
+    public void finishAction() {
+        finish();
+    }
+
 }

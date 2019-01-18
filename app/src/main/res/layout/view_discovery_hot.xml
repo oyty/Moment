@@ -10,8 +10,7 @@
         android:id="@+id/mProductImg"
         android:layout_width="match_parent"
         android:layout_height="@dimen/x320"
-        android:src="@mipmap/cart"
-        android:padding="@dimen/x20"/>
+        android:src="@mipmap/cart" />
 
     <TextView
         android:id="@+id/mTitleLabel"
@@ -36,6 +35,14 @@
             android:layout_centerHorizontal="true"
             android:textColor="@color/black"
             android:text="￥159.00"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/mPriceLabel"
+            android:layout_marginTop="@dimen/x8"
+            android:layout_marginLeft="@dimen/x4"
+            android:src="@mipmap/product_flag"/>
 
     </RelativeLayout>
 

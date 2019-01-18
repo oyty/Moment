@@ -29,6 +29,7 @@ import com.xelement.moment.util.GsonUtil;
 import com.xelement.moment.util.PreferenceHelper;
 import com.xelement.moment.util.UIUtil;
 import com.xelement.moment.widget.custom.BadgeView;
+import com.xelement.moment.widget.custom.FloatingNotificationView;
 import com.xelement.moment.widget.custom.SpacesItemDecoration;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
@@ -54,6 +55,9 @@ public class DiscoveryHotFragment extends BaseFragment {
     RecyclerView mFollowRecyclerView;
     @BindView(R.id.mBadgeThisView)
     BadgeView mBadgeView;
+    @BindView(R.id.mFloatingView)
+    FloatingNotificationView mFloatingView;
+
     private DiscoveryHotAdapter hotAdapter;
     private DiscoveryFollowAdapter followAdapter;
 
@@ -110,6 +114,8 @@ public class DiscoveryHotFragment extends BaseFragment {
         mBannerView.stopAutoPlay();
 
         updateOrderEvent(new UpdateOrderEvent());
+
+        mFloatingView.refresh();
     }
 
     @OnClick(R.id.mReceivePlanAction)
