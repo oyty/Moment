@@ -64,22 +64,16 @@ public class PlanFragment extends com.xelement.moment.base.BaseFragment {
         if(!TextUtils.isEmpty(cache)) {
             List<OrderEntity> entities = GsonUtil.json2Array(cache, new TypeToken<List<OrderEntity>>() {
             });
-            List<OrderEntity> orderEntities = new ArrayList<>();
-            for(OrderEntity entity : entities) {
-                if(entity.status == 1) {
-                    orderEntities.add(entity);
-                }
-            }
 //            mNumLabel.setText(orderEntities.size() + "");
 
-            adapter.setNewData(orderEntities);
+            adapter.setNewData(entities);
 
             for(Iterator<Month> monthIterator = mCalendarView.getAdapter().getData().iterator(); monthIterator.hasNext();) {
                 Month month = monthIterator.next();
                 for(Iterator<Day> dayIterator = month.getDaysWithoutTitlesAndOnlyCurrent().iterator(); dayIterator.hasNext();) {
                     Day day = dayIterator.next();
 
-                    for(OrderEntity entity : orderEntities) {
+                    for(OrderEntity entity : entities) {
                         if(day.equals(new Day(entity.getDate()))) {
                             mCalendarView.getSelectionManager().toggleDay(day);
                         }

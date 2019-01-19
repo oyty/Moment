@@ -23,13 +23,13 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/x100"
+                android:layout_height="@dimen/x110"
                 android:background="@color/white">
 
                 <RelativeLayout
                     android:id="@+id/mSearchAction"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/x70"
+                    android:layout_height="@dimen/x60"
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="@dimen/x30"
                     android:layout_marginRight="@dimen/x140"
@@ -60,6 +60,7 @@
                     android:layout_height="@dimen/x100"
                     android:src="@mipmap/notification"
                     android:padding="@dimen/x28"
+                    android:layout_marginRight="@dimen/x20"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true" />
 
@@ -67,8 +68,8 @@
                     android:layout_width="@dimen/x12"
                     android:layout_height="@dimen/x12"
                     android:layout_alignParentRight="true"
-                    android:layout_marginRight="@dimen/x32"
-                    android:layout_marginTop="@dimen/x26"
+                    android:layout_marginRight="@dimen/x52"
+                    android:layout_marginTop="@dimen/x31"
                     android:src="@drawable/msg_oval"/>
 
             </RelativeLayout>

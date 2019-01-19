@@ -18,4 +18,5 @@
     <string name="agreement">用户协议</string>
     <string name="about_us">关于我们</string>
     <string name="my_order">时光订单</string>
+    <string name="pageBehavior" translatable="false" >com.xelement.moment.widget.custom.page.PageBehavior</string >
 </resources>

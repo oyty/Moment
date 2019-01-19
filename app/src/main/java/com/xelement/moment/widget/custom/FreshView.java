@@ -84,4 +84,9 @@ public class FreshView extends FrameLayout {
             EventBus.getDefault().post(new DismissFreshEvent());
         }
     }
+
+    @OnClick(R.id.mBaseAction)
+    public void baseAction() {
+        onViewClicked();
+    }
 }

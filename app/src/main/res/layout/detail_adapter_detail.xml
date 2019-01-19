@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/mScaleImgView"
+        android:layout_gravity="center_horizontal"
+        android:visibility="gone"/>
+
+    <ImageView
+        android:id="@+id/mImgView"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/x600"
+        android:layout_gravity="center_horizontal"
+        android:visibility="gone"/>
+</FrameLayout>

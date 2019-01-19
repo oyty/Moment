@@ -12,16 +12,19 @@ import android.widget.TextView;
 
 
 import com.google.gson.reflect.TypeToken;
+import com.xelement.moment.MainActivity;
 import com.xelement.moment.R;
 import com.xelement.moment.base.Constants;
 import com.xelement.moment.entity.ConfigEntity;
 import com.xelement.moment.entity.OrderEntity;
 import com.xelement.moment.entity.ProductEntity;
 import com.xelement.moment.event.DismissSkuEvent;
+import com.xelement.moment.event.FollowNewEvent;
 import com.xelement.moment.event.GotoHomeEvent;
 import com.xelement.moment.event.NewEntityEvent;
 import com.xelement.moment.event.UpdateOrderEvent;
 import com.xelement.moment.ui.activity.EditAddressActivity;
+import com.xelement.moment.ui.fragment.DiscoveryFragment;
 import com.xelement.moment.util.CommonUtil;
 import com.xelement.moment.util.DateTimeUtil;
 import com.xelement.moment.util.GsonUtil;
@@ -255,6 +258,37 @@ public class PayDialog {
                 mSuccessView.setVisibility(View.VISIBLE);
                 if (isDeposit) {
 
+                    mSuccessLeftLabel.setText(CommonUtil.getPrice("继续支付尾款\n", depositAfter));
+                    mSuccessRightLabel.setText("逛逛其它");
+                    mSuccessLeftLabel.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            mPayMoneyLabel.setText(CommonUtil.getPrice("", depositAfter));
+                            mPayView.setVisibility(View.VISIBLE);
+                            mSuccessView.setVisibility(View.GONE);
+                            mDirectPayAction.setVisibility(View.GONE);
+                            mPayDesLabel.setText("确认支付");
+                            mDesLabel.setText("确认支付尾款");
+                            isDeposit = false;
+                        }
+                    });
+                    mSuccessRightLabel.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            dismiss();
+                            EventBus.getDefault().post(new GotoHomeEvent());
+                            Intent intent = new Intent(mContext, MainActivity.class);
+                            intent.putExtra(Constants.MAIN_TYPE, DiscoveryFragment.class.getSimpleName());
+                            mContext.startActivity(intent);
+                        }
+                    });
+                    mSuccessDesLabel.setText(CommonUtil.getPrice("恭喜成功支付定金，还需支付尾款", depositAfter));
+
+                    if(entity == null) {
+                        PreferenceHelper.putString(Constants.FOLLOW_DATA, "");
+                        EventBus.getDefault().post(new FollowNewEvent());
+                        return;
+                    }
                     OrderEntity orderEntity = new OrderEntity();
                     orderEntity.image = entity.image;
                     orderEntity.title = entity.title;
@@ -280,28 +314,35 @@ public class PayDialog {
                     entities.add(0, orderEntity);
                     PreferenceHelper.putString(Constants.ORDER_DATA, GsonUtil.array2Json(entities));
 
-                    mSuccessLeftLabel.setText(CommonUtil.getPrice("继续支付尾款\n", depositAfter));
-                    mSuccessRightLabel.setText("逛逛其它");
+
+                } else {
+                    mSuccessDesLabel.setText("您已成功支付全款，可以确认收货地址，也可等商品发货前通知您填写哦~");
+                    mSuccessLeftLabel.setText("逛逛其它");
                     mSuccessLeftLabel.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            mPayMoneyLabel.setText(CommonUtil.getPrice("", depositAfter));
-                            mPayView.setVisibility(View.VISIBLE);
-                            mSuccessView.setVisibility(View.GONE);
-                            mDirectPayAction.setVisibility(View.GONE);
-                            mPayDesLabel.setText("确认支付");
-                            mDesLabel.setText("确认支付尾款");
-                            isDeposit = false;
+                            dismiss();
+                            EventBus.getDefault().post(new GotoHomeEvent());
+                            Intent intent = new Intent(mContext, MainActivity.class);
+                            intent.putExtra(Constants.MAIN_TYPE, DiscoveryFragment.class.getSimpleName());
+                            mContext.startActivity(intent);
                         }
                     });
+                    mSuccessRightLabel.setText("确认收货地址");
                     mSuccessRightLabel.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            EventBus.getDefault().post(new GotoHomeEvent());
+                            mContext.startActivity(new Intent(mContext, EditAddressActivity.class));
+                            EventBus.getDefault().post(new DismissSkuEvent());
+                            dismiss();
                         }
                     });
-                    mSuccessDesLabel.setText(CommonUtil.getPrice("恭喜成功支付定金，还需支付尾款", depositAfter));
-                } else {
+                    if(entity == null) {
+                        PreferenceHelper.putString(Constants.FOLLOW_DATA, "");
+                        EventBus.getDefault().post(new FollowNewEvent());
+
+                        return;
+                    }
                     OrderEntity orderEntity = new OrderEntity();
                     orderEntity.image = entity.image;
                     orderEntity.title = entity.title;
@@ -327,23 +368,7 @@ public class PayDialog {
                     entities.add(0, orderEntity);
                     PreferenceHelper.putString(Constants.ORDER_DATA, GsonUtil.array2Json(entities));
 
-                    mSuccessDesLabel.setText("您已成功支付全款，可以确认收货地址，也可等商品发货前通知您填写哦~");
-                    mSuccessLeftLabel.setText("逛逛其它");
-                    mSuccessLeftLabel.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            EventBus.getDefault().post(new GotoHomeEvent());
-                        }
-                    });
-                    mSuccessRightLabel.setText("确认收货地址");
-                    mSuccessRightLabel.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            mContext.startActivity(new Intent(mContext, EditAddressActivity.class));
-                            EventBus.getDefault().post(new DismissSkuEvent());
-                            dismiss();
-                        }
-                    });
+
                 }
 
                 EventBus.getDefault().post(new UpdateOrderEvent());

@@ -3,6 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:padding="@dimen/x20"
+    android:id="@+id/mBaseAction"
     android:background="@color/white">
 
 

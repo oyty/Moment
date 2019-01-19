@@ -1,5 +1,6 @@
 package com.xelement.moment.ui.fragment;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -17,6 +18,7 @@ import com.xelement.moment.base.BaseFragment;
 import com.xelement.moment.base.Constants;
 import com.xelement.moment.entity.AdmireEntity;
 import com.xelement.moment.ui.adapter.FollowAdapter;
+import com.xelement.moment.ui.dialog.PayDialog;
 import com.xelement.moment.util.CommonUtil;
 import com.xelement.moment.util.GsonUtil;
 import com.xelement.moment.util.PreferenceHelper;
@@ -30,12 +32,13 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 import butterknife.Unbinder;
 
 /**
  * Created by oyty on 2019/1/12.
  */
-public class FollowFragment extends BaseFragment {
+public class FollowFragment extends BaseFragment implements DialogInterface.OnDismissListener, PayDialog.OnPayActionListener {
 
 
     @BindView(R.id.mRecyclerView)
@@ -50,6 +53,9 @@ public class FollowFragment extends BaseFragment {
     MultipleStatusView mStatusView;
 
     private FollowAdapter adapter;
+    private PayDialog payDialog;
+    float totalPrice = 0;
+    float totalDeposit = 0;
 
     @Override
     public void initTitleBar(PublicTitleView titleView) {
@@ -95,9 +101,8 @@ public class FollowFragment extends BaseFragment {
 
             mBottomView.setVisibility(View.VISIBLE);
 
-            float totalPrice = 0;
-            float totalDeposit = 0;
-            for(AdmireEntity entity : entities) {
+
+            for (AdmireEntity entity : entities) {
                 totalDeposit += Float.parseFloat(entity.total_deposit);
                 totalPrice += Float.parseFloat(entity.total_price);
             }
@@ -109,7 +114,37 @@ public class FollowFragment extends BaseFragment {
             mBottomView.setVisibility(View.GONE);
             adapter.setNewData(new ArrayList<AdmireEntity>());
         }
+    }
+
+    @OnClick(R.id.mPayAction)
+    public void payAction() {
+        payDialog = new PayDialog(mContext, this, this);
+        payDialog.setPayPrice(CommonUtil.getMoneyLabel(String.valueOf(totalDeposit)),
+                CommonUtil.getMoneyLabel(String.valueOf(totalPrice)),
+                CommonUtil.getMoneyLabel(String.valueOf(totalPrice - totalDeposit)),
+                true, null, "", "15", "1");
+        if (!payDialog.isShowing()) {
+            payDialog.show();
+        }
+    }
+
+    @Override
+    public void onDismiss(DialogInterface dialog) {
 
     }
 
+    @Override
+    public void onPayAction() {
+
+    }
+
+    @Override
+    public void onFailDetailAction() {
+
+    }
+
+    @Override
+    public void onSuccessDetailAction() {
+
+    }
 }

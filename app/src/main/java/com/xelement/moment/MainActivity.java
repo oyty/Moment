@@ -7,13 +7,16 @@ import android.view.View;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigation;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationItem;
 import com.aurelhubert.ahbottomnavigation.AHBottomNavigationViewPager;
+import com.aurelhubert.ahbottomnavigation.notification.AHNotification;
 import com.google.gson.reflect.TypeToken;
 import com.jaeger.library.StatusBarUtil;
 import com.xelement.moment.base.BaseActivity;
 import com.xelement.moment.base.BaseFragment;
 import com.xelement.moment.base.Constants;
+import com.xelement.moment.entity.AdmireEntity;
 import com.xelement.moment.entity.OrderEntity;
 import com.xelement.moment.event.DismissFreshEvent;
+import com.xelement.moment.event.FollowNewEvent;
 import com.xelement.moment.event.UpdateOrderEvent;
 import com.xelement.moment.ui.adapter.MomentViewPagerAdapter;
 import com.xelement.moment.ui.dialog.FreshDialog;
@@ -64,6 +67,7 @@ public class MainActivity extends BaseActivity {
 
         PreferenceHelper.putString(Constants.ORDER_DATA, "");
         PreferenceHelper.putString(Constants.ADDRESS_DATA, "");
+        PreferenceHelper.putString(Constants.FOLLOW_DATA, "");
         PreferenceHelper.putBoolean(Constants.IS_FIRST_MASK, false);
         dialog = new FreshDialog(mContext);
         mViewPager.postDelayed(new Runnable() {
@@ -71,7 +75,8 @@ public class MainActivity extends BaseActivity {
             public void run() {
                 dialog.show();
             }
-        }, 1000);
+        }, 1500);
+        mBottomNavigation.setNotificationBackgroundColor(UIUtil.getColor(R.color.flash_red));
     }
 
     @Override
@@ -135,7 +140,6 @@ public class MainActivity extends BaseActivity {
             }
         });
 
-
         mViewPager.setOffscreenPageLimit(4);
 
         fragments = new ArrayList<>();
@@ -145,6 +149,17 @@ public class MainActivity extends BaseActivity {
         fragments.add(new PersonalFragment());
         adapter = new MomentViewPagerAdapter(getSupportFragmentManager(), fragments);
         mViewPager.setAdapter(adapter);
+    }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void followNewEvent(FollowNewEvent event) {
+        String string = PreferenceHelper.getString(Constants.FOLLOW_DATA);
+        if(!TextUtils.isEmpty(string)) {
+            List<AdmireEntity> entities = GsonUtil.json2Array(string, new TypeToken<List<AdmireEntity>>(){});
+            mBottomNavigation.setNotification(AHNotification.justText(entities.size() + ""), 2);
+        } else {
+            mBottomNavigation.setNotification((AHNotification) null, 2);
+        }
     }
 
     @Subscribe(threadMode = ThreadMode.MAIN)

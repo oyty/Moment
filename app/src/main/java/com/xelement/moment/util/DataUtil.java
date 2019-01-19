@@ -421,6 +421,20 @@ public class DataUtil {
         tags.add("自然清香");
         entity.setTags(tags);
         entity.setClickable(true);
+
+        List<Integer> detail_images = new ArrayList<>();
+        detail_images.add(R.mipmap.fresh1_d1);
+        detail_images.add(R.mipmap.fresh1_d2);
+        detail_images.add(R.mipmap.fresh1_d3);
+        detail_images.add(R.mipmap.fresh1_d4);
+        detail_images.add(R.mipmap.fresh1_d5);
+        detail_images.add(R.mipmap.fresh1_d6);
+        detail_images.add(R.mipmap.fresh1_d7);
+        detail_images.add(R.mipmap.fresh1_d8);
+        detail_images.add(R.mipmap.fresh1_d9);
+        entity.detail_images = detail_images;
+
+
         entity.setComment("质量很好,很便宜,物流快,材质不错,携带方便,气味不错,正品,外观不错,。超值的！包装是我喜欢的颜色。我非常喜欢绿色，大家可以看到我被罩也是绿色的，有种亲近大自然的感觉，舒心！");
 
         entity.days_tag = new ArrayList<>();
@@ -443,12 +457,27 @@ public class DataUtil {
         tags1.add("强健牙釉质");
         entity1.setTags(tags1);
         entity1.setClickable(true);
+
+        List<Integer> detail_images1 = new ArrayList<>();
+        detail_images1.add(R.mipmap.fresh2_d1);
+        detail_images1.add(R.mipmap.fresh2_d2);
+        detail_images1.add(R.mipmap.fresh2_d4);
+        detail_images1.add(R.mipmap.fresh2_d5);
+        detail_images1.add(R.mipmap.fresh2_d6);
+        detail_images1.add(R.mipmap.fresh2_d7);
+        detail_images1.add(R.mipmap.fresh2_d8);
+        detail_images1.add(R.mipmap.fresh2_d9);
+        detail_images1.add(R.mipmap.fresh2_d10);
+        detail_images1.add(R.mipmap.fresh2_d11);
+        detail_images1.add(R.mipmap.fresh2_d12);
+        entity1.detail_images = detail_images1;
+
         entity1.setComment("旅游方便捷带，挺好的，物超所值，老品牌值得信赖，物流很快，用着效果还不错，下次还会光顾的");
         entities.add(entity1);
 
-        entity.days_tag = new ArrayList<>();
-        entity.days_tag.add(new DaysEntity(7, "0.50"));
-        entity.days_tag.add(new DaysEntity(30, "0.99"));
+        entity1.days_tag = new ArrayList<>();
+        entity1.days_tag.add(new DaysEntity(7, "0.50"));
+        entity1.days_tag.add(new DaysEntity(30, "0.99"));
 
         entities.add(new ProductEntity(R.mipmap.fresh3, "蓝月亮 洗衣液袋装深层洁净护理500g(自然清香)", "10.90", "1.00"));
         entities.add(new ProductEntity(R.mipmap.fresh4, "喜乐 菌优多乳酸菌饮品 牛奶发酵饮料原味330ml+30ml", "9.90", "1.00"));
@@ -476,6 +505,26 @@ public class DataUtil {
         entity.days_tag.add(new DaysEntity(7, "7.94", 10.5f, 79.40f));
         entity.days_tag.add(new DaysEntity(15, "6.75", 22.40f, 67.50f));
         entity.days_tag.add(new DaysEntity(30, "4.50", 44.9f, 45.0f));
+
+        entity.detail_images = new ArrayList<>();
+        entity.detail_images.add(R.mipmap.hot1_d1);
+        entity.detail_images.add(R.mipmap.hot1_d2);
+        entity.detail_images.add(R.mipmap.hot1_d3);
+        entity.detail_images.add(R.mipmap.hot1_d4);
+        entity.detail_images.add(R.mipmap.hot1_d5);
+        entity.detail_images.add(R.mipmap.hot1_d6);
+        entity.detail_images.add(R.mipmap.hot1_d7);
+        entity.detail_images.add(R.mipmap.hot1_d8);
+        entity.detail_images.add(R.mipmap.hot1_d9);
+        entity.detail_images.add(R.mipmap.hot1_d10);
+        entity.detail_images.add(R.mipmap.hot1_d11);
+        entity.detail_images.add(R.mipmap.hot1_d12);
+        entity.detail_images.add(R.mipmap.hot1_d13);
+        entity.detail_images.add(R.mipmap.hot1_d14);
+        entity.detail_images.add(R.mipmap.hot1_d15);
+        entity.detail_images.add(R.mipmap.hot1_d16);
+        entity.detail_images.add(R.mipmap.hot1_d17);
+
         entities.add(entity);
 
 
@@ -499,6 +548,18 @@ public class DataUtil {
         entity1.days_tag.add(new DaysEntity(60, "366.57", 333.3f, 3665.7f));
         entity1.days_tag.add(new DaysEntity(90, "349.90", 500f, 3499.0f));
         entity1.days_tag.add(new DaysEntity(180, "299.90", 1000f, 2999.0f));
+
+        entity1.detail_images = new ArrayList<>();
+        entity1.detail_images.add(R.mipmap.hot2_d1);
+        entity1.detail_images.add(R.mipmap.hot2_d2);
+        entity1.detail_images.add(R.mipmap.hot2_d3);
+        entity1.detail_images.add(R.mipmap.hot2_d4);
+        entity1.detail_images.add(R.mipmap.hot2_d5);
+        entity1.detail_images.add(R.mipmap.hot2_d6);
+        entity1.detail_images.add(R.mipmap.hot2_d7);
+        entity1.detail_images.add(R.mipmap.hot2_d8);
+        entity1.detail_images.add(R.mipmap.hot2_d9);
+
         entities.add(entity1);
 
         entities.add(new ProductEntity(R.mipmap.hot3_main, "SK-IIsk2神仙水嫩肤清莹露skii洁面爽肤水护肤套装A", "2470.00", "1729.00"));

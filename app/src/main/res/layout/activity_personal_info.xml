@@ -46,7 +46,7 @@
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
                         android:layout_marginRight="@dimen/x75"
-                        android:src="@mipmap/avatar" />
+                        android:src="@mipmap/avatar_tiger" />
 
                     <ImageView
                         android:layout_width="@dimen/x38"

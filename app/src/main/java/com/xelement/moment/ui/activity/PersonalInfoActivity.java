@@ -52,7 +52,7 @@ public class PersonalInfoActivity extends BaseActivity {
 
     @Override
     protected void process() {
-        mNicknameView.setValue("神奇小胖子");
+        mNicknameView.setValue("Tiger");
         mNinetyIdView.setValue("289236482332");
     }
 

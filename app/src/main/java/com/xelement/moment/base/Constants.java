@@ -16,4 +16,5 @@ public class Constants {
     public static final String FOLLOW_DATA = "follow_data";
     public static final String MAIN_TYPE = "main_type";
     public static final String IS_FIRST_MASK = "is_first_mask";
+    public static final String SEARCH_DATA = "search_data";
 }

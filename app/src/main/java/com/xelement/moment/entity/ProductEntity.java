@@ -18,6 +18,7 @@ public class ProductEntity implements Parcelable {
     public String price;
     public List<Integer> images;
     public List<String> tags;
+    public List<Integer> detail_images;
     private boolean clickable;
     public String comment;
     public List<DaysEntity> days_tag;
@@ -65,6 +66,7 @@ public class ProductEntity implements Parcelable {
         this.comment = comment;
     }
 
+
     @Override
     public int describeContents() {
         return 0;
@@ -79,9 +81,10 @@ public class ProductEntity implements Parcelable {
         dest.writeString(this.price);
         dest.writeList(this.images);
         dest.writeStringList(this.tags);
+        dest.writeList(this.detail_images);
         dest.writeByte(this.clickable ? (byte) 1 : (byte) 0);
         dest.writeString(this.comment);
-        dest.writeList(this.days_tag);
+        dest.writeTypedList(this.days_tag);
     }
 
     protected ProductEntity(Parcel in) {
@@ -93,10 +96,11 @@ public class ProductEntity implements Parcelable {
         this.images = new ArrayList<Integer>();
         in.readList(this.images, Integer.class.getClassLoader());
         this.tags = in.createStringArrayList();
+        this.detail_images = new ArrayList<Integer>();
+        in.readList(this.detail_images, Integer.class.getClassLoader());
         this.clickable = in.readByte() != 0;
         this.comment = in.readString();
-        this.days_tag = new ArrayList<DaysEntity>();
-        in.readList(this.days_tag, DaysEntity.class.getClassLoader());
+        this.days_tag = in.createTypedArrayList(DaysEntity.CREATOR);
     }
 
     public static final Creator<ProductEntity> CREATOR = new Creator<ProductEntity>() {
@@ -111,3 +115,4 @@ public class ProductEntity implements Parcelable {
         }
     };
 }
+

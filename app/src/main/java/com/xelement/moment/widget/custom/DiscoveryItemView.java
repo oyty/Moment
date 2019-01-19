@@ -57,7 +57,7 @@ public class DiscoveryItemView extends FrameLayout {
                 .load(entity.image)
                 .into(mProductImg);
         mTitleLabel.setText(entity.title);
-        mPriceLabel.setText(CommonUtil.getPrice("", entity.price));
-        mMallPriceLabel.setText(CommonUtil.getPrice("某猫价：", entity.currentPrice));
+        mPriceLabel.setText(CommonUtil.getPrice("", entity.currentPrice));
+        mMallPriceLabel.setText(CommonUtil.getPrice("某猫价：", entity.price));
     }
 }

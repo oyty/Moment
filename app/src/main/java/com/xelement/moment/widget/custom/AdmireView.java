@@ -2,6 +2,7 @@ package com.xelement.moment.widget.custom;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.PointF;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
@@ -15,12 +16,19 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.google.gson.reflect.TypeToken;
 import com.xelement.moment.R;
+import com.xelement.moment.base.BaseActivity;
 import com.xelement.moment.base.Constants;
 import com.xelement.moment.entity.AdmireEntity;
+import com.xelement.moment.event.FollowNewEvent;
 import com.xelement.moment.ui.activity.AdmireDetailActivity;
+import com.xelement.moment.util.AddToCartAnimUtil;
 import com.xelement.moment.util.GsonUtil;
 import com.xelement.moment.util.PreferenceHelper;
+import com.xelement.moment.util.ScreenUtil;
 import com.xelement.moment.util.ToastUtil;
+import com.xelement.moment.util.UIUtil;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -122,6 +130,7 @@ public class AdmireView extends FrameLayout {
             for(AdmireEntity entity : entities) {
                 if(entity.user.nickname.equals(admireEntity.user.nickname)) {
                     ToastUtil.show(mContext, "已在跟单列表中");
+                    AddToCartAnimUtil.startAnim((BaseActivity)mContext, (FrameLayout) ((BaseActivity)mContext).getWindow().getDecorView(), new PointF(UIUtil.getDimen(R.dimen.x448), ScreenUtil.getDeviceHeight() - 40), admireEntity.products.get(0).image);
                     return;
                 }
             }
@@ -135,5 +144,7 @@ public class AdmireView extends FrameLayout {
             ToastUtil.show(mContext, "已加入跟单");
         }
         PreferenceHelper.putString(Constants.FOLLOW_DATA, GsonUtil.array2Json(entities));
+        EventBus.getDefault().post(new FollowNewEvent());
+        AddToCartAnimUtil.startAnim((BaseActivity)mContext, (FrameLayout) ((BaseActivity)mContext).getWindow().getDecorView(), new PointF(UIUtil.getDimen(R.dimen.x448), ScreenUtil.getDeviceHeight() - 40), admireEntity.products.get(0).image);
     }
 }

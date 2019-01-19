@@ -65,6 +65,7 @@
                     android:text="全选     合计 ￥73.00"/>
 
                 <LinearLayout
+                    android:id="@+id/mPayAction"
                     android:layout_width="@dimen/x320"
                     android:layout_height="match_parent"
                     android:background="@drawable/public_red_selector"

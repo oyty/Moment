@@ -9,8 +9,6 @@
         android:id="@+id/mRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingLeft="@dimen/x4"
-        android:paddingRight="@dimen/x4"
         android:background="@color/flash_light"/>
 
 </com.scwang.smartrefresh.layout.SmartRefreshLayout>

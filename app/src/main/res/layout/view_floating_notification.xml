@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="@dimen/x600"
-    android:layout_height="@dimen/x70"
+    android:layout_width="@dimen/x500"
+    android:layout_height="@dimen/x60"
     android:orientation="horizontal"
     android:paddingLeft="@dimen/x5"
     android:paddingRight="@dimen/x10"
@@ -10,8 +10,8 @@
 
     <com.xelement.moment.widget.custom.CircleImageView
         android:id="@+id/mAvatarImg"
-        android:layout_width="@dimen/x65"
-        android:layout_height="@dimen/x65"
+        android:layout_width="@dimen/x55"
+        android:layout_height="@dimen/x55"
         android:layout_gravity="center_vertical"
         android:src="@mipmap/zhouxingchi" />
 
@@ -21,9 +21,16 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="@dimen/x10"
         android:layout_gravity="center_vertical"
+        android:maxWidth="@dimen/x380"
         android:ellipsize="end"
         android:lines="1"
         android:textColor="@color/white"
         android:textSize="14sp" />
+
+    <ImageView
+        android:layout_width="@dimen/x26"
+        android:layout_height="@dimen/x26"
+        android:layout_gravity="center_vertical"
+        android:src="@mipmap/arrow_white_right"/>
 
 </LinearLayout>

@@ -16,10 +16,13 @@ import com.google.gson.reflect.TypeToken;
 import com.xelement.moment.R;
 import com.xelement.moment.base.Constants;
 import com.xelement.moment.entity.AdmireEntity;
+import com.xelement.moment.event.FollowNewEvent;
 import com.xelement.moment.ui.activity.AdmireDetailActivity;
 import com.xelement.moment.util.GsonUtil;
 import com.xelement.moment.util.PreferenceHelper;
 import com.xelement.moment.util.ToastUtil;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -131,5 +134,6 @@ public class DiscoveryFollowView extends FrameLayout {
             ToastUtil.show(mContext, "已加入跟单");
         }
         PreferenceHelper.putString(Constants.FOLLOW_DATA, GsonUtil.array2Json(entities));
+        EventBus.getDefault().post(new FollowNewEvent());
     }
 }

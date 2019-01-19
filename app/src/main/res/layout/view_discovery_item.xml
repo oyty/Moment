@@ -7,9 +7,11 @@
 
     <ImageView
         android:id="@+id/mProductImg"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/x340"
+        android:layout_width="@dimen/x360"
+        android:layout_height="@dimen/x360"
         android:src="@mipmap/cart"
+        android:layout_gravity="center_horizontal"
+        android:scaleType="centerCrop"
         android:padding="@dimen/x20" />
 
     <TextView
@@ -22,7 +24,7 @@
         android:ellipsize="end"
         android:paddingLeft="@dimen/x20"
         android:paddingRight="@dimen/x20"
-        android:layout_marginTop="@dimen/x20"
+        android:layout_marginTop="@dimen/x10"
         android:text="风急天高猿啸哀，渚清沙白鸟飞回"/>
 
     <RelativeLayout

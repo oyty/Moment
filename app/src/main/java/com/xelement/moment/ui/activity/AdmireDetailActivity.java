@@ -18,6 +18,7 @@ import com.xelement.moment.base.Constants;
 import com.xelement.moment.entity.AdmireEntity;
 import com.xelement.moment.entity.AdmireItemEntity;
 import com.xelement.moment.entity.ProductEntity;
+import com.xelement.moment.event.FollowNewEvent;
 import com.xelement.moment.ui.adapter.AdmireDetailAdapter;
 import com.xelement.moment.util.CommonUtil;
 import com.xelement.moment.util.DataUtil;
@@ -25,6 +26,8 @@ import com.xelement.moment.util.GsonUtil;
 import com.xelement.moment.util.PreferenceHelper;
 import com.xelement.moment.util.ToastUtil;
 import com.xelement.moment.widget.custom.CircleImageView;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -140,6 +143,7 @@ public class AdmireDetailActivity extends BaseActivity {
             ToastUtil.show(mContext, "已加入跟单");
         }
         PreferenceHelper.putString(Constants.FOLLOW_DATA, GsonUtil.array2Json(entities));
+        EventBus.getDefault().post(new FollowNewEvent());
     }
 
     @OnClick(R.id.mBackAction)

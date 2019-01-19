@@ -54,7 +54,7 @@ public class DiscoveryHotFragment extends BaseFragment {
     @BindView(R.id.mFollowRecyclerView)
     RecyclerView mFollowRecyclerView;
     @BindView(R.id.mBadgeThisView)
-    BadgeView mBadgeView;
+    BadgeView mBadgeThisView;
     @BindView(R.id.mFloatingView)
     FloatingNotificationView mFloatingView;
 
@@ -93,8 +93,8 @@ public class DiscoveryHotFragment extends BaseFragment {
         helper.attachToRecyclerView(mFollowRecyclerView);
         mFollowRecyclerView.addItemDecoration(new SpacesItemDecoration((int) UIUtil.getDimen(R.dimen.x10)));
 
-        mBadgeView.setBadgeBackgroundColor(UIUtil.getColor(R.color.flash_red));
-        mBadgeView.setTextColor(UIUtil.getColor(R.color.white));
+        mBadgeThisView.setBadgeBackgroundColor(UIUtil.getColor(R.color.flash_red));
+        mBadgeThisView.setTextColor(UIUtil.getColor(R.color.white));
     }
 
     @Override
@@ -144,18 +144,11 @@ public class DiscoveryHotFragment extends BaseFragment {
         if(!TextUtils.isEmpty(cache)) {
             List<OrderEntity> entities = GsonUtil.json2Array(cache, new TypeToken<List<OrderEntity>>() {
             });
-            List<OrderEntity> orderEntities = new ArrayList<>();
-            for (OrderEntity entity : entities) {
-                if (entity.status == 1) {
-                    orderEntities.add(entity);
-                }
-            }
-            if(orderEntities.isEmpty()) {
-                mBadgeView.setText(View.GONE);
-                mBadgeView.setText(orderEntities.size());
+            if(entities.isEmpty()) {
+                mBadgeThisView.setVisibility(View.GONE);
             } else {
-                mBadgeView.setText(View.VISIBLE);
-                mBadgeView.setText(orderEntities.size());
+                mBadgeThisView.setVisibility(View.VISIBLE);
+                mBadgeThisView.setText(String.valueOf(entities.size()));
             }
 
         }

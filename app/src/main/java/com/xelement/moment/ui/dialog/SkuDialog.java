@@ -104,7 +104,7 @@ public class SkuDialog {
         choosedTag = 0;
         mTagLabel1.setText(tags.get(0));
         mTagLabel2.setText(tags.get(1));
-        choosedDay = entity.days_tag.get(entity.days_tag.size() - 1).day;
+        choosedDay = entity.days_tag.get(1).day;
         updateTag();
 
         mTagLabel1.setOnClickListener(new View.OnClickListener() {

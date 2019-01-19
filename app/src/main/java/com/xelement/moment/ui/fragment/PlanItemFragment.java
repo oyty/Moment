@@ -69,17 +69,11 @@ public class PlanItemFragment extends BaseFragment {
             if(!TextUtils.isEmpty(cache)) {
                 List<OrderEntity> entities = GsonUtil.json2Array(cache, new TypeToken<List<OrderEntity>>() {
                 });
-                List<OrderEntity> orderEntities = new ArrayList<>();
-                for(OrderEntity entity : entities) {
-                    if(entity.status == 1) {
-                        orderEntities.add(entity);
-                    }
-                }
                 mDesLeftLabel.setText("您共有");
-                mNumLabel.setText(orderEntities.size() + "");
+                mNumLabel.setText(entities.size() + "");
                 mDesRightLabel.setText("件商品等待签收");
 
-                adapter.setNewData(orderEntities);
+                adapter.setNewData(entities);
             } else {
                 adapter.setNewData(new ArrayList<OrderEntity>());
             }

@@ -17,13 +17,19 @@ import com.xelement.moment.entity.DaysEntity;
 import com.xelement.moment.entity.ProductEntity;
 import com.xelement.moment.event.DismissSkuEvent;
 import com.xelement.moment.event.GotoHomeEvent;
+import com.xelement.moment.ui.adapter.CouponPicDetailAdapter;
+import com.xelement.moment.ui.adapter.PicAdapter;
 import com.xelement.moment.ui.adapter.StoreAdapter;
 import com.xelement.moment.ui.dialog.PayDialog;
 import com.xelement.moment.ui.dialog.SkuDialog;
+import com.xelement.moment.ui.fragment.DiscoveryFragment;
 import com.xelement.moment.util.CommonUtil;
 import com.xelement.moment.util.DataUtil;
 import com.xelement.moment.util.UIUtil;
 import com.xelement.moment.widget.custom.SpacesItemDecoration;
+import com.xelement.moment.widget.custom.page.Page;
+import com.xelement.moment.widget.custom.page.PageBehavior;
+import com.xelement.moment.widget.custom.page.PageContainer;
 import com.youth.banner.Banner;
 import com.youth.banner.BannerConfig;
 
@@ -40,8 +46,6 @@ import butterknife.OnClick;
  */
 public class MomentDetailActivity extends BaseActivity implements DialogInterface.OnDismissListener, PayDialog.OnPayActionListener {
 
-    @BindView(R.id.mPlanBarView)
-    View mPlanBarView;
     @BindView(R.id.mRecyclerView)
     RecyclerView mRecyclerView;
     @BindView(R.id.mBannerView)
@@ -68,6 +72,15 @@ public class MomentDetailActivity extends BaseActivity implements DialogInterfac
     TextView mDirectBuyLabel;
     @BindView(R.id.mDepositBuyLabel)
     TextView mDepositBuyLabel;
+    @BindView(R.id.mPicRecyclerView)
+    RecyclerView mPicRecyclerView;
+    @BindView(R.id.mPageContainer)
+    PageContainer mPageContainer;
+    @BindView(R.id.mDetailPage)
+    Page mDetailPage;
+    @BindView(R.id.mBackToTopAction)
+    View mBackToTopAction;
+
 
     private StoreAdapter adapter;
     private PayDialog payDialog;
@@ -79,6 +92,8 @@ public class MomentDetailActivity extends BaseActivity implements DialogInterfac
     private String choosedTag;
     private String deposit;
 
+    private CouponPicDetailAdapter picAdapter;
+
     @Override
     public int initViewID() {
         return R.layout.activity_moment_detail;
@@ -86,8 +101,6 @@ public class MomentDetailActivity extends BaseActivity implements DialogInterfac
 
     @Override
     public void initView() {
-        CommonUtil.updateStatusBarHeight(mContext, mPlanBarView);
-
 
         LinearLayoutManager manager = new LinearLayoutManager(mContext, LinearLayoutManager.HORIZONTAL, false);
         manager.setSmoothScrollbarEnabled(true);
@@ -100,6 +113,30 @@ public class MomentDetailActivity extends BaseActivity implements DialogInterfac
         LinearSnapHelper hotHelper = new LinearSnapHelper();
         hotHelper.attachToRecyclerView(mRecyclerView);
         mRecyclerView.addItemDecoration(new SpacesItemDecoration((int) UIUtil.getDimen(R.dimen.x10)));
+
+
+        picAdapter = new CouponPicDetailAdapter(R.layout.detail_adapter_detail, new ArrayList<Integer>());
+        mPicRecyclerView.setLayoutManager(new LinearLayoutManager(mContext));
+        mPicRecyclerView.setAdapter(picAdapter);
+    }
+
+    @Override
+    protected void initViewListener() {
+        mPageContainer.setOnPageChanged(new PageBehavior.OnPageChanged() {
+            @Override
+            public void toTop() {
+                mBackToTopAction.setVisibility(View.GONE);
+//                flagType.setPullToShow(true);
+//                adapter.notifyItemChanged(3);
+            }
+
+            @Override
+            public void toBottom() {
+                mBackToTopAction.setVisibility(View.VISIBLE);
+//                flagType.setPullToShow(false);
+//                adapter.notifyItemChanged(3);
+            }
+        });
     }
 
     @Override
@@ -110,6 +147,8 @@ public class MomentDetailActivity extends BaseActivity implements DialogInterfac
         updateView();
 
         adapter.setNewData(isFresher ? DataUtil.getFresherData() : DataUtil.getHotData());
+
+        picAdapter.setNewData(entity.detail_images);
     }
 
     private void updateView() {
@@ -125,10 +164,10 @@ public class MomentDetailActivity extends BaseActivity implements DialogInterfac
         CommonUtil.updateStroke(mMallPriceLabel);
         mTitleLabel.setText(entity.title);
 
-        days = String.valueOf(entity.days_tag.get(entity.days_tag.size() - 1).day);
+        days = String.valueOf(entity.days_tag.get(1).day);
         count = "1";
         choosedTag = entity.getTags().get(0);
-        if(isFresher) {
+        if (isFresher) {
             deposit = "0.50";
         } else {
             deposit = entity.days_tag.get(entity.days_tag.size() - 1).deposit;
@@ -143,14 +182,14 @@ public class MomentDetailActivity extends BaseActivity implements DialogInterfac
     private void updateSku() {
         mPriceLabel.setText(CommonUtil.getPrice("", CommonUtil.getMoneyLabel(String.valueOf(getPrice()))));
 
-        mSkuLabel.setText(choosedTag + "，" + count +"件");
+        mSkuLabel.setText(choosedTag + "，" + count + "件");
         mReceiveLabel.setText(days + "天收货");
         mMomentPriceLabel.setText("时光为您减免¥" + CommonUtil.getMoneyLabel(String.valueOf(getBenifit() * Integer.parseInt(count))));
 
         mDirectBuyLabel.setText(CommonUtil.getPrice("", CommonUtil.getMoneyLabel(String.valueOf(Float.parseFloat(entity.currentPrice) * Integer.parseInt(count)))));
         mDepositBuyLabel.setText(CommonUtil.getPrice("", CommonUtil.getMoneyLabel(String.valueOf(Float.parseFloat(deposit) * Integer.parseInt(count)))));
 
-        if(isFresher) {
+        if (isFresher) {
             mNicePriceLabel.setText(CommonUtil.getPrice("", CommonUtil.getMoneyLabel(String.valueOf(Float.parseFloat(entity.price) - Float.parseFloat(entity.currentPrice)))));
         } else {
             mNicePriceLabel.setText(CommonUtil.getPrice("", CommonUtil.getMoneyLabel(String.valueOf(getBenifit() * Integer.parseInt(count)))));
@@ -158,11 +197,11 @@ public class MomentDetailActivity extends BaseActivity implements DialogInterfac
     }
 
     public float getBenifit() {
-        if(isFresher) {
+        if (isFresher) {
             return Float.parseFloat(entity.price) - 1.0f;
         }
-        for(DaysEntity daysEntity : entity.days_tag) {
-            if(daysEntity.day == Integer.parseInt(days)) {
+        for (DaysEntity daysEntity : entity.days_tag) {
+            if (daysEntity.day == Integer.parseInt(days)) {
                 return daysEntity.benifit;
             }
         }
@@ -170,11 +209,11 @@ public class MomentDetailActivity extends BaseActivity implements DialogInterfac
     }
 
     public float getPrice() {
-        if(isFresher) {
+        if (isFresher) {
             return 1.0f;
         }
-        for(DaysEntity daysEntity : entity.days_tag) {
-            if(daysEntity.day == Integer.parseInt(days)) {
+        for (DaysEntity daysEntity : entity.days_tag) {
+            if (daysEntity.day == Integer.parseInt(days)) {
                 return daysEntity.current_price;
             }
         }
@@ -217,7 +256,7 @@ public class MomentDetailActivity extends BaseActivity implements DialogInterfac
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void dismissEvent(DismissSkuEvent event) {
-        if(skuDialog.isShowing()) {
+        if (skuDialog.isShowing()) {
             skuDialog.dismiss();
         }
     }
@@ -228,11 +267,6 @@ public class MomentDetailActivity extends BaseActivity implements DialogInterfac
         days = skuDialog.getDays();
         deposit = skuDialog.getDeposit();
         updateSku();
-    }
-
-    @OnClick(R.id.mLeftAction)
-    public void finishAction() {
-        finish();
     }
 
     @OnClick(R.id.mDownPayAction)
@@ -247,7 +281,6 @@ public class MomentDetailActivity extends BaseActivity implements DialogInterfac
 
     @Subscribe(threadMode = ThreadMode.MAIN)
     public void gotoHomeEvent(GotoHomeEvent event) {
-        mContext.startActivity(new Intent(mContext, MainActivity.class));
         finish();
     }
 
@@ -260,6 +293,17 @@ public class MomentDetailActivity extends BaseActivity implements DialogInterfac
         if (!payDialog.isShowing()) {
             payDialog.show();
         }
+    }
+
+    @OnClick(R.id.mBackToTopAction)
+    public void backToTopAction() {
+//        mRecyclerView.smoothScrollToPosition(0);
+        mPageContainer.backToTop();
+    }
+
+    @OnClick(R.id.mBackAction)
+    public void backAction() {
+        finish();
     }
 
     @Override
@@ -285,5 +329,10 @@ public class MomentDetailActivity extends BaseActivity implements DialogInterfac
     @Override
     public boolean registerEventBus() {
         return true;
+    }
+
+    @OnClick(R.id.mRuleAction)
+    public void ruleAction() {
+        mContext.startActivity(new Intent(mContext, RuleActivity.class));
     }
 }

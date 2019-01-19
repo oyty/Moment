@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.xelement.moment.R;
 import com.xelement.moment.base.BaseActivity;
+import com.xelement.moment.base.Constants;
 import com.xelement.moment.util.CommonUtil;
 import com.xelement.moment.util.ToastUtil;
 
@@ -58,50 +59,64 @@ public class SearchActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
                 mSearchValue.setText(mTagLabel1.getText());
+                toSearchList(mTagLabel1.getText().toString());
             }
         });
         mTagLabel2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mSearchValue.setText(mTagLabel2.getText());
+                toSearchList(mTagLabel2.getText().toString());
             }
         });
         mTagLabel3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mSearchValue.setText(mTagLabel3.getText());
+                toSearchList(mTagLabel3.getText().toString());
             }
         });
         mTagLabel4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mSearchValue.setText(mTagLabel4.getText());
+                toSearchList(mTagLabel4.getText().toString());
             }
         });
         mTagLabel5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mSearchValue.setText(mTagLabel5.getText());
+                toSearchList(mTagLabel5.getText().toString());
             }
         });
         mTagLabel6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mSearchValue.setText(mTagLabel6.getText());
+                toSearchList(mTagLabel6.getText().toString());
             }
         });
         mTagLabel7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mSearchValue.setText(mTagLabel7.getText());
+                toSearchList(mTagLabel7.getText().toString());
             }
         });
         mTagLabel8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mSearchValue.setText(mTagLabel8.getText());
+                toSearchList(mTagLabel8.getText().toString());
             }
         });
+    }
+
+    private void toSearchList(String data) {
+        Intent intent = new Intent(mContext, SearchResultActivity.class);
+        intent.putExtra(Constants.SEARCH_DATA, data);
+        mContext.startActivity(intent);
     }
 
     @Override
